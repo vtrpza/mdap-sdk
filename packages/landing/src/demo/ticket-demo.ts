@@ -75,7 +75,7 @@ export function createTicketDemo(container: HTMLElement): void {
   const selectorLabel = el('div', 'font-mono text-xs uppercase tracking-widest text-steel-500 mb-2', 'Select Input');
 
   const ticketButtons = el('div', 'flex flex-wrap gap-2');
-  SAMPLE_TICKETS.forEach((ticket, idx) => {
+  SAMPLE_TICKETS.forEach((_ticket, idx) => {
     const btn = el('button', `ticket-btn px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-300 ${idx === 0 ? 'border-amber-glow/50 bg-amber-glow/10 text-amber-glow' : 'border-steel-700 text-steel-400 hover:border-amber-glow/30 hover:text-steel-200'}`);
     btn.textContent = `#${idx + 1}`;
     btn.dataset.index = String(idx);
@@ -473,7 +473,6 @@ export function createTicketDemo(container: HTMLElement): void {
     });
 
     const isCorrect = result.winner === state.currentTicket.correctCategory;
-    const colors = CATEGORY_COLORS[result.winner];
 
     // Show result
     const resultEl = document.getElementById('demo-mdap-result');
