@@ -15,7 +15,7 @@
     "dev": "pnpm -r --parallel dev",
     "test": "pnpm -r test",
     "lint": "eslint packages/*/src --ext .ts",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "pnpm --filter @mdap/core build && pnpm -r typecheck",
     "clean": "pnpm -r clean",
     "changeset": "changeset",
     "version": "changeset version",
