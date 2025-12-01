@@ -370,6 +370,81 @@ mdap help
 mdap --version
 ```
 
+## Semantic Deduplication
+
+Group semantically equivalent responses for better voting accuracy:
+
+```typescript
+import { reliable, withSemanticDedup, SemanticPatterns } from '@mdap/core';
+
+// JSON-aware comparison (ignores key order, whitespace)
+const extractJson = reliable(
+  withSemanticDedup({
+    vote: { k: 3 }
+  }, SemanticPatterns.json())
+)(jsonExtractor);
+
+// Fuzzy text matching (allows minor differences)
+const summarize = reliable(
+  withSemanticDedup({
+    vote: { k: 3 }
+  }, SemanticPatterns.fuzzy(0.85))
+)(textSummarizer);
+
+// Custom semantic similarity
+import { createSemanticSerializer } from '@mdap/core';
+
+const customSerialize = createSemanticSerializer({
+  threshold: 0.9,
+  ignoreCase: true,
+  normalize: (s) => s.replace(/\s+/g, ' ').trim()
+});
+
+const extract = reliable({
+  vote: { k: 3 },
+  serialize: customSerialize
+})(myLLMCall);
+```
+
+### Available Patterns
+
+- `SemanticPatterns.json()` - JSON-aware (ignores key order)
+- `SemanticPatterns.caseInsensitive()` - Case and whitespace insensitive
+- `SemanticPatterns.fuzzy(threshold)` - Fuzzy matching with threshold
+- `SemanticPatterns.natural(threshold)` - For natural language responses
+- `SemanticPatterns.exact()` - Exact matching (default behavior)
+
+## Dashboard
+
+Monitor your MDAP workflows in real-time:
+
+```bash
+# Start the dashboard
+npx @mdap/dashboard
+
+# With custom port
+npx @mdap/dashboard --port 8080
+
+# Programmatic usage
+import { startDashboard, getTracker } from '@mdap/dashboard';
+
+const server = await startDashboard({ port: 3000 });
+const tracker = server.getTracker();
+
+// Track workflows
+const wf = tracker.startWorkflow('my-workflow');
+const step = tracker.startStep(wf.id, 'extract');
+// ... run operations
+tracker.completeStep(wf.id, step.id, voteResult);
+tracker.completeWorkflow(wf.id);
+```
+
+The dashboard provides:
+- Real-time workflow monitoring via SSE
+- Statistics: total workflows, success rate, avg confidence
+- Step-by-step execution details
+- Sample and vote distribution visibility
+
 ## How It Works
 
 ### The Math (Simplified)
@@ -458,11 +533,12 @@ console.log(result.mdap.confidence); // 0.0-1.0
 
 | Package | Description |
 |---------|-------------|
-| `@mdap/core` | Core voting, red flags, cost estimation, workflow orchestration |
+| `@mdap/core` | Core voting, red flags, cost estimation, workflow orchestration, semantic deduplication |
 | `@mdap/adapters` | OpenAI, Anthropic adapters |
 | `@mdap/cli` | Command-line tools for cost estimation and validation |
 | `@mdap/mcp` | MCP server for Claude Code/Cursor/VS Code |
 | `@mdap/claude-agent` | Claude Agent SDK integration |
+| `@mdap/dashboard` | Web UI for real-time workflow monitoring |
 
 ## Roadmap
 
@@ -476,10 +552,10 @@ console.log(result.mdap.confidence); // 0.0-1.0
 - [x] Claude Agent SDK integration
 - [x] Workflow orchestration
 - [x] CLI tool
-- [x] Unit tests (76 tests)
+- [x] Unit tests (113 tests)
 - [x] GitHub Actions CI/CD
-- [ ] Dashboard
-- [ ] Semantic deduplication
+- [x] Dashboard
+- [x] Semantic deduplication
 
 ## Contributing
 

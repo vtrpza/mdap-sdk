@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDAP Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border: #334155;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      background: var(--primary);
+      font-weight: 500;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .stat-value.success { color: var(--success); }
+    .stat-value.warning { color: var(--warning); }
+    .stat-value.danger { color: var(--danger); }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .workflow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .workflow-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+
+    .workflow-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .workflow-header:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .workflow-name {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .workflow-meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .status-dot.running { background: var(--warning); animation: pulse 2s infinite; }
+    .status-dot.completed { background: var(--success); }
+    .status-dot.failed { background: var(--danger); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .workflow-details {
+      display: none;
+      padding: 1rem 1.25rem;
+    }
+
+    .workflow-card.expanded .workflow-details {
+      display: block;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+      background: var(--bg);
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-status {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: white;
+    }
+
+    .step-status.completed { background: var(--success); }
+    .step-status.running { background: var(--warning); }
+    .step-status.failed { background: var(--danger); }
+    .step-status.pending { background: var(--border); }
+
+    .step-info { flex: 1; }
+    .step-name { font-weight: 500; }
+    .step-meta { font-size: 0.75rem; color: var(--text-muted); }
+
+    .confidence { font-weight: 500; }
+    .confidence.high { color: var(--success); }
+    .confidence.medium { color: var(--warning); }
+    .confidence.low { color: var(--danger); }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>MDAP Dashboard <span class="badge">v0.1.0</span></h1>
+      <div class="live-indicator">
+        <div class="live-dot"></div>
+        <span>Live</span>
+      </div>
+    </header>
+
+    <div class="stats-grid" id="stats">
+      <div class="stat-card">
+        <div class="stat-label">Total Workflows</div>
+        <div class="stat-value" id="stat-total">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Completed</div>
+        <div class="stat-value success" id="stat-completed">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Failed</div>
+        <div class="stat-value danger" id="stat-failed">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Running</div>
+        <div class="stat-value warning" id="stat-running">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Confidence</div>
+        <div class="stat-value" id="stat-confidence">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Samples</div>
+        <div class="stat-value" id="stat-samples">-</div>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">Recent Workflows</h2>
+      <div class="workflow-list" id="workflows">
+        <div class="empty-state">
+          <p>No workflows yet</p>
+          <p>Workflows will appear here when you run MDAP operations</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="https://github.com/anthropics/mdap-sdk" target="_blank">MDAP SDK</a>
+      - Based on "Solving a Million-Step LLM Task with Zero Errors"
+    </footer>
+  </div>
+
+  <script>
+    // State
+    let workflows = [];
+
+    // DOM elements
+    const statsElements = {
+      total: document.getElementById('stat-total'),
+      completed: document.getElementById('stat-completed'),
+      failed: document.getElementById('stat-failed'),
+      running: document.getElementById('stat-running'),
+      confidence: document.getElementById('stat-confidence'),
+      samples: document.getElementById('stat-samples')
+    };
+    const workflowsContainer = document.getElementById('workflows');
+
+    // Update stats display using textContent (safe)
+    function updateStats(stats) {
+      statsElements.total.textContent = stats.totalWorkflows;
+      statsElements.completed.textContent = stats.completedWorkflows;
+      statsElements.failed.textContent = stats.failedWorkflows;
+      statsElements.running.textContent = stats.runningWorkflows;
+      statsElements.confidence.textContent = (stats.avgConfidence * 100).toFixed(1) + '%';
+      statsElements.samples.textContent = stats.totalSamples.toLocaleString();
+    }
+
+    // Format duration
+    function formatDuration(ms) {
+      if (ms < 1000) return ms + 'ms';
+      if (ms < 60000) return (ms / 1000).toFixed(1) + 's';
+      return (ms / 60000).toFixed(1) + 'm';
+    }
+
+    // Create element safely
+    function createElement(tag, className, text) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      if (text) el.textContent = text;
+      return el;
+    }
+
+    // Get confidence class
+    function getConfidenceClass(confidence) {
+      if (confidence >= 0.9) return 'high';
+      if (confidence >= 0.7) return 'medium';
+      return 'low';
+    }
+
+    // Create step element safely using DOM methods
+    function createStepElement(step) {
+      const stepEl = createElement('div', 'step');
+
+      const statusEl = createElement('div', 'step-status ' + step.status);
+      if (step.status === 'completed') statusEl.textContent = '\u2713';
+      else if (step.status === 'failed') statusEl.textContent = '\u2717';
+      stepEl.appendChild(statusEl);
+
+      const infoEl = createElement('div', 'step-info');
+      infoEl.appendChild(createElement('div', 'step-name', step.name));
+      const metaText = step.samples.length + ' samples' + (step.timeMs ? ' - ' + formatDuration(step.timeMs) : '');
+      infoEl.appendChild(createElement('div', 'step-meta', metaText));
+      stepEl.appendChild(infoEl);
+
+      if (step.result) {
+        const confidence = step.result.confidence;
+        const confEl = createElement('div', 'confidence ' + getConfidenceClass(confidence));
+        confEl.textContent = (confidence * 100).toFixed(0) + '%';
+        stepEl.appendChild(confEl);
+      }
+
+      return stepEl;
+    }
+
+    // Create workflow card safely using DOM methods
+    function createWorkflowCard(workflow) {
+      const card = createElement('div', 'workflow-card');
+      card.dataset.id = workflow.id;
+
+      const header = createElement('div', 'workflow-header');
+      header.onclick = () => card.classList.toggle('expanded');
+
+      const nameDiv = createElement('div', 'workflow-name');
+      const dot = createElement('div', 'status-dot ' + workflow.status);
+      nameDiv.appendChild(dot);
+      nameDiv.appendChild(document.createTextNode(workflow.name));
+      header.appendChild(nameDiv);
+
+      const duration = workflow.completedAt
+        ? formatDuration(new Date(workflow.completedAt) - new Date(workflow.startedAt))
+        : 'running...';
+      const metaText = workflow.steps.length + ' steps - ' + workflow.totalSamples + ' samples - ' + duration;
+      header.appendChild(createElement('div', 'workflow-meta', metaText));
+
+      card.appendChild(header);
+
+      const details = createElement('div', 'workflow-details');
+      if (workflow.steps.length === 0) {
+        details.appendChild(createElement('div', 'empty-state', 'No steps yet'));
+      } else {
+        workflow.steps.forEach(step => {
+          details.appendChild(createStepElement(step));
+        });
+      }
+      card.appendChild(details);
+
+      return card;
+    }
+
+    // Render all workflows using safe DOM methods
+    function renderWorkflows() {
+      workflowsContainer.replaceChildren();
+
+      if (workflows.length === 0) {
+        const empty = createElement('div', 'empty-state');
+        empty.appendChild(createElement('p', null, 'No workflows yet'));
+        empty.appendChild(createElement('p', null, 'Workflows will appear here when you run MDAP operations'));
+        workflowsContainer.appendChild(empty);
+        return;
+      }
+
+      workflows.forEach(workflow => {
+        workflowsContainer.appendChild(createWorkflowCard(workflow));
+      });
+    }
+
+    // Handle SSE events
+    function handleEvent(event) {
+      switch (event.type) {
+        case 'stats:update':
+          updateStats(event.stats);
+          break;
+        case 'workflow:start':
+          workflows.unshift(event.workflow);
+          renderWorkflows();
+          break;
+        case 'workflow:complete':
+        case 'workflow:fail':
+          const idx = workflows.findIndex(w => w.id === event.workflow.id);
+          if (idx !== -1) {
+            workflows[idx] = event.workflow;
+            renderWorkflows();
+          }
+          break;
+        case 'step:start':
+        case 'step:complete':
+          const wf = workflows.find(w => w.id === event.workflowId);
+          if (wf) {
+            const stepIdx = wf.steps.findIndex(s => s.id === event.step.id);
+            if (stepIdx !== -1) wf.steps[stepIdx] = event.step;
+            else wf.steps.push(event.step);
+            renderWorkflows();
+          }
+          break;
+      }
+    }
+
+    // Connect to SSE
+    function connect() {
+      const eventSource = new EventSource('/events');
+      eventSource.onmessage = (e) => {
+        try {
+          handleEvent(JSON.parse(e.data));
+        } catch (err) {
+          console.error('Failed to parse event:', err);
+        }
+      };
+      eventSource.onerror = () => {
+        eventSource.close();
+        setTimeout(connect, 1000);
+      };
+    }
+
+    // Initial data fetch
+    async function init() {
+      try {
+        const [statsRes, workflowsRes] = await Promise.all([
+          fetch('/api/stats'),
+          fetch('/api/workflows')
+        ]);
+        updateStats(await statsRes.json());
+        workflows = await workflowsRes.json();
+        renderWorkflows();
+      } catch (err) {
+        console.error('Failed to fetch initial data:', err);
+      }
+      connect();
+    }
+
+    init();
+  </script>
+</body>
+</html>
