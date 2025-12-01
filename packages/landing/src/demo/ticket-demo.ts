@@ -446,7 +446,6 @@ export function createTicketDemo(container: HTMLElement): void {
 
   async function runMdapVoting(): Promise<{ winner: TicketCategory; confidence: number }> {
     const votes: Map<TicketCategory, number> = new Map();
-    let sampleIndex = 0;
 
     const result = await mockMDAPVoting(state.currentTicket, state.k, (index, response) => {
       // Update vote slot
@@ -468,8 +467,6 @@ export function createTicketDemo(container: HTMLElement): void {
       // Update vote counts
       votes.set(response.category, (votes.get(response.category) || 0) + 1);
       updateTally(votes);
-
-      sampleIndex++;
     });
 
     const isCorrect = result.winner === state.currentTicket.correctCategory;
