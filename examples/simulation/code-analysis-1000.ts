@@ -126,12 +126,13 @@ function createLLM(config: Config) {
     return {
       chat: async (prompt: string) => {
         await new Promise(r => setTimeout(r, 10)); // Simulate latency
-        if (prompt.includes('identify')) {
-          return JSON.stringify({ issues: ['potential null reference', 'missing error handling'] });
-        } else if (prompt.includes('classify')) {
-          return JSON.stringify({ severity: 'medium', confidence: 0.85 });
+        if (prompt.includes('Classify issues')) {
+          const categories = ['NULL_SAFETY', 'ERROR_HANDLING', 'TYPE_SAFETY', 'SECURITY', 'PERFORMANCE', 'NONE'];
+          return JSON.stringify({ categories: [categories[Math.floor(Math.random() * 3)]] });
+        } else if (prompt.includes('severity')) {
+          return JSON.stringify({ severity: 'medium' });
         } else {
-          return 'Add null check before accessing property';
+          return 'Add null check';
         }
       }
     };
@@ -147,8 +148,8 @@ function createLLM(config: Config) {
   return createOpenAI({
     apiKey,
     model: config.model,
-    temperature: 0.3, // Some variation for voting to work
-    maxTokens: 256,
+    temperature: 0.1, // Low temperature for consistent output
+    maxTokens: 150,   // Shorter responses = more consistent
   });
 }
 
@@ -157,45 +158,70 @@ function createLLM(config: Config) {
 // ============================================================================
 
 function createAnalysisPipeline(llm: ReturnType<typeof createLLM>, k: number) {
-  const redFlags = [
-    RedFlag.tooLong(400),
+  // JSON validation helper
+  const isValidJson = (str: string): boolean => {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const baseRedFlags = [
+    RedFlag.tooLong(200),
     RedFlag.emptyResponse(),
-    RedFlag.containsPhrase(['I cannot', 'I am unable', 'I do not have']),
+    RedFlag.containsPhrase(['I cannot', 'I am unable', 'I do not have', 'sorry']),
   ];
 
-  // Step 1: Identify Issues
+  const jsonRedFlags = [
+    ...baseRedFlags,
+    RedFlag.custom<string>('invalidJson', (r) => !isValidJson(r)),
+  ];
+
+  // Step 1: Classify Issues (constrained categories for better convergence)
   const identifyIssues = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false },
-    redFlags,
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
+    redFlags: jsonRedFlags,
   })(async (code: string) => {
     return await llm.chat(
-      `Analyze this TypeScript code and identify potential issues (bugs, code smells, security issues). Respond with a JSON object: {"issues": ["issue1", "issue2"]}. Be concise.\n\nCode:\n${code}`,
-      { system: 'You are a code reviewer. Respond only with valid JSON.' }
+      `Classify issues in this TypeScript code.
+Pick categories from: NULL_SAFETY, ERROR_HANDLING, TYPE_SAFETY, SECURITY, PERFORMANCE, NONE
+Respond ONLY with JSON: {"categories":["CATEGORY"]}
+
+Code:
+${code}`,
+      { system: 'Respond with exactly one JSON object. No explanation.' }
     );
   });
 
-  // Step 2: Classify Severity
+  // Step 2: Classify Severity (single word for better convergence)
   const classifySeverity = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false },
-    redFlags,
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
+    redFlags: jsonRedFlags,
   })(async (issuesJson: string) => {
     return await llm.chat(
-      `Given these code issues, classify the overall severity. Respond with JSON: {"severity": "critical|high|medium|low|none", "confidence": 0.0-1.0}\n\nIssues: ${issuesJson}`,
-      { system: 'You are a code reviewer. Respond only with valid JSON.' }
+      `Rate severity of these issues.
+Options: critical, high, medium, low, none
+Respond ONLY with JSON: {"severity":"WORD"}
+
+Issues: ${issuesJson}`,
+      { system: 'Respond with exactly one JSON object. No explanation.' }
     );
   });
 
-  // Step 3: Suggest Fix
+  // Step 3: Suggest Fix (short phrase)
   const suggestFix = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false },
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
     redFlags: [
-      RedFlag.tooLong(200),
+      RedFlag.tooLong(100),
       RedFlag.emptyResponse(),
     ],
   })(async (context: string) => {
     return await llm.chat(
-      `Based on this analysis, provide ONE brief fix suggestion (max 1 sentence):\n${context}`,
-      { system: 'You are a code reviewer. Be extremely concise - one sentence only.' }
+      `One fix in 5 words or less:
+${context}`,
+      { system: 'Reply with only 5 words maximum. No punctuation.' }
     );
   });
 

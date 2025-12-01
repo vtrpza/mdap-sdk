@@ -98,6 +98,91 @@ RedFlag.containsPhrase(['I cannot', 'I\'m not sure'])
 RedFlag.custom('myRule', (response) => response.includes('ERROR'))
 ```
 
+### ⚠️ Designing Prompts for Convergence
+
+**This is critical.** Voting only works when responses can converge to a consistent answer. Poorly designed prompts will cause the system to hit `maxSamples` without convergence, wasting API credits.
+
+#### The Problem
+
+Open-ended prompts produce varied responses that are all "correct" but never match:
+
+```typescript
+// ❌ BAD - Will not converge
+const analyze = reliable({ vote: { k: 3 } })(async (code) => {
+  return await llm(`Identify bugs in this code: ${code}`);
+});
+
+// Response 1: "Missing null check on line 5"
+// Response 2: "Potential null reference error"
+// Response 3: "The variable might be undefined"
+// → All correct, but no consensus = 100 samples, 2% confidence
+```
+
+#### The Solution
+
+Constrain outputs to a fixed set of categories or structured formats:
+
+```typescript
+// ✅ GOOD - Will converge quickly
+const analyze = reliable({ vote: { k: 3 } })(async (code) => {
+  return await llm(`Classify issues in this code.
+Pick from: NULL_SAFETY, ERROR_HANDLING, TYPE_SAFETY, SECURITY, PERFORMANCE, NONE
+Respond ONLY with JSON: {"categories":["CATEGORY"]}
+
+Code: ${code}`);
+});
+
+// Response 1: {"categories":["NULL_SAFETY"]}
+// Response 2: {"categories":["NULL_SAFETY"]}
+// Response 3: {"categories":["NULL_SAFETY"]}
+// → Consensus in 3 samples, 100% confidence
+```
+
+#### Best Practices
+
+| Practice | Why |
+|----------|-----|
+| **Use fixed categories** | Multiple choice converges better than free text |
+| **Request JSON output** | Structured format = consistent format |
+| **Keep responses short** | "Add null check" vs long explanations |
+| **Lower temperature** | 0.1 instead of 0.7 for consistency |
+| **Add JSON validation red flag** | Reject malformed responses early |
+| **Set reasonable maxSamples** | 30 instead of 100 to fail fast |
+
+#### Temperature Settings
+
+```typescript
+// For voting to work, use LOW temperature
+createOpenAI({
+  temperature: 0.1,  // ✅ Consistent outputs
+  // temperature: 0.7  // ❌ Too much variation
+});
+```
+
+#### JSON Validation Red Flag
+
+Always validate JSON when expecting structured output:
+
+```typescript
+const jsonRedFlags = [
+  RedFlag.tooLong(200),
+  RedFlag.emptyResponse(),
+  RedFlag.custom('invalidJson', (r) => {
+    try { JSON.parse(r); return false; }
+    catch { return true; }
+  }),
+];
+```
+
+#### When Voting Won't Help
+
+Voting is **not suitable** for:
+- Creative writing (intentionally varied outputs)
+- Brainstorming (want diverse ideas)
+- Subjective opinions (no "correct" answer)
+
+Use voting for tasks with **deterministic, verifiable answers**.
+
 ### Cost Estimation
 
 Before running expensive workflows, estimate the cost:
