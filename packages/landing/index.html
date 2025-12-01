@@ -22,13 +22,27 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
-    <a href="#demo" class="mobile-menu-link">Demo</a>
-    <a href="#guarantee" class="mobile-menu-link">Guarantee</a>
-    <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
-    <a href="#get-started" class="mobile-menu-link">Open Source</a>
-    <a href="#audit" class="mt-8 btn-primary">
+    <div class="mobile-menu-links">
+      <a href="#demo" class="mobile-menu-link">Demo</a>
+      <a href="#guarantee" class="mobile-menu-link">Guarantee</a>
+      <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
+      <a href="#get-started" class="mobile-menu-link">Open Source</a>
+    </div>
+    <a href="#audit" class="mt-10 btn-primary">
       Free Reliability Audit
     </a>
+  </div>
+
+  <!-- Mobile Sticky CTA Bar -->
+  <div id="mobile-sticky-cta" class="mobile-sticky-cta">
+    <div class="mobile-sticky-cta-inner">
+      <a href="#audit" class="btn-primary">
+        Get Free Audit
+      </a>
+      <a href="#guarantee" class="btn-secondary">
+        Pricing
+      </a>
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -140,7 +154,7 @@
           </div>
         </div>
 
-        <!-- Right: Visual -->
+        <!-- Right: Visual (Desktop) -->
         <div class="relative hidden lg:block">
           <!-- Convergence visualization -->
           <div class="relative w-full aspect-square max-w-lg mx-auto">
@@ -188,6 +202,40 @@
             <pre class="font-mono text-xs text-steel-300 leading-relaxed"><span class="text-amber-glow">const</span> result = <span class="text-amber-glow">await</span> <span class="text-cyan-data">reliable</span>({
   vote: { k: <span class="text-amber-bright">3</span> }
 })(classify)(ticket);</pre>
+          </div>
+        </div>
+
+        <!-- Mobile Hero Visual (visible on mobile, hidden on lg+) -->
+        <div class="mobile-hero-visual lg:hidden mt-8 opacity-0 animate-fade-in delay-400">
+          <div class="relative w-48 h-48 mx-auto">
+            <!-- Simplified mobile rings -->
+            <div class="absolute inset-0 border border-steel-700/40 rounded-full"></div>
+            <div class="absolute inset-6 border border-amber-glow/20 rounded-full"></div>
+            <div class="absolute inset-12 border border-amber-glow/40 rounded-full"></div>
+
+            <!-- Center -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-amber-glow/30 flex items-center justify-center animate-glow-pulse">
+                <div class="w-5 h-5 rounded-full bg-amber-glow shadow-glow-amber"></div>
+              </div>
+            </div>
+
+            <!-- Vote indicators -->
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-signal-success animate-pulse"></div>
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-signal-success animate-pulse" style="animation-delay: 0.2s"></div>
+            <div class="absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-signal-success animate-pulse" style="animation-delay: 0.4s"></div>
+            <div class="absolute right-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-amber-glow animate-pulse" style="animation-delay: 0.6s"></div>
+          </div>
+
+          <!-- Mobile code snippet -->
+          <div class="mt-6 panel p-3 mx-auto max-w-xs">
+            <div class="flex items-center gap-1.5 mb-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-signal-error"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-signal-warning"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-signal-success"></div>
+              <span class="ml-1 font-mono text-2xs text-steel-600">reliable.ts</span>
+            </div>
+            <pre class="font-mono text-2xs text-steel-400 leading-relaxed"><span class="text-amber-glow">await</span> <span class="text-cyan-data">reliable</span>({ k: <span class="text-amber-bright">3</span> })(classify)</pre>
           </div>
         </div>
       </div>
@@ -293,6 +341,7 @@
       </div>
 
       <!-- Pricing cards -->
+      <div class="pricing-scroll-container">
       <div class="grid md:grid-cols-3 gap-8 mb-16">
         <!-- Integration Sprint -->
         <div class="card corner-accents p-8">
@@ -422,6 +471,7 @@
           <a href="#audit" class="btn-secondary w-full text-center">Contact Us</a>
         </div>
       </div>
+      </div><!-- /pricing-scroll-container -->
 
       <!-- Trust builder -->
       <div class="panel p-8 max-w-3xl mx-auto text-center">

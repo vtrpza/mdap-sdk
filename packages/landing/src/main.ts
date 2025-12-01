@@ -10,6 +10,7 @@ import { DEMO_STATS } from './demo/mock-llm';
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initMobileStickyCTA();
   initParticles();
   initOrbitingParticles();
   initScrollAnimations();
@@ -54,6 +55,78 @@ function initMobileMenu(): void {
     if (e.key === 'Escape' && menu.classList.contains('active')) {
       closeMenu();
     }
+  });
+}
+
+/**
+ * Initialize mobile sticky CTA bar that appears after scrolling past hero
+ */
+function initMobileStickyCTA(): void {
+  const stickyCTA = document.getElementById('mobile-sticky-cta');
+  const heroSection = document.querySelector('section.min-h-screen') as HTMLElement | null;
+  const auditSection = document.getElementById('audit');
+
+  if (!stickyCTA || !heroSection) return;
+
+  // Only show on mobile/tablet
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+  let lastScrollY = 0;
+  let ticking = false;
+
+  // Capture elements in closure for TypeScript
+  const cta = stickyCTA;
+  const hero = heroSection;
+
+  function updateStickyCTA(): void {
+    const scrollY = window.scrollY;
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const auditTop = auditSection?.getBoundingClientRect().top ?? Infinity;
+
+    // Show sticky CTA after scrolling past hero, hide when near audit section
+    const shouldShow = heroBottom < 100 && auditTop > window.innerHeight;
+
+    // Hide when scrolling down fast, show when scrolling up or slowly
+    const isScrollingUp = scrollY < lastScrollY;
+    const scrollDelta = Math.abs(scrollY - lastScrollY);
+
+    if (shouldShow && (isScrollingUp || scrollDelta < 50)) {
+      cta.classList.add('visible');
+    } else if (!shouldShow || (scrollDelta > 100 && !isScrollingUp)) {
+      cta.classList.remove('visible');
+    }
+
+    lastScrollY = scrollY;
+    ticking = false;
+  }
+
+  function onScroll(): void {
+    if (!mediaQuery.matches) {
+      cta.classList.remove('visible');
+      return;
+    }
+
+    if (!ticking) {
+      requestAnimationFrame(updateStickyCTA);
+      ticking = true;
+    }
+  }
+
+  // Listen to scroll
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Listen to resize/orientation changes
+  mediaQuery.addEventListener('change', (e) => {
+    if (!e.matches) {
+      cta.classList.remove('visible');
+    }
+  });
+
+  // Hide CTA when clicking on its links (smooth scroll handles the rest)
+  cta.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      cta.classList.remove('visible');
+    });
   });
 }
 
@@ -482,4 +555,10 @@ function initAuditForm(): void {
 }
 
 // Export for potential external use
-export { initParticles, initOrbitingParticles, initScrollAnimations, initAuditForm };
+export {
+  initParticles,
+  initOrbitingParticles,
+  initScrollAnimations,
+  initAuditForm,
+  initMobileStickyCTA,
+};
