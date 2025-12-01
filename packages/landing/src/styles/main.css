@@ -40,12 +40,8 @@
 @layer components {
   /* ===== Navigation ===== */
   .nav-link {
-    @apply relative text-steel-400 font-mono
+    @apply relative text-steel-400 font-mono text-sm uppercase tracking-widest
            transition-all duration-300 hover:text-amber-glow;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
   }
   .nav-link::after {
     content: '';
@@ -58,14 +54,11 @@
 
   /* ===== Buttons ===== */
   .btn-primary {
-    @apply relative px-8 py-4 bg-amber-glow text-void font-mono font-semibold
+    @apply relative px-8 py-4 bg-amber-glow text-void font-mono font-bold text-sm uppercase tracking-wider
            border border-amber-glow rounded-none
            transition-all duration-300
            hover:bg-transparent hover:text-amber-glow hover:shadow-glow-amber
            active:scale-95;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
   }
   .btn-primary::before {
     content: '';
@@ -76,24 +69,17 @@
   }
 
   .btn-secondary {
-    @apply relative px-8 py-4 bg-transparent text-amber-glow font-mono font-semibold
+    @apply relative px-8 py-4 bg-transparent text-amber-glow font-mono font-bold text-sm uppercase tracking-wider
            border border-amber-glow/50 rounded-none
            transition-all duration-300
            hover:border-amber-glow hover:bg-amber-glow/10 hover:shadow-glow-amber-sm;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
   }
 
   .btn-ghost {
-    @apply px-4 py-2 text-steel-400 font-mono
+    @apply px-4 py-2 text-steel-400 font-mono text-xs uppercase tracking-widest
            border border-steel-700 rounded-none
            transition-all duration-300
            hover:text-amber-glow hover:border-amber-glow/50;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
   }
 
   /* ===== Cards & Panels ===== */
@@ -143,20 +129,11 @@
 
   /* ===== Typography ===== */
   .display-text {
-    @apply font-display font-extrabold;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
+    @apply font-display font-extrabold tracking-tight leading-none;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-amber-glow via-amber-bright to-amber-muted
-           bg-clip-text text-transparent;
-    /* Fallback for older browsers */
-    -webkit-background-clip: text;
-  }
-
-  .gradient-text-subtle {
-    @apply bg-gradient-to-r from-steel-100 via-steel-200 to-steel-300
            bg-clip-text text-transparent;
   }
 
@@ -165,99 +142,42 @@
            bg-clip-text text-transparent;
   }
 
-  /* Hero-specific typography */
-  .hero-headline {
-    @apply font-display font-extrabold text-steel-50;
-    font-size: clamp(2rem, 6vw, 4.5rem);
-    letter-spacing: -0.045em;
-    line-height: 1;
-  }
-
-  .hero-accent {
-    @apply font-display font-extrabold;
-    font-size: clamp(2rem, 6vw, 4.5rem);
-    letter-spacing: -0.045em;
-    line-height: 1;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .hero-subtext {
-    @apply text-steel-400 font-body font-light;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    line-height: 1.7;
-    letter-spacing: 0.01em;
-  }
-
-  /* Section typography */
   .section-label {
-    @apply font-mono text-2xs uppercase text-amber-glow/80
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-amber-glow/80
            flex items-center gap-3;
-    letter-spacing: 0.25em;
-    font-weight: 500;
   }
   .section-label::before {
     content: '';
-    @apply w-8 h-px bg-gradient-to-r from-amber-glow/60 to-transparent;
+    @apply w-8 h-px bg-amber-glow/50;
   }
 
   .section-title {
-    @apply font-display font-bold text-steel-50;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    @apply font-display font-bold text-4xl md:text-5xl lg:text-6xl text-steel-50 tracking-tight;
   }
 
   .section-subtitle {
-    @apply text-steel-400 font-body font-light max-w-2xl;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.8;
-    letter-spacing: 0.01em;
+    @apply text-lg md:text-xl text-steel-400 max-w-2xl leading-relaxed;
   }
 
-  /* Prose text */
-  .prose-body {
-    @apply text-steel-300 font-body;
-    font-size: 1rem;
-    line-height: 1.75;
-    letter-spacing: 0.01em;
-  }
-
-  /* Monospace / code text refinements */
-  .mono-refined {
-    @apply font-mono;
-    font-size: 0.875em;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-  }
-
-  /* Numbers and stats */
+  /* Stats number styling */
   .stat-number {
-    @apply font-display font-extrabold tabular-nums;
-    letter-spacing: -0.04em;
-    line-height: 1;
+    @apply font-display font-extrabold tracking-tight;
   }
 
   /* ===== Code Blocks ===== */
   .code-block {
-    @apply relative bg-void-deep border border-steel-800/50 p-6 overflow-x-auto;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.8125rem;
-    line-height: 1.7;
-    letter-spacing: -0.01em;
-    font-feature-settings: 'liga' 1, 'calt' 1;
+    @apply relative bg-void-deep border border-steel-800/50 p-6
+           font-mono text-sm overflow-x-auto;
   }
   .code-block::before {
     content: '';
-    @apply absolute top-0 left-0 w-0.5 h-full bg-amber-glow/50;
+    @apply absolute top-0 left-0 w-1 h-full bg-amber-glow/50;
   }
 
-  .code-block .keyword { @apply text-amber-glow font-medium; }
+  .code-block .keyword { @apply text-amber-glow; }
   .code-block .string { @apply text-signal-success; }
   .code-block .function { @apply text-cyan-data; }
-  .code-block .comment { @apply text-steel-600 italic; }
+  .code-block .comment { @apply text-steel-500 italic; }
   .code-block .number { @apply text-amber-bright; }
 
   /* Terminal styling */
@@ -276,16 +196,11 @@
 
   /* ===== Stats ===== */
   .stat-value {
-    @apply font-display font-extrabold text-5xl md:text-6xl gradient-text tabular-nums;
-    letter-spacing: -0.04em;
-    line-height: 1;
+    @apply font-display font-extrabold text-5xl md:text-6xl gradient-text
+           tabular-nums tracking-tight;
   }
   .stat-label {
-    @apply font-mono text-steel-500 mt-3;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
+    @apply font-mono text-xs uppercase tracking-widest text-steel-400 mt-2;
   }
 
   /* ===== Grid overlay effect ===== */
