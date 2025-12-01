@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mdap-darker text-gray-100 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-mdap-primary hover:bg-mdap-secondary text-white font-semibold rounded-lg
+           transition-all duration-200 transform hover:scale-105 shadow-lg shadow-mdap-primary/25;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-mdap-primary text-mdap-primary
+           hover:bg-mdap-primary hover:text-white font-semibold rounded-lg transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-mdap-dark/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6
+           hover:border-mdap-primary/50 transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-400 text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-mdap-primary via-mdap-secondary to-mdap-accent
+           bg-clip-text text-transparent;
+  }
+
+  .glow {
+    @apply shadow-lg shadow-mdap-primary/20;
+  }
+
+  .glow-success {
+    @apply shadow-lg shadow-mdap-success/30;
+  }
+
+  .glow-error {
+    @apply shadow-lg shadow-mdap-error/30;
+  }
+}
+
+/* Voting animation styles */
+.vote-card {
+  @apply bg-mdap-dark border border-gray-700 rounded-lg p-4 transition-all duration-300;
+}
+
+.vote-card.pending {
+  @apply border-gray-600 opacity-50;
+}
+
+.vote-card.loading {
+  @apply border-mdap-accent animate-pulse;
+}
+
+.vote-card.complete {
+  @apply border-mdap-success opacity-100;
+}
+
+.vote-card.winner {
+  @apply border-mdap-success bg-mdap-success/10 glow-success scale-105;
+}
+
+.vote-card.loser {
+  @apply border-gray-700 opacity-60 scale-95;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  @apply h-2 bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-mdap-primary to-mdap-accent rounded-full transition-all duration-500;
+}
+
+/* Code block styling */
+.code-block {
+  @apply bg-mdap-darker border border-gray-800 rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
+
+.code-block .keyword {
+  @apply text-mdap-secondary;
+}
+
+.code-block .string {
+  @apply text-mdap-success;
+}
+
+.code-block .function {
+  @apply text-mdap-accent;
+}
+
+.code-block .comment {
+  @apply text-gray-500;
+}
+
+/* Ticket styling */
+.ticket {
+  @apply bg-white text-gray-900 rounded-lg shadow-xl p-6 max-w-md;
+}
+
+.ticket-header {
+  @apply flex items-center gap-3 mb-4 pb-4 border-b border-gray-200;
+}
+
+.ticket-badge {
+  @apply px-3 py-1 text-xs font-semibold rounded-full;
+}
+
+.ticket-badge.billing {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.ticket-badge.technical {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.ticket-badge.shipping {
+  @apply bg-orange-100 text-orange-800;
+}
+
+.ticket-badge.account {
+  @apply bg-green-100 text-green-800;
+}
+
+/* Spinner */
+.spinner {
+  @apply w-5 h-5 border-2 border-mdap-accent border-t-transparent rounded-full animate-spin;
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-value {
+  animation: countUp 0.5s ease-out forwards;
+}

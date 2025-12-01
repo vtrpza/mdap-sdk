@@ -21,7 +21,10 @@
     "version": "changeset version",
     "release": "pnpm build && changeset publish",
     "simulate": "npx tsx examples/simulation/code-analysis-1000.ts",
-    "simulate:dry": "npx tsx examples/simulation/code-analysis-1000.ts --dry-run"
+    "simulate:dry": "npx tsx examples/simulation/code-analysis-1000.ts --dry-run",
+    "landing:dev": "pnpm --filter @mdap/landing dev",
+    "landing:build": "pnpm --filter @mdap/landing build",
+    "landing:preview": "pnpm --filter @mdap/landing preview"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",

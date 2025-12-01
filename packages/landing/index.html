@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDAP - Make Your AI Agents Reliable</title>
+  <meta name="description" content="Voting-based error correction for LLM applications. Turn 94% accuracy into 99.8% reliability.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+  <script type="module" src="/src/main.ts"></script>
+</head>
+<body class="min-h-screen">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mdap-darker/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎯</span>
+          <span class="text-xl font-bold gradient-text">MDAP</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#demo" class="text-gray-400 hover:text-white transition-colors">Demo</a>
+          <a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a>
+          <a href="#use-cases" class="text-gray-400 hover:text-white transition-colors">Use Cases</a>
+          <a href="#get-started" class="text-gray-400 hover:text-white transition-colors">Get Started</a>
+          <a href="https://github.com/yourusername/mdap-sdk" target="_blank" class="btn-secondary text-sm py-2">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-mdap-primary/10 border border-mdap-primary/30 rounded-full text-sm text-mdap-primary mb-8 animate-fade-in">
+        <span class="w-2 h-2 bg-mdap-success rounded-full animate-pulse"></span>
+        Open Source &bull; MIT License
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+        Make Your AI Agents
+        <span class="gradient-text block mt-2">Reliable</span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.1s">
+        Voting-based error correction for LLM applications.
+        Turn <span class="text-mdap-error font-semibold">94% accuracy</span> into
+        <span class="text-mdap-success font-semibold">99.8% reliability</span>.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.2s">
+        <a href="#demo" class="btn-primary text-lg">
+          Try Interactive Demo
+        </a>
+        <a href="#get-started" class="btn-secondary text-lg">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Code Preview -->
+      <div class="mt-16 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.3s">
+        <div class="code-block text-left">
+          <pre class="text-sm"><span class="comment">// Wrap any LLM call with reliable()</span>
+<span class="keyword">const</span> <span class="function">classify</span> = <span class="function">reliable</span>({
+  vote: { k: <span class="string">3</span> }
+})(<span class="keyword">async</span> (ticket) => {
+  <span class="keyword">return</span> <span class="keyword">await</span> llm.<span class="function">chat</span>(<span class="string">`Classify: ${ticket}`</span>);
+});
+
+<span class="comment">// Now 30x more reliable</span>
+<span class="keyword">const</span> result = <span class="keyword">await</span> <span class="function">classify</span>(ticket);</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-20 px-4 bg-mdap-dark/30">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="section-title">
+        The Problem with <span class="text-mdap-error">Single LLM Calls</span>
+      </h2>
+      <p class="section-subtitle">
+        Even the best LLMs make mistakes. And in production, mistakes compound.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-semibold mb-2">94% Accuracy</h3>
+          <p class="text-gray-400">
+            GPT-4 achieves ~94% accuracy on classification tasks. Sounds great, right?
+          </p>
+        </div>
+        <div class="card">
+          <div class="text-4xl mb-4">🔄</div>
+          <h3 class="text-xl font-semibold mb-2">100 Operations</h3>
+          <p class="text-gray-400">
+            Run 100 operations at 94% accuracy = only 0.2% chance of zero errors.
+          </p>
+        </div>
+        <div class="card border-mdap-error/50">
+          <div class="text-4xl mb-4">💥</div>
+          <h3 class="text-xl font-semibold mb-2">6 Failures Expected</h3>
+          <p class="text-gray-400 text-mdap-error">
+            That's 6 misrouted tickets, 6 wrong classifications, 6 unhappy customers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="section-title">
+        The Solution: <span class="gradient-text">MDAP Voting</span>
+      </h2>
+      <p class="section-subtitle">
+        Like distributed systems achieve reliability through redundancy, MDAP achieves reliability through consensus.
+      </p>
+
+      <!-- Stats -->
+      <div id="stats-section" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div class="card text-center">
+          <div id="stat-accuracy" class="text-4xl font-bold gradient-text mb-2">0%</div>
+          <div class="text-gray-400">Accuracy</div>
+        </div>
+        <div class="card text-center">
+          <div id="stat-improvement" class="text-4xl font-bold gradient-text mb-2">0x</div>
+          <div class="text-gray-400">More Reliable</div>
+        </div>
+        <div class="card text-center">
+          <div id="stat-samples" class="text-4xl font-bold gradient-text mb-2">0</div>
+          <div class="text-gray-400">Avg Samples</div>
+        </div>
+        <div class="card text-center">
+          <div id="stat-cost" class="text-4xl font-bold gradient-text mb-2">$0</div>
+          <div class="text-gray-400">Per Call</div>
+        </div>
+      </div>
+
+      <!-- How it works diagram -->
+      <div id="how-it-works" class="card bg-mdap-dark">
+        <h3 class="text-xl font-semibold mb-6 text-center">How First-to-Ahead-by-K Voting Works</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-mdap-primary/20 rounded-full flex items-center justify-center text-2xl">1</div>
+            <h4 class="font-semibold mb-2">Sample</h4>
+            <p class="text-sm text-gray-400">Run the same LLM call multiple times in parallel</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-mdap-secondary/20 rounded-full flex items-center justify-center text-2xl">2</div>
+            <h4 class="font-semibold mb-2">Vote</h4>
+            <p class="text-sm text-gray-400">Count responses until one is k votes ahead</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-mdap-success/20 rounded-full flex items-center justify-center text-2xl">3</div>
+            <h4 class="font-semibold mb-2">Consensus</h4>
+            <p class="text-sm text-gray-400">Return the winning response with confidence score</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section -->
+  <section id="demo" class="py-20 px-4 bg-mdap-dark/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">
+        Try It <span class="gradient-text">Live</span>
+      </h2>
+      <p class="section-subtitle">
+        See MDAP in action. Compare single LLM call vs MDAP voting on real support tickets.
+      </p>
+
+      <div id="interactive-demo" class="card bg-mdap-darker"></div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section id="use-cases" class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="section-title">
+        Real-World <span class="gradient-text">Use Cases</span>
+      </h2>
+      <p class="section-subtitle">
+        MDAP shines wherever consistency and correctness matter.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">🎫</div>
+          <h3 class="text-lg font-semibold mb-2">Customer Service</h3>
+          <p class="text-sm text-gray-400 mb-3">Ticket classification and routing with 99%+ accuracy</p>
+          <span class="text-xs text-mdap-accent">k=3 recommended</span>
+        </div>
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">🏥</div>
+          <h3 class="text-lg font-semibold mb-2">Healthcare</h3>
+          <p class="text-sm text-gray-400 mb-3">Medical coding (ICD-10, CPT) with audit-grade accuracy</p>
+          <span class="text-xs text-mdap-accent">k=5-7 recommended</span>
+        </div>
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">🏦</div>
+          <h3 class="text-lg font-semibold mb-2">Financial</h3>
+          <p class="text-sm text-gray-400 mb-3">Transaction classification for compliance</p>
+          <span class="text-xs text-mdap-accent">k=5 recommended</span>
+        </div>
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">⚖️</div>
+          <h3 class="text-lg font-semibold mb-2">Legal</h3>
+          <p class="text-sm text-gray-400 mb-3">Contract clause extraction and analysis</p>
+          <span class="text-xs text-mdap-accent">k=5-7 recommended</span>
+        </div>
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">🔒</div>
+          <h3 class="text-lg font-semibold mb-2">Security</h3>
+          <p class="text-sm text-gray-400 mb-3">Vulnerability classification and triage</p>
+          <span class="text-xs text-mdap-accent">k=3-5 recommended</span>
+        </div>
+        <div class="card group hover:scale-105 transition-transform">
+          <div class="text-3xl mb-3">🤖</div>
+          <h3 class="text-lg font-semibold mb-2">AI Agents</h3>
+          <p class="text-sm text-gray-400 mb-3">Critical decision checkpoints in autonomous workflows</p>
+          <span class="text-xs text-mdap-accent">Variable k by criticality</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started Section -->
+  <section id="get-started" class="py-20 px-4 bg-mdap-dark/30">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="section-title">
+        Get <span class="gradient-text">Started</span>
+      </h2>
+      <p class="section-subtitle">
+        Add reliability to your LLM applications in minutes.
+      </p>
+
+      <!-- Installation -->
+      <div class="card mb-8">
+        <h3 class="text-lg font-semibold mb-4">1. Install</h3>
+        <div class="code-block">
+          <pre>npm install @mdap/core</pre>
+        </div>
+      </div>
+
+      <!-- Basic Usage -->
+      <div class="card mb-8">
+        <h3 class="text-lg font-semibold mb-4">2. Wrap Your LLM Calls</h3>
+        <div class="code-block">
+          <pre><span class="keyword">import</span> { reliable, RedFlag } <span class="keyword">from</span> <span class="string">'@mdap/core'</span>;
+
+<span class="comment">// Create a reliable classifier</span>
+<span class="keyword">const</span> <span class="function">classify</span> = <span class="function">reliable</span>&lt;string&gt;({
+  vote: {
+    k: <span class="string">3</span>,
+    strategy: <span class="string">'first-to-ahead-by-k'</span>,
+    maxSamples: <span class="string">30</span>
+  },
+  redFlags: [
+    RedFlag.<span class="function">emptyResponse</span>(),
+    RedFlag.<span class="function">tooLong</span>(<span class="string">100</span>),
+  ]
+})(<span class="keyword">async</span> (input: string) => {
+  <span class="keyword">return</span> <span class="keyword">await</span> llm.<span class="function">chat</span>(<span class="string">`
+    Classify this ticket: ${input}
+    Respond with exactly one of: BILLING, TECHNICAL, SHIPPING, ACCOUNT
+  `</span>);
+});
+
+<span class="comment">// Use it like any async function</span>
+<span class="keyword">const</span> result = <span class="keyword">await</span> <span class="function">classify</span>(<span class="string">"My payment failed"</span>);
+console.<span class="function">log</span>(result); <span class="comment">// "BILLING" with 99.8% reliability</span></pre>
+        </div>
+      </div>
+
+      <!-- Key Tips -->
+      <div class="card border-mdap-warning/30">
+        <h3 class="text-lg font-semibold mb-4 text-mdap-warning">⚠️ Design Prompts for Convergence</h3>
+        <p class="text-gray-400 mb-4">
+          Voting only works when responses can converge. Use constrained categories, not open-ended prompts.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 bg-mdap-error/10 rounded-lg border border-mdap-error/30">
+            <div class="text-sm font-semibold text-mdap-error mb-2">❌ Bad - Won't converge</div>
+            <code class="text-xs text-gray-400">"Identify bugs in this code"</code>
+          </div>
+          <div class="p-4 bg-mdap-success/10 rounded-lg border border-mdap-success/30">
+            <div class="text-sm font-semibold text-mdap-success mb-2">✅ Good - Will converge</div>
+            <code class="text-xs text-gray-400">"Classify as: BUG, SMELL, SECURITY, NONE"</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 border-t border-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎯</span>
+          <span class="text-xl font-bold gradient-text">MDAP</span>
+          <span class="text-gray-500 ml-2">Massively Decomposed Agentic Processes</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/yourusername/mdap-sdk" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            GitHub
+          </a>
+          <a href="https://github.com/yourusername/mdap-sdk/blob/main/README.md" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            Docs
+          </a>
+          <span class="text-gray-600">MIT License</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
