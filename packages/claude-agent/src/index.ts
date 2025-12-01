@@ -158,7 +158,7 @@ export function withMdap(config: MdapAgentConfig = {}) {
       },
       redFlags: rules,
       debug,
-      onFlag: onFlag ? (response, rule) => onFlag(response, rule.name) : undefined,
+      onFlag: onFlag ? (response: string, rule: RedFlagRule<string>) => onFlag(response, rule.name) : undefined,
       onSample
     })(async (_input: void) => {
       return await operation();
