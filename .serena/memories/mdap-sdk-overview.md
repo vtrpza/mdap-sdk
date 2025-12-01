@@ -88,7 +88,8 @@ pnpm typecheck    # Type checking
 
 ## Status
 
-All roadmap items complete:
+**ALL ROADMAP ITEMS COMPLETE**
+
 - [x] Core voting, red flags, cost estimation
 - [x] OpenAI/Anthropic adapters
 - [x] MCP server
@@ -96,9 +97,22 @@ All roadmap items complete:
 - [x] Claude Agent SDK integration
 - [x] Workflow orchestration
 - [x] CLI tool
-- [x] Unit tests (76 tests)
+- [x] Unit tests (113 tests across 4 test files)
 - [x] GitHub Actions CI/CD
+- [x] Semantic deduplication (fuzzy matching, JSON-aware, custom similarity)
+- [x] Dashboard (real-time web UI with SSE)
 
-Remaining:
-- [ ] Dashboard
-- [ ] Semantic deduplication
+## New Packages Added
+
+### @mdap/dashboard
+- Web UI for monitoring workflows
+- Real-time updates via Server-Sent Events
+- Workflow tracking with step details
+- Statistics: success rate, avg confidence, samples
+
+### Semantic Deduplication (in @mdap/core)
+- `createSemanticSerializer()` - Normalize responses for voting
+- `withSemanticDedup()` - Config helper
+- `SemanticPatterns.json()` - JSON-aware (ignores key order)
+- `SemanticPatterns.fuzzy(threshold)` - Fuzzy text matching
+- `clusterResponses()` - Group similar responses
