@@ -1,6 +1,8 @@
 /**
  * Interactive ticket classification demo component.
- * Demonstrates MDAP voting vs single LLM call.
+ * Dramatic side-by-side comparison: MDAP vs Single LLM Call
+ *
+ * Design: Precision Control Center aesthetic
  */
 
 import {
@@ -10,296 +12,569 @@ import {
   DEMO_STATS,
   type Ticket,
   type LLMResponse,
+  type TicketCategory,
 } from './mock-llm';
-import { createVotingVisualizer, calculateTallies } from './voting-visualizer';
 
-export type DemoMode = 'mdap' | 'single';
+const CATEGORY_COLORS: Record<TicketCategory, { bg: string; text: string; glow: string }> = {
+  BILLING: { bg: 'bg-blue-500/20', text: 'text-blue-400', glow: 'shadow-blue-500/30' },
+  TECHNICAL: { bg: 'bg-purple-500/20', text: 'text-purple-400', glow: 'shadow-purple-500/30' },
+  SHIPPING: { bg: 'bg-orange-500/20', text: 'text-orange-400', glow: 'shadow-orange-500/30' },
+  ACCOUNT: { bg: 'bg-emerald-500/20', text: 'text-emerald-400', glow: 'shadow-emerald-500/30' },
+  ESCALATE: { bg: 'bg-red-500/20', text: 'text-red-400', glow: 'shadow-red-500/30' },
+};
 
 interface DemoState {
   currentTicket: Ticket;
-  mode: DemoMode;
+  ticketIndex: number;
   isRunning: boolean;
   k: number;
+  mdapResult: { category: TicketCategory; confidence: number; samples: number } | null;
+  singleResult: { category: TicketCategory; confidence: number } | null;
+  runCount: number;
+  mdapCorrect: number;
+  singleCorrect: number;
 }
 
-function createElement<K extends keyof HTMLElementTagNameMap>(
+function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
   className?: string,
-  textContent?: string
+  text?: string
 ): HTMLElementTagNameMap[K] {
-  const el = document.createElement(tag);
-  if (className) el.className = className;
-  if (textContent) el.textContent = textContent;
-  return el;
+  const elem = document.createElement(tag);
+  if (className) elem.className = className;
+  if (text) elem.textContent = text;
+  return elem;
 }
 
 /**
- * Creates the complete ticket demo component.
+ * Creates the complete interactive demo component.
  */
-export function createTicketDemo(container: HTMLElement): {
-  setMode: (mode: DemoMode) => void;
-  setTicket: (index: number) => void;
-  run: () => Promise<void>;
-  reset: () => void;
-} {
+export function createTicketDemo(container: HTMLElement): void {
   const state: DemoState = {
     currentTicket: SAMPLE_TICKETS[0],
-    mode: 'mdap',
+    ticketIndex: 0,
     isRunning: false,
     k: 3,
+    mdapResult: null,
+    singleResult: null,
+    runCount: 0,
+    mdapCorrect: 0,
+    singleCorrect: 0,
   };
 
-  // Clear container
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
+  // Main wrapper
+  const wrapper = el('div', 'demo-wrapper space-y-8');
 
-  const wrapper = createElement('div', 'ticket-demo grid md:grid-cols-2 gap-8');
+  // ═══════════════════════════════════════════════════════════════
+  // TOP: Ticket Selection & Controls
+  // ═══════════════════════════════════════════════════════════════
+  const controlsRow = el('div', 'flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between');
 
-  // Left side: Ticket display
-  const leftPanel = createElement('div', 'ticket-panel');
+  // Ticket selector section
+  const selectorSection = el('div', 'flex-1');
+  const selectorLabel = el('div', 'font-mono text-xs uppercase tracking-widest text-steel-500 mb-2', 'Select Input');
 
-  // Ticket selector
-  const selectorWrapper = createElement('div', 'mb-4');
-  const selectorLabel = createElement('label', 'block text-sm font-medium text-gray-400 mb-2', 'Select Ticket');
-  const selector = createElement('select', 'w-full bg-mdap-dark border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-mdap-primary focus:outline-none');
-  selector.id = 'ticket-selector';
-
-  SAMPLE_TICKETS.forEach((ticket, index) => {
-    const option = createElement('option');
-    option.value = String(index);
-    option.textContent = `#${ticket.id.split('-')[1]} - ${ticket.subject}`;
-    selector.appendChild(option);
+  const ticketButtons = el('div', 'flex flex-wrap gap-2');
+  SAMPLE_TICKETS.forEach((ticket, idx) => {
+    const btn = el('button', `ticket-btn px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-300 ${idx === 0 ? 'border-amber-glow/50 bg-amber-glow/10 text-amber-glow' : 'border-steel-700 text-steel-400 hover:border-amber-glow/30 hover:text-steel-200'}`);
+    btn.textContent = `#${idx + 1}`;
+    btn.dataset.index = String(idx);
+    btn.addEventListener('click', () => selectTicket(idx));
+    ticketButtons.appendChild(btn);
   });
 
-  selectorWrapper.appendChild(selectorLabel);
-  selectorWrapper.appendChild(selector);
+  selectorSection.appendChild(selectorLabel);
+  selectorSection.appendChild(ticketButtons);
 
-  // Ticket card
-  const ticketCard = createElement('div', 'ticket');
-  const ticketHeader = createElement('div', 'ticket-header');
-  const ticketIcon = createElement('div', 'w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 text-xl', '📧');
-  const ticketMeta = createElement('div');
-  const ticketId = createElement('div', 'font-semibold text-gray-900', `Ticket #${state.currentTicket.id.split('-')[1]}`);
-  ticketId.id = 'ticket-id';
-  const ticketTime = createElement('div', 'text-sm text-gray-500', 'Just now');
-  ticketMeta.appendChild(ticketId);
-  ticketMeta.appendChild(ticketTime);
-  ticketHeader.appendChild(ticketIcon);
-  ticketHeader.appendChild(ticketMeta);
+  // Run button
+  const runBtn = el('button', 'btn-primary flex items-center gap-3 min-w-[200px] justify-center');
+  runBtn.id = 'demo-run-btn';
+  const runIcon = el('span', '', '');
+  runIcon.textContent = '\u25B6'; // Play icon
+  const runText = el('span', '', 'Run Comparison');
+  runBtn.appendChild(runIcon);
+  runBtn.appendChild(runText);
+  runBtn.addEventListener('click', runDemo);
 
-  const ticketSubject = createElement('h3', 'font-semibold text-lg text-gray-900 mb-2');
-  ticketSubject.id = 'ticket-subject';
+  controlsRow.appendChild(selectorSection);
+  controlsRow.appendChild(runBtn);
+
+  // ═══════════════════════════════════════════════════════════════
+  // MIDDLE: Ticket Preview
+  // ═══════════════════════════════════════════════════════════════
+  const ticketPreview = el('div', 'ticket-preview panel p-6');
+
+  const ticketHeader = el('div', 'flex items-start justify-between gap-4 mb-4');
+  const ticketInfo = el('div', 'flex-1');
+  const ticketIdEl = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 mb-1');
+  ticketIdEl.id = 'demo-ticket-id';
+  ticketIdEl.textContent = `Ticket #${state.currentTicket.id.split('-')[1]}`;
+  const ticketSubject = el('h3', 'font-display text-xl font-semibold text-steel-50');
+  ticketSubject.id = 'demo-ticket-subject';
   ticketSubject.textContent = state.currentTicket.subject;
+  ticketInfo.appendChild(ticketIdEl);
+  ticketInfo.appendChild(ticketSubject);
 
-  const ticketBody = createElement('p', 'text-gray-600');
-  ticketBody.id = 'ticket-body';
-  ticketBody.textContent = state.currentTicket.body;
-
-  const correctBadge = createElement('div', 'mt-4 pt-4 border-t border-gray-200');
-  const correctLabel = createElement('span', 'text-xs text-gray-400', 'Correct classification: ');
-  const correctValue = createElement('span', 'text-xs font-semibold text-gray-600');
-  correctValue.id = 'correct-category';
+  const correctBadge = el('div', 'flex flex-col items-end');
+  const correctLabel = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 mb-1', 'Expected');
+  const correctValue = el('div', 'font-mono text-sm font-bold text-signal-success');
+  correctValue.id = 'demo-correct-category';
   correctValue.textContent = state.currentTicket.correctCategory;
   correctBadge.appendChild(correctLabel);
   correctBadge.appendChild(correctValue);
 
-  ticketCard.appendChild(ticketHeader);
-  ticketCard.appendChild(ticketSubject);
-  ticketCard.appendChild(ticketBody);
-  ticketCard.appendChild(correctBadge);
+  ticketHeader.appendChild(ticketInfo);
+  ticketHeader.appendChild(correctBadge);
 
-  // Mode toggle
-  const modeWrapper = createElement('div', 'mt-6 flex gap-4');
+  const ticketBody = el('p', 'text-steel-400 leading-relaxed');
+  ticketBody.id = 'demo-ticket-body';
+  ticketBody.textContent = state.currentTicket.body;
 
-  const mdapBtn = createElement('button', 'flex-1 py-3 px-4 rounded-lg font-semibold transition-all');
-  mdapBtn.id = 'mode-mdap';
-  mdapBtn.textContent = 'With MDAP';
+  ticketPreview.appendChild(ticketHeader);
+  ticketPreview.appendChild(ticketBody);
 
-  const singleBtn = createElement('button', 'flex-1 py-3 px-4 rounded-lg font-semibold transition-all');
-  singleBtn.id = 'mode-single';
-  singleBtn.textContent = 'Without MDAP';
+  // ═══════════════════════════════════════════════════════════════
+  // BOTTOM: Side-by-Side Comparison
+  // ═══════════════════════════════════════════════════════════════
+  const comparisonGrid = el('div', 'grid lg:grid-cols-2 gap-6');
 
-  modeWrapper.appendChild(mdapBtn);
-  modeWrapper.appendChild(singleBtn);
+  // ─── SINGLE CALL PANEL ───
+  const singlePanel = el('div', 'single-panel panel p-6');
+  singlePanel.id = 'demo-single-panel';
 
-  // Run button
-  const runBtn = createElement('button', 'btn-primary w-full mt-4', 'Classify Ticket');
-  runBtn.id = 'run-btn';
+  const singleHeader = el('div', 'flex items-center justify-between mb-6');
+  const singleTitle = el('div', 'flex items-center gap-3');
+  const singleDot = el('div', 'w-3 h-3 rounded-full bg-signal-error/50');
+  singleDot.id = 'single-status-dot';
+  const singleLabel = el('h4', 'font-display text-lg font-semibold text-steel-50', 'Single LLM Call');
+  singleTitle.appendChild(singleDot);
+  singleTitle.appendChild(singleLabel);
+  const singleBadge = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 px-3 py-1 border border-steel-700', 'Without MDAP');
+  singleHeader.appendChild(singleTitle);
+  singleHeader.appendChild(singleBadge);
 
-  leftPanel.appendChild(selectorWrapper);
-  leftPanel.appendChild(ticketCard);
-  leftPanel.appendChild(modeWrapper);
-  leftPanel.appendChild(runBtn);
+  const singleContent = el('div', 'single-content min-h-[180px] flex items-center justify-center');
+  singleContent.id = 'demo-single-content';
+  const singlePlaceholder = el('div', 'text-center');
+  const singlePlaceholderIcon = el('div', 'text-4xl text-steel-700 mb-2', '\u2022');
+  const singlePlaceholderText = el('div', 'font-mono text-xs text-steel-600', 'Awaiting execution');
+  singlePlaceholder.appendChild(singlePlaceholderIcon);
+  singlePlaceholder.appendChild(singlePlaceholderText);
+  singleContent.appendChild(singlePlaceholder);
 
-  // Right side: Visualization
-  const rightPanel = createElement('div', 'visualization-panel');
-  const vizTitle = createElement('h3', 'text-xl font-semibold mb-4', 'Classification Process');
-  vizTitle.id = 'viz-title';
-  const vizContainer = createElement('div');
-  vizContainer.id = 'viz-container';
+  const singleStats = el('div', 'pt-4 mt-4 border-t border-steel-800/50 flex items-center justify-between');
+  const singleAccLabel = el('div', 'font-mono text-2xs text-steel-500', 'Expected Accuracy');
+  const singleAccValue = el('div', 'font-mono text-lg font-bold text-signal-error', `${(DEMO_STATS.singleCallAccuracy * 100).toFixed(0)}%`);
+  singleStats.appendChild(singleAccLabel);
+  singleStats.appendChild(singleAccValue);
 
-  // Single mode result container
-  const singleResult = createElement('div', 'hidden');
-  singleResult.id = 'single-result';
+  singlePanel.appendChild(singleHeader);
+  singlePanel.appendChild(singleContent);
+  singlePanel.appendChild(singleStats);
 
-  rightPanel.appendChild(vizTitle);
-  rightPanel.appendChild(vizContainer);
-  rightPanel.appendChild(singleResult);
+  // ─── MDAP PANEL ───
+  const mdapPanel = el('div', 'mdap-panel panel p-6 border-amber-glow/20');
+  mdapPanel.id = 'demo-mdap-panel';
 
-  wrapper.appendChild(leftPanel);
-  wrapper.appendChild(rightPanel);
-  container.appendChild(wrapper);
+  const mdapHeader = el('div', 'flex items-center justify-between mb-6');
+  const mdapTitle = el('div', 'flex items-center gap-3');
+  const mdapDot = el('div', 'w-3 h-3 rounded-full bg-amber-glow/50');
+  mdapDot.id = 'mdap-status-dot';
+  const mdapLabel = el('h4', 'font-display text-lg font-semibold text-steel-50', 'MDAP Voting');
+  mdapTitle.appendChild(mdapDot);
+  mdapTitle.appendChild(mdapLabel);
+  const mdapBadge = el('div', 'font-mono text-2xs uppercase tracking-widest text-amber-glow/70 px-3 py-1 border border-amber-glow/30 bg-amber-glow/5', 'k=3');
+  mdapHeader.appendChild(mdapTitle);
+  mdapHeader.appendChild(mdapBadge);
 
-  // Initialize voting visualizer
-  const visualizer = createVotingVisualizer(vizContainer, 5);
+  const mdapContent = el('div', 'mdap-content min-h-[180px]');
+  mdapContent.id = 'demo-mdap-content';
 
-  // Update mode button styles
-  function updateModeButtons() {
-    const activeClass = 'bg-mdap-primary text-white';
-    const inactiveClass = 'bg-mdap-dark border border-gray-700 text-gray-400 hover:border-mdap-primary';
-
-    mdapBtn.className = `flex-1 py-3 px-4 rounded-lg font-semibold transition-all ${state.mode === 'mdap' ? activeClass : inactiveClass}`;
-    singleBtn.className = `flex-1 py-3 px-4 rounded-lg font-semibold transition-all ${state.mode === 'single' ? activeClass : inactiveClass}`;
-
-    vizTitle.textContent = state.mode === 'mdap' ? 'MDAP Voting Process' : 'Single LLM Call';
-    vizContainer.style.display = state.mode === 'mdap' ? 'block' : 'none';
-    singleResult.style.display = state.mode === 'single' ? 'block' : 'none';
+  // Vote grid
+  const voteGrid = el('div', 'vote-grid grid grid-cols-5 gap-2 mb-4');
+  voteGrid.id = 'demo-vote-grid';
+  for (let i = 0; i < 5; i++) {
+    const voteSlot = el('div', 'vote-slot aspect-square border border-steel-800 flex items-center justify-center transition-all duration-300');
+    voteSlot.id = `vote-slot-${i}`;
+    const slotText = el('span', 'font-mono text-xs text-steel-700', String(i + 1));
+    voteSlot.appendChild(slotText);
+    voteGrid.appendChild(voteSlot);
   }
 
-  // Update ticket display
-  function updateTicketDisplay() {
-    ticketId.textContent = `Ticket #${state.currentTicket.id.split('-')[1]}`;
+  // Tally display
+  const tallySection = el('div', 'tally-section space-y-2');
+  tallySection.id = 'demo-tally';
+
+  // Result display (hidden initially)
+  const mdapResultEl = el('div', 'mdap-result hidden mt-4 p-4 border border-signal-success/30 bg-signal-success/5');
+  mdapResultEl.id = 'demo-mdap-result';
+
+  mdapContent.appendChild(voteGrid);
+  mdapContent.appendChild(tallySection);
+  mdapContent.appendChild(mdapResultEl);
+
+  const mdapStats = el('div', 'pt-4 mt-4 border-t border-steel-800/50 flex items-center justify-between');
+  const mdapAccLabel = el('div', 'font-mono text-2xs text-steel-500', 'Expected Accuracy');
+  const mdapAccValue = el('div', 'font-mono text-lg font-bold text-signal-success', `${(DEMO_STATS.mdapAccuracy * 100).toFixed(1)}%`);
+  mdapStats.appendChild(mdapAccLabel);
+  mdapStats.appendChild(mdapAccValue);
+
+  mdapPanel.appendChild(mdapHeader);
+  mdapPanel.appendChild(mdapContent);
+  mdapPanel.appendChild(mdapStats);
+
+  comparisonGrid.appendChild(singlePanel);
+  comparisonGrid.appendChild(mdapPanel);
+
+  // ═══════════════════════════════════════════════════════════════
+  // SCOREBOARD
+  // ═══════════════════════════════════════════════════════════════
+  const scoreboard = el('div', 'scoreboard grid grid-cols-3 gap-4 pt-6 border-t border-steel-800/50');
+  scoreboard.id = 'demo-scoreboard';
+
+  const runsBox = el('div', 'text-center');
+  const runsLabel = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 mb-1', 'Runs');
+  const runsValue = el('div', 'font-display text-2xl font-bold text-steel-400');
+  runsValue.id = 'demo-runs';
+  runsValue.textContent = '0';
+  runsBox.appendChild(runsLabel);
+  runsBox.appendChild(runsValue);
+
+  const singleScoreBox = el('div', 'text-center');
+  const singleScoreLabel = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 mb-1', 'Single Correct');
+  const singleScoreValue = el('div', 'font-display text-2xl font-bold text-signal-error');
+  singleScoreValue.id = 'demo-single-score';
+  singleScoreValue.textContent = '0';
+  singleScoreBox.appendChild(singleScoreLabel);
+  singleScoreBox.appendChild(singleScoreValue);
+
+  const mdapScoreBox = el('div', 'text-center');
+  const mdapScoreLabel = el('div', 'font-mono text-2xs uppercase tracking-widest text-steel-500 mb-1', 'MDAP Correct');
+  const mdapScoreValue = el('div', 'font-display text-2xl font-bold text-signal-success');
+  mdapScoreValue.id = 'demo-mdap-score';
+  mdapScoreValue.textContent = '0';
+  mdapScoreBox.appendChild(mdapScoreLabel);
+  mdapScoreBox.appendChild(mdapScoreValue);
+
+  scoreboard.appendChild(runsBox);
+  scoreboard.appendChild(singleScoreBox);
+  scoreboard.appendChild(mdapScoreBox);
+
+  // Assemble everything
+  wrapper.appendChild(controlsRow);
+  wrapper.appendChild(ticketPreview);
+  wrapper.appendChild(comparisonGrid);
+  wrapper.appendChild(scoreboard);
+  container.appendChild(wrapper);
+
+  // ═══════════════════════════════════════════════════════════════
+  // FUNCTIONS
+  // ═══════════════════════════════════════════════════════════════
+
+  function selectTicket(index: number): void {
+    if (state.isRunning) return;
+
+    state.ticketIndex = index;
+    state.currentTicket = SAMPLE_TICKETS[index];
+
+    // Update ticket buttons
+    const buttons = ticketButtons.querySelectorAll('button');
+    buttons.forEach((btn, i) => {
+      if (i === index) {
+        btn.className = 'ticket-btn px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-300 border-amber-glow/50 bg-amber-glow/10 text-amber-glow';
+      } else {
+        btn.className = 'ticket-btn px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-300 border-steel-700 text-steel-400 hover:border-amber-glow/30 hover:text-steel-200';
+      }
+    });
+
+    // Update ticket preview
+    ticketIdEl.textContent = `Ticket #${state.currentTicket.id.split('-')[1]}`;
     ticketSubject.textContent = state.currentTicket.subject;
     ticketBody.textContent = state.currentTicket.body;
     correctValue.textContent = state.currentTicket.correctCategory;
+
+    resetResults();
   }
 
-  // Create single result display
-  function showSingleResult(response: LLMResponse, isCorrect: boolean) {
-    while (singleResult.firstChild) {
-      singleResult.removeChild(singleResult.firstChild);
+  function resetResults(): void {
+    // Reset single panel
+    const singleContent = document.getElementById('demo-single-content');
+    if (singleContent) {
+      while (singleContent.firstChild) singleContent.removeChild(singleContent.firstChild);
+      const placeholder = el('div', 'text-center');
+      const icon = el('div', 'text-4xl text-steel-700 mb-2', '\u2022');
+      const text = el('div', 'font-mono text-xs text-steel-600', 'Awaiting execution');
+      placeholder.appendChild(icon);
+      placeholder.appendChild(text);
+      singleContent.appendChild(placeholder);
     }
 
-    const card = createElement('div', `card ${isCorrect ? 'border-mdap-success' : 'border-mdap-error'}`);
+    // Reset vote grid
+    for (let i = 0; i < 5; i++) {
+      const slot = document.getElementById(`vote-slot-${i}`);
+      if (slot) {
+        slot.className = 'vote-slot aspect-square border border-steel-800 flex items-center justify-center transition-all duration-300';
+        while (slot.firstChild) slot.removeChild(slot.firstChild);
+        const slotText = el('span', 'font-mono text-xs text-steel-700', String(i + 1));
+        slot.appendChild(slotText);
+      }
+    }
 
-    const resultHeader = createElement('div', 'flex items-center justify-between mb-4');
-    const resultLabel = createElement('span', 'text-gray-400', 'Classification Result');
-    const statusBadge = createElement('span', `px-2 py-1 text-xs font-semibold rounded ${isCorrect ? 'bg-mdap-success/20 text-mdap-success' : 'bg-mdap-error/20 text-mdap-error'}`);
-    statusBadge.textContent = isCorrect ? 'Correct' : 'Incorrect';
-    resultHeader.appendChild(resultLabel);
-    resultHeader.appendChild(statusBadge);
+    // Reset tally
+    const tally = document.getElementById('demo-tally');
+    if (tally) {
+      while (tally.firstChild) tally.removeChild(tally.firstChild);
+    }
 
-    const resultValue = createElement('div', 'text-2xl font-bold mb-2', response.category);
-    const confidenceText = createElement('div', 'text-sm text-gray-400', `${(response.confidence * 100).toFixed(0)}% confidence`);
+    // Reset result
+    const result = document.getElementById('demo-mdap-result');
+    if (result) {
+      result.classList.add('hidden');
+      while (result.firstChild) result.removeChild(result.firstChild);
+    }
 
-    const warning = createElement('div', 'mt-4 p-3 bg-mdap-warning/10 border border-mdap-warning/30 rounded-lg');
-    const warningText = createElement('p', 'text-sm text-mdap-warning');
-    warningText.textContent = `Single LLM calls are ~${(DEMO_STATS.singleCallAccuracy * 100).toFixed(0)}% accurate. Over 100 tickets, expect ~${Math.round((1 - DEMO_STATS.singleCallAccuracy) * 100)} misclassifications.`;
-    warning.appendChild(warningText);
+    // Reset status dots
+    const singleDot = document.getElementById('single-status-dot');
+    const mdapDot = document.getElementById('mdap-status-dot');
+    if (singleDot) singleDot.className = 'w-3 h-3 rounded-full bg-signal-error/50';
+    if (mdapDot) mdapDot.className = 'w-3 h-3 rounded-full bg-amber-glow/50';
 
-    card.appendChild(resultHeader);
-    card.appendChild(resultValue);
-    card.appendChild(confidenceText);
-    card.appendChild(warning);
-    singleResult.appendChild(card);
-    singleResult.classList.remove('hidden');
+    // Reset panel borders
+    const singlePanel = document.getElementById('demo-single-panel');
+    const mdapPanel = document.getElementById('demo-mdap-panel');
+    if (singlePanel) singlePanel.className = 'single-panel panel p-6';
+    if (mdapPanel) mdapPanel.className = 'mdap-panel panel p-6 border-amber-glow/20';
   }
 
-  // Event listeners
-  selector.addEventListener('change', () => {
-    const index = parseInt(selector.value, 10);
-    state.currentTicket = SAMPLE_TICKETS[index];
-    updateTicketDisplay();
-    reset();
-  });
-
-  mdapBtn.addEventListener('click', () => {
-    if (state.isRunning) return;
-    state.mode = 'mdap';
-    updateModeButtons();
-    reset();
-  });
-
-  singleBtn.addEventListener('click', () => {
-    if (state.isRunning) return;
-    state.mode = 'single';
-    updateModeButtons();
-    reset();
-  });
-
-  runBtn.addEventListener('click', () => {
-    if (!state.isRunning) {
-      run();
-    }
-  });
-
-  // Initialize
-  updateModeButtons();
-  updateTicketDisplay();
-
-  async function run() {
+  async function runDemo(): Promise<void> {
     if (state.isRunning) return;
     state.isRunning = true;
-    runBtn.textContent = 'Classifying...';
+
+    // Update button
     runBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    runText.textContent = 'Running...';
+    runIcon.textContent = '\u23F3'; // Hourglass
 
-    if (state.mode === 'mdap') {
-      visualizer.reset();
-      const responses: LLMResponse[] = [];
+    resetResults();
 
-      const result = await mockMDAPVoting(state.currentTicket, state.k, (index, response) => {
-        visualizer.updateCard(index, 'complete', response);
-        responses.push(response);
-        visualizer.updateTally(calculateTallies(responses));
+    // Animate status dots
+    const singleDot = document.getElementById('single-status-dot');
+    const mdapDot = document.getElementById('mdap-status-dot');
+    if (singleDot) singleDot.className = 'w-3 h-3 rounded-full bg-cyan-data animate-pulse';
+    if (mdapDot) mdapDot.className = 'w-3 h-3 rounded-full bg-cyan-data animate-pulse';
 
-        // Show next card as loading
-        if (index < 4) {
-          visualizer.updateCard(index + 1, 'loading');
-        }
-      });
-
-      visualizer.updateTally(calculateTallies(responses, result.winner));
-      visualizer.setWinner(result.winner, result.confidence);
-    } else {
-      const response = await mockSingleCall(state.currentTicket);
-      const isCorrect = response.category === state.currentTicket.correctCategory;
-      showSingleResult(response, isCorrect);
+    // Show loading in single panel
+    const singleContentEl = document.getElementById('demo-single-content');
+    if (singleContentEl) {
+      while (singleContentEl.firstChild) singleContentEl.removeChild(singleContentEl.firstChild);
+      const loadingDiv = el('div', 'text-center');
+      const spinner = el('div', 'spinner mx-auto mb-3');
+      const loadingText = el('div', 'font-mono text-xs text-cyan-data', 'Calling LLM...');
+      loadingDiv.appendChild(spinner);
+      loadingDiv.appendChild(loadingText);
+      singleContentEl.appendChild(loadingDiv);
     }
 
+    // Run both in parallel
+    const [singleResponse, mdapResponse] = await Promise.all([
+      runSingleCall(),
+      runMdapVoting(),
+    ]);
+
+    // Update scoreboard
+    state.runCount++;
+    if (singleResponse.category === state.currentTicket.correctCategory) {
+      state.singleCorrect++;
+    }
+    if (mdapResponse.winner === state.currentTicket.correctCategory) {
+      state.mdapCorrect++;
+    }
+
+    updateScoreboard();
+
+    // Reset button
     state.isRunning = false;
-    runBtn.textContent = 'Classify Again';
     runBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    runText.textContent = 'Run Again';
+    runIcon.textContent = '\u21BB'; // Refresh icon
   }
 
-  function reset() {
-    visualizer.reset();
-    while (singleResult.firstChild) {
-      singleResult.removeChild(singleResult.firstChild);
+  async function runSingleCall(): Promise<LLMResponse> {
+    const response = await mockSingleCall(state.currentTicket);
+
+    const isCorrect = response.category === state.currentTicket.correctCategory;
+    const colors = CATEGORY_COLORS[response.category];
+
+    // Update single panel
+    const singleContentEl = document.getElementById('demo-single-content');
+    const singleDot = document.getElementById('single-status-dot');
+    const singlePanel = document.getElementById('demo-single-panel');
+
+    if (singleContentEl) {
+      while (singleContentEl.firstChild) singleContentEl.removeChild(singleContentEl.firstChild);
+
+      const resultDiv = el('div', 'text-center');
+
+      // Category badge
+      const categoryBadge = el('div', `inline-block px-6 py-3 ${colors.bg} ${colors.text} font-mono text-lg font-bold mb-4 border ${isCorrect ? 'border-signal-success/50' : 'border-signal-error/50'}`);
+      categoryBadge.textContent = response.category;
+
+      // Status
+      const statusDiv = el('div', `font-mono text-sm ${isCorrect ? 'text-signal-success' : 'text-signal-error'}`);
+      statusDiv.textContent = isCorrect ? '\u2713 CORRECT' : '\u2717 INCORRECT';
+
+      // Confidence
+      const confDiv = el('div', 'font-mono text-xs text-steel-500 mt-2');
+      confDiv.textContent = `${(response.confidence * 100).toFixed(0)}% confidence`;
+
+      resultDiv.appendChild(categoryBadge);
+      resultDiv.appendChild(statusDiv);
+      resultDiv.appendChild(confDiv);
+      singleContentEl.appendChild(resultDiv);
     }
-    singleResult.classList.add('hidden');
-    runBtn.textContent = 'Classify Ticket';
+
+    // Update status
+    if (singleDot) {
+      singleDot.className = `w-3 h-3 rounded-full ${isCorrect ? 'bg-signal-success' : 'bg-signal-error'} shadow-lg ${isCorrect ? 'shadow-signal-success/50' : 'shadow-signal-error/50'}`;
+    }
+    if (singlePanel) {
+      singlePanel.className = `single-panel panel p-6 ${isCorrect ? 'border-signal-success/30' : 'border-signal-error/30'}`;
+    }
+
+    return response;
   }
 
-  function setMode(mode: DemoMode) {
-    state.mode = mode;
-    updateModeButtons();
-    reset();
+  async function runMdapVoting(): Promise<{ winner: TicketCategory; confidence: number }> {
+    const votes: Map<TicketCategory, number> = new Map();
+    let sampleIndex = 0;
+
+    const result = await mockMDAPVoting(state.currentTicket, state.k, (index, response) => {
+      // Update vote slot
+      const slot = document.getElementById(`vote-slot-${index}`);
+      if (slot) {
+        const colors = CATEGORY_COLORS[response.category];
+        slot.className = `vote-slot aspect-square border ${colors.text} ${colors.bg} flex items-center justify-center transition-all duration-300 scale-105`;
+        while (slot.firstChild) slot.removeChild(slot.firstChild);
+        const label = el('span', `font-mono text-xs font-bold ${colors.text}`);
+        label.textContent = response.category.charAt(0);
+        slot.appendChild(label);
+
+        // Reset scale after animation
+        setTimeout(() => {
+          slot.classList.remove('scale-105');
+        }, 200);
+      }
+
+      // Update vote counts
+      votes.set(response.category, (votes.get(response.category) || 0) + 1);
+      updateTally(votes);
+
+      sampleIndex++;
+    });
+
+    const isCorrect = result.winner === state.currentTicket.correctCategory;
+    const colors = CATEGORY_COLORS[result.winner];
+
+    // Show result
+    const resultEl = document.getElementById('demo-mdap-result');
+    const mdapDot = document.getElementById('mdap-status-dot');
+    const mdapPanel = document.getElementById('demo-mdap-panel');
+
+    if (resultEl) {
+      resultEl.classList.remove('hidden');
+      while (resultEl.firstChild) resultEl.removeChild(resultEl.firstChild);
+
+      resultEl.className = `mdap-result mt-4 p-4 border ${isCorrect ? 'border-signal-success/30 bg-signal-success/5' : 'border-signal-error/30 bg-signal-error/5'}`;
+
+      const innerDiv = el('div', 'flex items-center justify-between');
+
+      const leftDiv = el('div', 'flex items-center gap-3');
+      const checkIcon = el('span', `text-2xl ${isCorrect ? 'text-signal-success' : 'text-signal-error'}`);
+      checkIcon.textContent = isCorrect ? '\u2713' : '\u2717';
+      const winnerLabel = el('span', 'font-display text-lg font-semibold text-steel-50');
+      winnerLabel.textContent = result.winner;
+      leftDiv.appendChild(checkIcon);
+      leftDiv.appendChild(winnerLabel);
+
+      const rightDiv = el('div', 'text-right');
+      const confLabel = el('div', 'font-mono text-xs text-steel-500', 'Confidence');
+      const confValue = el('div', 'font-mono text-lg font-bold text-signal-success');
+      confValue.textContent = `${(result.confidence * 100).toFixed(0)}%`;
+      const samplesLabel = el('div', 'font-mono text-2xs text-steel-600');
+      samplesLabel.textContent = `${result.totalSamples} samples`;
+      rightDiv.appendChild(confLabel);
+      rightDiv.appendChild(confValue);
+      rightDiv.appendChild(samplesLabel);
+
+      innerDiv.appendChild(leftDiv);
+      innerDiv.appendChild(rightDiv);
+      resultEl.appendChild(innerDiv);
+    }
+
+    // Update status
+    if (mdapDot) {
+      mdapDot.className = `w-3 h-3 rounded-full ${isCorrect ? 'bg-signal-success' : 'bg-signal-error'} shadow-lg ${isCorrect ? 'shadow-signal-success/50' : 'shadow-signal-error/50'}`;
+    }
+    if (mdapPanel) {
+      mdapPanel.className = `mdap-panel panel p-6 ${isCorrect ? 'border-signal-success/30' : 'border-signal-error/30'}`;
+    }
+
+    // Highlight winning slots
+    for (let i = 0; i < 5; i++) {
+      const slot = document.getElementById(`vote-slot-${i}`);
+      if (slot) {
+        const text = slot.querySelector('span')?.textContent;
+        if (text && text === result.winner.charAt(0)) {
+          slot.classList.add('shadow-lg', 'shadow-signal-success/30');
+        } else if (slot.classList.contains('bg-purple-500/20') || slot.classList.contains('bg-blue-500/20') || slot.classList.contains('bg-orange-500/20') || slot.classList.contains('bg-emerald-500/20') || slot.classList.contains('bg-red-500/20')) {
+          slot.classList.add('opacity-50');
+        }
+      }
+    }
+
+    return result;
   }
 
-  function setTicket(index: number) {
-    if (index >= 0 && index < SAMPLE_TICKETS.length) {
-      state.currentTicket = SAMPLE_TICKETS[index];
-      selector.value = String(index);
-      updateTicketDisplay();
-      reset();
+  function updateTally(votes: Map<TicketCategory, number>): void {
+    const tallyEl = document.getElementById('demo-tally');
+    if (!tallyEl) return;
+
+    while (tallyEl.firstChild) tallyEl.removeChild(tallyEl.firstChild);
+
+    const sortedVotes = [...votes.entries()].sort((a, b) => b[1] - a[1]);
+    const totalVotes = [...votes.values()].reduce((a, b) => a + b, 0);
+
+    for (const [category, count] of sortedVotes) {
+      const colors = CATEGORY_COLORS[category];
+      const percentage = totalVotes > 0 ? (count / totalVotes) * 100 : 0;
+
+      const row = el('div', 'flex items-center gap-3');
+
+      const label = el('div', `w-20 font-mono text-xs ${colors.text}`);
+      label.textContent = category;
+
+      const barContainer = el('div', 'flex-1 h-2 bg-steel-800 overflow-hidden');
+      const bar = el('div', `h-full ${colors.bg} transition-all duration-300`);
+      bar.style.width = `${percentage}%`;
+      barContainer.appendChild(bar);
+
+      const countEl = el('div', 'w-8 text-right font-mono text-xs text-steel-400');
+      countEl.textContent = String(count);
+
+      row.appendChild(label);
+      row.appendChild(barContainer);
+      row.appendChild(countEl);
+      tallyEl.appendChild(row);
     }
   }
 
-  return {
-    setMode,
-    setTicket,
-    run,
-    reset,
-  };
+  function updateScoreboard(): void {
+    const runsEl = document.getElementById('demo-runs');
+    const singleEl = document.getElementById('demo-single-score');
+    const mdapEl = document.getElementById('demo-mdap-score');
+
+    if (runsEl) runsEl.textContent = String(state.runCount);
+    if (singleEl) singleEl.textContent = String(state.singleCorrect);
+    if (mdapEl) mdapEl.textContent = String(state.mdapCorrect);
+  }
 }

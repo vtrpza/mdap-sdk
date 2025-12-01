@@ -1,0 +1,2720 @@
+{
+  "config": {
+    "steps": 100,
+    "k": 3,
+    "model": "gpt-4o-mini",
+    "dryRun": false,
+    "maxCost": 5,
+    "delayMs": 50,
+    "checkpointInterval": 100
+  },
+  "startTime": 1764588994932,
+  "metrics": [
+    {
+      "iteration": 1,
+      "snippetName": "divide",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3792
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2119
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3286
+      },
+      "totalTimeMs": 9198,
+      "success": true
+    },
+    {
+      "iteration": 2,
+      "snippetName": "fetchUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2250
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2097
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1967
+      },
+      "totalTimeMs": 6314,
+      "success": true
+    },
+    {
+      "iteration": 3,
+      "snippetName": "findItem",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2623
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1895
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1963
+      },
+      "totalTimeMs": 6481,
+      "success": true
+    },
+    {
+      "iteration": 4,
+      "snippetName": "UserService",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 2786
+      },
+      "classify": {
+        "samples": 10,
+        "flagged": 0,
+        "confidence": 0.6,
+        "converged": false,
+        "timeMs": 7803
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3175
+      },
+      "totalTimeMs": 13764,
+      "success": true
+    },
+    {
+      "iteration": 5,
+      "snippetName": "parseConfig",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2885
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1587
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2328
+      },
+      "totalTimeMs": 6801,
+      "success": true
+    },
+    {
+      "iteration": 6,
+      "snippetName": "getUserByName",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2374
+      },
+      "classify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3180
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2129
+      },
+      "totalTimeMs": 7683,
+      "success": true
+    },
+    {
+      "iteration": 7,
+      "snippetName": "safeDiv",
+      "identify": {
+        "samples": 9,
+        "flagged": 0,
+        "confidence": 0.5555555555555556,
+        "converged": true,
+        "timeMs": 7942
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2248
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1819
+      },
+      "totalTimeMs": 12009,
+      "success": true
+    },
+    {
+      "iteration": 8,
+      "snippetName": "fetchWithRetry",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1927
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1893
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2780
+      },
+      "totalTimeMs": 6600,
+      "success": true
+    },
+    {
+      "iteration": 9,
+      "snippetName": "debounce",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1507
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1968
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3258
+      },
+      "totalTimeMs": 6733,
+      "success": true
+    },
+    {
+      "iteration": 10,
+      "snippetName": "processItems",
+      "identify": {
+        "samples": 15,
+        "flagged": 0,
+        "confidence": 0.6,
+        "converged": false,
+        "timeMs": 11353
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1884
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2116
+      },
+      "totalTimeMs": 15353,
+      "success": true
+    },
+    {
+      "iteration": 11,
+      "snippetName": "User",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2426
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2236
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2336
+      },
+      "totalTimeMs": 6998,
+      "success": true
+    },
+    {
+      "iteration": 12,
+      "snippetName": "loadData",
+      "identify": {
+        "samples": 13,
+        "flagged": 0,
+        "confidence": 0.6153846153846154,
+        "converged": true,
+        "timeMs": 12566
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1925
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2065
+      },
+      "totalTimeMs": 16556,
+      "success": true
+    },
+    {
+      "iteration": 13,
+      "snippetName": "processAll",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1856
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3630
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3066
+      },
+      "totalTimeMs": 8552,
+      "success": true
+    },
+    {
+      "iteration": 14,
+      "snippetName": "render",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2670
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1869
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2336
+      },
+      "totalTimeMs": 6875,
+      "success": true
+    },
+    {
+      "iteration": 15,
+      "snippetName": "token",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1982
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1631
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1599
+      },
+      "totalTimeMs": 5213,
+      "success": true
+    },
+    {
+      "iteration": 16,
+      "snippetName": "findDuplicates",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2088
+      },
+      "classify": {
+        "samples": 9,
+        "flagged": 0,
+        "confidence": 0.6666666666666666,
+        "converged": true,
+        "timeMs": 6008
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2367
+      },
+      "totalTimeMs": 10463,
+      "success": true
+    },
+    {
+      "iteration": 17,
+      "snippetName": "expensiveComputation",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1732
+      },
+      "classify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 4397
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3024
+      },
+      "totalTimeMs": 9153,
+      "success": true
+    },
+    {
+      "iteration": 18,
+      "snippetName": "isEmpty",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2521
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2702
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1970
+      },
+      "totalTimeMs": 7193,
+      "success": true
+    },
+    {
+      "iteration": 19,
+      "snippetName": "cloneDeep",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1951
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2927
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2031
+      },
+      "totalTimeMs": 6909,
+      "success": true
+    },
+    {
+      "iteration": 20,
+      "snippetName": "AppError",
+      "identify": {
+        "samples": 11,
+        "flagged": 0,
+        "confidence": 0.6363636363636364,
+        "converged": true,
+        "timeMs": 7735
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2036
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1722
+      },
+      "totalTimeMs": 11493,
+      "success": true
+    },
+    {
+      "iteration": 21,
+      "snippetName": "assertNever",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 6217
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1839
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1774
+      },
+      "totalTimeMs": 9830,
+      "success": true
+    },
+    {
+      "iteration": 22,
+      "snippetName": "snippet_21",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1976
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2054
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2055
+      },
+      "totalTimeMs": 6085,
+      "success": true
+    },
+    {
+      "iteration": 23,
+      "snippetName": "EventEmitter",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2098
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2437
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2357
+      },
+      "totalTimeMs": 6892,
+      "success": true
+    },
+    {
+      "iteration": 24,
+      "snippetName": "retry",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2170
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2766
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2233
+      },
+      "totalTimeMs": 7169,
+      "success": true
+    },
+    {
+      "iteration": 25,
+      "snippetName": "snippet_24",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1853
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1680
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3130
+      },
+      "totalTimeMs": 6663,
+      "success": true
+    },
+    {
+      "iteration": 26,
+      "snippetName": "createStore",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2021
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1745
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2598
+      },
+      "totalTimeMs": 6364,
+      "success": true
+    },
+    {
+      "iteration": 27,
+      "snippetName": "validateEmail",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2021
+      },
+      "classify": {
+        "samples": 10,
+        "flagged": 0,
+        "confidence": 0.6,
+        "converged": false,
+        "timeMs": 7654
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3299
+      },
+      "totalTimeMs": 12974,
+      "success": true
+    },
+    {
+      "iteration": 28,
+      "snippetName": "validatePassword",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2752
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1703
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1827
+      },
+      "totalTimeMs": 6282,
+      "success": true
+    },
+    {
+      "iteration": 29,
+      "snippetName": "withTransaction",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1977
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1754
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2266
+      },
+      "totalTimeMs": 5997,
+      "success": true
+    },
+    {
+      "iteration": 30,
+      "snippetName": "DeepPartial",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2469
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1840
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2253
+      },
+      "totalTimeMs": 6562,
+      "success": true
+    },
+    {
+      "iteration": 31,
+      "snippetName": "Awaited",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 4283
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2420
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2379
+      },
+      "totalTimeMs": 9082,
+      "success": true
+    },
+    {
+      "iteration": 32,
+      "snippetName": "formatDate",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2142
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2290
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1995
+      },
+      "totalTimeMs": 6427,
+      "success": true
+    },
+    {
+      "iteration": 33,
+      "snippetName": "merge",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2751
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2388
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1945
+      },
+      "totalTimeMs": 7084,
+      "success": true
+    },
+    {
+      "iteration": 34,
+      "snippetName": "CONFIG",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2929
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 4756
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 6718
+      },
+      "totalTimeMs": 14403,
+      "success": true
+    },
+    {
+      "iteration": 35,
+      "snippetName": "parallel",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2313
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 8374
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 7205
+      },
+      "totalTimeMs": 17892,
+      "success": true
+    },
+    {
+      "iteration": 36,
+      "snippetName": "useState",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2335
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 6918
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 8071
+      },
+      "totalTimeMs": 17324,
+      "success": true
+    },
+    {
+      "iteration": 37,
+      "snippetName": "QueryBuilder",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2323
+      },
+      "classify": {
+        "samples": 9,
+        "flagged": 0,
+        "confidence": 0.6666666666666666,
+        "converged": true,
+        "timeMs": 23871
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2920
+      },
+      "totalTimeMs": 29114,
+      "success": true
+    },
+    {
+      "iteration": 38,
+      "snippetName": "logger",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2249
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1900
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2125
+      },
+      "totalTimeMs": 6274,
+      "success": true
+    },
+    {
+      "iteration": 39,
+      "snippetName": "post",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2048
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1837
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2136
+      },
+      "totalTimeMs": 6021,
+      "success": true
+    },
+    {
+      "iteration": 40,
+      "snippetName": "memoize",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1924
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1980
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1930
+      },
+      "totalTimeMs": 5834,
+      "success": true
+    },
+    {
+      "iteration": 41,
+      "snippetName": "filterUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2429
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1881
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2282
+      },
+      "totalTimeMs": 6592,
+      "success": true
+    },
+    {
+      "iteration": 42,
+      "snippetName": "mapItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1831
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2129
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1787
+      },
+      "totalTimeMs": 5747,
+      "success": true
+    },
+    {
+      "iteration": 43,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1657
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2078
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1921
+      },
+      "totalTimeMs": 5656,
+      "success": true
+    },
+    {
+      "iteration": 44,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 4606
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1800
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2258
+      },
+      "totalTimeMs": 8664,
+      "success": true
+    },
+    {
+      "iteration": 45,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2879
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1609
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1786
+      },
+      "totalTimeMs": 6274,
+      "success": true
+    },
+    {
+      "iteration": 46,
+      "snippetName": "formatMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2241
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1943
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2433
+      },
+      "totalTimeMs": 6617,
+      "success": true
+    },
+    {
+      "iteration": 47,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3270
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1885
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1770
+      },
+      "totalTimeMs": 6925,
+      "success": true
+    },
+    {
+      "iteration": 48,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 11,
+        "flagged": 0,
+        "confidence": 0.6363636363636364,
+        "converged": true,
+        "timeMs": 7382
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2192
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2561
+      },
+      "totalTimeMs": 12135,
+      "success": true
+    },
+    {
+      "iteration": 49,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2173
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2379
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2369
+      },
+      "totalTimeMs": 6921,
+      "success": true
+    },
+    {
+      "iteration": 50,
+      "snippetName": "batchhandle",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1625
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2154
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1782
+      },
+      "totalTimeMs": 5561,
+      "success": true
+    },
+    {
+      "iteration": 51,
+      "snippetName": "getUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2161
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1776
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2049
+      },
+      "totalTimeMs": 5986,
+      "success": true
+    },
+    {
+      "iteration": 52,
+      "snippetName": "setItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1553
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1836
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2232
+      },
+      "totalTimeMs": 5621,
+      "success": true
+    },
+    {
+      "iteration": 53,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1987
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1616
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2086
+      },
+      "totalTimeMs": 5689,
+      "success": true
+    },
+    {
+      "iteration": 54,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3177
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2418
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1908
+      },
+      "totalTimeMs": 7503,
+      "success": true
+    },
+    {
+      "iteration": 55,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1942
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1724
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1574
+      },
+      "totalTimeMs": 5240,
+      "success": true
+    },
+    {
+      "iteration": 56,
+      "snippetName": "findMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2071
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1635
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2131
+      },
+      "totalTimeMs": 5837,
+      "success": true
+    },
+    {
+      "iteration": 57,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3347
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1563
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2358
+      },
+      "totalTimeMs": 7268,
+      "success": true
+    },
+    {
+      "iteration": 58,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 5126
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2582
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2335
+      },
+      "totalTimeMs": 10043,
+      "success": true
+    },
+    {
+      "iteration": 59,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1690
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2335
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2040
+      },
+      "totalTimeMs": 6065,
+      "success": true
+    },
+    {
+      "iteration": 60,
+      "snippetName": "batchvalidate",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2069
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2075
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2133
+      },
+      "totalTimeMs": 6277,
+      "success": true
+    },
+    {
+      "iteration": 61,
+      "snippetName": "parseUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2765
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1840
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2260
+      },
+      "totalTimeMs": 6865,
+      "success": true
+    },
+    {
+      "iteration": 62,
+      "snippetName": "formatItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2243
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2901
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1946
+      },
+      "totalTimeMs": 7090,
+      "success": true
+    },
+    {
+      "iteration": 63,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1778
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1899
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2392
+      },
+      "totalTimeMs": 6069,
+      "success": true
+    },
+    {
+      "iteration": 64,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2252
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1834
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1870
+      },
+      "totalTimeMs": 5956,
+      "success": true
+    },
+    {
+      "iteration": 65,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2688
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1737
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1776
+      },
+      "totalTimeMs": 6201,
+      "success": true
+    },
+    {
+      "iteration": 66,
+      "snippetName": "handleMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2726
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1872
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2829
+      },
+      "totalTimeMs": 7427,
+      "success": true
+    },
+    {
+      "iteration": 67,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3210
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1571
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1914
+      },
+      "totalTimeMs": 6695,
+      "success": true
+    },
+    {
+      "iteration": 68,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2033
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1601
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1779
+      },
+      "totalTimeMs": 5413,
+      "success": true
+    },
+    {
+      "iteration": 69,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1944
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1726
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1993
+      },
+      "totalTimeMs": 5663,
+      "success": true
+    },
+    {
+      "iteration": 70,
+      "snippetName": "batchdelete",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2198
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1516
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1732
+      },
+      "totalTimeMs": 5446,
+      "success": true
+    },
+    {
+      "iteration": 71,
+      "snippetName": "updateUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2141
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1814
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1926
+      },
+      "totalTimeMs": 5881,
+      "success": true
+    },
+    {
+      "iteration": 72,
+      "snippetName": "findItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2615
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1723
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2179
+      },
+      "totalTimeMs": 6517,
+      "success": true
+    },
+    {
+      "iteration": 73,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2049
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1516
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2280
+      },
+      "totalTimeMs": 5845,
+      "success": true
+    },
+    {
+      "iteration": 74,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2233
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2211
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2194
+      },
+      "totalTimeMs": 6638,
+      "success": true
+    },
+    {
+      "iteration": 75,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2280
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1662
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1967
+      },
+      "totalTimeMs": 5909,
+      "success": true
+    },
+    {
+      "iteration": 76,
+      "snippetName": "validateMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2259
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2031
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2345
+      },
+      "totalTimeMs": 6635,
+      "success": true
+    },
+    {
+      "iteration": 77,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 5209
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1877
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2382
+      },
+      "totalTimeMs": 9468,
+      "success": true
+    },
+    {
+      "iteration": 78,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 3119
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1791
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1823
+      },
+      "totalTimeMs": 6733,
+      "success": true
+    },
+    {
+      "iteration": 79,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2708
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1617
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3313
+      },
+      "totalTimeMs": 7638,
+      "success": true
+    },
+    {
+      "iteration": 80,
+      "snippetName": "batchtransform",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1516
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 4038
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2374
+      },
+      "totalTimeMs": 7928,
+      "success": true
+    },
+    {
+      "iteration": 81,
+      "snippetName": "processUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2325
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1934
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1841
+      },
+      "totalTimeMs": 6100,
+      "success": true
+    },
+    {
+      "iteration": 82,
+      "snippetName": "handleItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1874
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1516
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1725
+      },
+      "totalTimeMs": 5115,
+      "success": true
+    },
+    {
+      "iteration": 83,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1802
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1654
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2188
+      },
+      "totalTimeMs": 5644,
+      "success": true
+    },
+    {
+      "iteration": 84,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 13,
+        "flagged": 0,
+        "confidence": 0.6153846153846154,
+        "converged": true,
+        "timeMs": 8083
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2072
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2534
+      },
+      "totalTimeMs": 12689,
+      "success": true
+    },
+    {
+      "iteration": 85,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2400
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2627
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2592
+      },
+      "totalTimeMs": 7619,
+      "success": true
+    },
+    {
+      "iteration": 86,
+      "snippetName": "deleteMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2087
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1907
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2228
+      },
+      "totalTimeMs": 6222,
+      "success": true
+    },
+    {
+      "iteration": 87,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1784
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2041
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1723
+      },
+      "totalTimeMs": 5548,
+      "success": true
+    },
+    {
+      "iteration": 88,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 5,
+        "flagged": 0,
+        "confidence": 0.8,
+        "converged": true,
+        "timeMs": 2883
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2066
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2014
+      },
+      "totalTimeMs": 6963,
+      "success": true
+    },
+    {
+      "iteration": 89,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1983
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2377
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2037
+      },
+      "totalTimeMs": 6397,
+      "success": true
+    },
+    {
+      "iteration": 90,
+      "snippetName": "batchmap",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1772
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2320
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1712
+      },
+      "totalTimeMs": 5804,
+      "success": true
+    },
+    {
+      "iteration": 91,
+      "snippetName": "reduceUser",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2893
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2253
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1657
+      },
+      "totalTimeMs": 6803,
+      "success": true
+    },
+    {
+      "iteration": 92,
+      "snippetName": "validateItems",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1593
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1846
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1928
+      },
+      "totalTimeMs": 5367,
+      "success": true
+    },
+    {
+      "iteration": 93,
+      "snippetName": "OrderService",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1766
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1678
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1865
+      },
+      "totalTimeMs": 5309,
+      "success": true
+    },
+    {
+      "iteration": 94,
+      "snippetName": "ProductRepository",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2323
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 3003
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1771
+      },
+      "totalTimeMs": 7097,
+      "success": true
+    },
+    {
+      "iteration": 95,
+      "snippetName": "validateEvent",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2164
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2543
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1801
+      },
+      "totalTimeMs": 6508,
+      "success": true
+    },
+    {
+      "iteration": 96,
+      "snippetName": "transformMessage",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2180
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1483
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2932
+      },
+      "totalTimeMs": 6595,
+      "success": true
+    },
+    {
+      "iteration": 97,
+      "snippetName": "useConfig",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 5218
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1724
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2050
+      },
+      "totalTimeMs": 8992,
+      "success": true
+    },
+    {
+      "iteration": 98,
+      "snippetName": "SettingsAction",
+      "identify": {
+        "samples": 7,
+        "flagged": 0,
+        "confidence": 0.7142857142857143,
+        "converged": true,
+        "timeMs": 5108
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1768
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2490
+      },
+      "totalTimeMs": 9366,
+      "success": true
+    },
+    {
+      "iteration": 99,
+      "snippetName": "dataSchema",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2336
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1977
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1957
+      },
+      "totalTimeMs": 6270,
+      "success": true
+    },
+    {
+      "iteration": 100,
+      "snippetName": "batchset",
+      "identify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1432
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 1784
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 2038
+      },
+      "totalTimeMs": 5254,
+      "success": true
+    }
+  ],
+  "totalSamples": 1028,
+  "totalFlagged": 0,
+  "totalSuccesses": 100,
+  "totalFailures": 0,
+  "estimatedCost": 0.0616799999999999,
+  "currentIteration": 100
+}
