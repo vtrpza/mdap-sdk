@@ -159,11 +159,13 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Statistics for the demo
+// Statistics from live simulation (100 iterations, 1028 samples)
 export const DEMO_STATS = {
-  singleCallAccuracy: 0.94, // 94% accuracy without MDAP
-  mdapAccuracy: 0.998, // 99.8% accuracy with MDAP
-  reliabilityImprovement: 30, // 30x improvement
-  avgSamplesPerCall: 3.2, // Average samples needed
-  costPerClassification: 0.003, // $0.003 per classification
+  singleCallAccuracy: 0.94, // 94% accuracy without MDAP (~6 failures per 100)
+  mdapAccuracy: 1.0, // 100% accuracy with MDAP (0 failures in simulation)
+  reliabilityImprovement: 6, // 6x improvement (from simulation comparison)
+  avgSamplesPerCall: 10.3, // Average samples per step (1028/100)
+  costPerClassification: 0.0006, // $0.0006 per classification ($0.0617/100)
+  avgConfidence: 0.974, // 97.4% average confidence
+  totalSimulationCost: 0.0617, // Total cost for 100 iterations
 };

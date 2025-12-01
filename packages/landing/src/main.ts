@@ -164,15 +164,15 @@ function initStatsAnimation(): void {
  */
 function animateStats(): void {
   const stats = [
-    { id: 'stat-accuracy', value: DEMO_STATS.mdapAccuracy * 100, suffix: '%', decimals: 1 },
+    { id: 'stat-accuracy', value: DEMO_STATS.mdapAccuracy * 100, suffix: '%', decimals: 0 },
     { id: 'stat-improvement', value: DEMO_STATS.reliabilityImprovement, suffix: 'x', decimals: 0 },
     { id: 'stat-samples', value: DEMO_STATS.avgSamplesPerCall, suffix: '', decimals: 1 },
     {
       id: 'stat-cost',
-      value: DEMO_STATS.costPerClassification * 1000,
+      value: DEMO_STATS.costPerClassification * 10000,
       suffix: '',
-      decimals: 1,
-      prefix: '$0.00',
+      decimals: 0,
+      prefix: '$0.000',
     },
   ];
 

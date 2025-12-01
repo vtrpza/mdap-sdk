@@ -78,19 +78,19 @@
 
           <!-- Headline -->
           <h1 class="opacity-0 animate-slide-up delay-100">
-            <span class="display-text text-5xl md:text-6xl lg:text-7xl text-steel-50 block">
+            <span class="hero-headline block">
               Consensus-Driven
             </span>
-            <span class="display-text text-5xl md:text-6xl lg:text-7xl gradient-text block mt-2">
+            <span class="hero-accent block mt-1">
               AI Reliability
             </span>
           </h1>
 
           <!-- Subheadline -->
-          <p class="text-xl text-steel-400 leading-relaxed max-w-xl opacity-0 animate-slide-up delay-200">
+          <p class="hero-subtext max-w-xl opacity-0 animate-slide-up delay-200">
             Voting-based error correction for LLM applications. Transform
-            <span class="text-signal-error font-mono">94%</span> accuracy into
-            <span class="text-signal-success font-mono">99.8%</span> reliability.
+            <span class="text-signal-error mono-refined">94%</span> accuracy into
+            <span class="text-signal-success mono-refined">100%</span> reliability.
           </p>
 
           <!-- CTAs -->
@@ -202,9 +202,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
             </svg>
           </div>
-          <div class="font-mono text-3xl font-bold text-steel-50 mb-2">94%</div>
-          <h3 class="font-display text-lg font-semibold text-steel-200 mb-3">Per-Call Accuracy</h3>
-          <p class="text-steel-400 text-sm leading-relaxed">
+          <div class="stat-number text-4xl text-steel-50 mb-2">94%</div>
+          <h3 class="font-display text-base font-semibold text-steel-200 mb-3 tracking-tight">Per-Call Accuracy</h3>
+          <p class="text-steel-500 text-sm leading-relaxed font-light">
             GPT-4 achieves ~94% accuracy on classification. Sounds impressive in isolation.
           </p>
         </div>
@@ -215,9 +215,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
           </div>
-          <div class="font-mono text-3xl font-bold text-steel-50 mb-2">100x</div>
-          <h3 class="font-display text-lg font-semibold text-steel-200 mb-3">Operations Scale</h3>
-          <p class="text-steel-400 text-sm leading-relaxed">
+          <div class="stat-number text-4xl text-steel-50 mb-2">100<span class="text-steel-500 text-xl">×</span></div>
+          <h3 class="font-display text-base font-semibold text-steel-200 mb-3 tracking-tight">Operations Scale</h3>
+          <p class="text-steel-500 text-sm leading-relaxed font-light">
             Run 100 operations at 94%. Probability of zero errors: just 0.2%.
           </p>
         </div>
@@ -228,9 +228,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
             </svg>
           </div>
-          <div class="font-mono text-3xl font-bold text-signal-error mb-2">6</div>
-          <h3 class="font-display text-lg font-semibold text-steel-200 mb-3">Expected Failures</h3>
-          <p class="text-steel-400 text-sm leading-relaxed">
+          <div class="stat-number text-4xl text-signal-error mb-2">6</div>
+          <h3 class="font-display text-base font-semibold text-steel-200 mb-3 tracking-tight">Expected Failures</h3>
+          <p class="text-steel-500 text-sm leading-relaxed font-light">
             Six misrouted tickets. Six wrong classifications. Six unhappy customers.
           </p>
         </div>
@@ -250,11 +250,11 @@
             </svg>
           </div>
           <div>
-            <h3 class="font-display text-xl font-semibold text-steel-50 mb-4">The Mathematics of Failure</h3>
-            <div class="font-mono text-lg text-steel-300 mb-4">
-              P(all correct) = 0.94<sup>100</sup> = <span class="text-signal-error">0.2%</span>
+            <h3 class="font-display text-xl font-semibold text-steel-50 mb-4 tracking-tight">The Mathematics of Failure</h3>
+            <div class="mono-refined text-xl text-steel-200 mb-4 tracking-normal">
+              P(all correct) = 0.94<sup class="text-steel-400">100</sup> = <span class="text-signal-error font-semibold">0.2%</span>
             </div>
-            <p class="text-steel-400 leading-relaxed">
+            <p class="text-steel-400 leading-relaxed font-light">
               At 94% per-operation accuracy, running 100 independent operations gives you only a 0.2% chance of getting
               everything right. This is why agentic systems feel unreliable in production.
             </p>

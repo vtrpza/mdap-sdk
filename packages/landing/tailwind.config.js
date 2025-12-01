@@ -44,7 +44,15 @@ export default {
       fontFamily: {
         display: ['Syne', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Space Mono', 'JetBrains Mono', 'monospace'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+      },
+      letterSpacing: {
+        'ultra-tight': '-0.05em',
+        'display': '-0.03em',
+      },
+      lineHeight: {
+        'display': '0.95',
+        'relaxed-plus': '1.8',
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
