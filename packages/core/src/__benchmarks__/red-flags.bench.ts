@@ -150,9 +150,9 @@ describe('RedFlag.containsPhrase - Phrase Detection', () => {
 });
 
 describe('RedFlag.custom - Custom Rules', () => {
-  const simpleCustom = RedFlag.custom('lengthCheck', (r) => r.length > 100);
-  const complexCustom = RedFlag.custom('wordCount', (r) => r.split(/\s+/).length > 50);
-  const regexCustom = RedFlag.custom('noNumbers', (r) => !/\d/.test(r));
+  const simpleCustom = RedFlag.custom<string>('lengthCheck', (r) => r.length > 100);
+  const complexCustom = RedFlag.custom<string>('wordCount', (r) => r.split(/\s+/).length > 50);
+  const regexCustom = RedFlag.custom<string>('noNumbers', (r) => !/\d/.test(r));
 
   bench('simple length check', () => {
     simpleCustom.check(mediumResponse);

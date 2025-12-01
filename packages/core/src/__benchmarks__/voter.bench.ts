@@ -106,14 +106,14 @@ describe('vote() - Voting Strategies', () => {
 
 describe('reliable() - Wrapper Overhead', () => {
   bench('reliable() with no red flags', async () => {
-    const fn = reliable<string, string>({ vote: { k: 3 } })(
+    const fn = reliable<string>({ vote: { k: 3 } })(
       createMockLLM(unanimousResponses)
     );
     await fn('input');
   });
 
   bench('reliable() with 1 red flag', async () => {
-    const fn = reliable<string, string>({
+    const fn = reliable<string>({
       vote: { k: 3 },
       redFlags: [RedFlag.tooLong(1000)]
     })(createMockLLM(unanimousResponses));
@@ -121,7 +121,7 @@ describe('reliable() - Wrapper Overhead', () => {
   });
 
   bench('reliable() with 3 red flags', async () => {
-    const fn = reliable<string, string>({
+    const fn = reliable<string>({
       vote: { k: 3 },
       redFlags: [
         RedFlag.tooLong(1000),
@@ -133,7 +133,7 @@ describe('reliable() - Wrapper Overhead', () => {
   });
 
   bench('reliable() with 5 red flags', async () => {
-    const fn = reliable<string, string>({
+    const fn = reliable<string>({
       vote: { k: 3 },
       redFlags: [
         RedFlag.tooLong(1000),
