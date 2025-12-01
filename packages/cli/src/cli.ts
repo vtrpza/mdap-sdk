@@ -45,7 +45,7 @@ EXAMPLES
   # Calculate optimal k value
   mdap estimate --steps 1000000 --success-rate 0.99
 
-For more info: https://github.com/yourusername/mdap-sdk
+For more info: https://github.com/vtrpza/mdap-sdk
 `);
 }
 

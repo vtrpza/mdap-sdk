@@ -131,8 +131,11 @@ function createLLM(config: Config) {
           return JSON.stringify({ categories: [categories[Math.floor(Math.random() * 3)]] });
         } else if (prompt.includes('severity')) {
           return JSON.stringify({ severity: 'medium' });
+        } else if (prompt.includes('fix type')) {
+          const fixes = ['ADD_NULL_CHECK', 'ADD_ERROR_HANDLING', 'VALIDATE_INPUT', 'NO_FIX_NEEDED'];
+          return JSON.stringify({ fix: fixes[Math.floor(Math.random() * fixes.length)] });
         } else {
-          return 'Add null check';
+          return JSON.stringify({ fix: 'ADD_NULL_CHECK' });
         }
       }
     };
@@ -180,8 +183,9 @@ function createAnalysisPipeline(llm: ReturnType<typeof createLLM>, k: number) {
   ];
 
   // Step 1: Classify Issues (constrained categories for better convergence)
+  // maxSamples: 15 for fail-fast - if no consensus in 15, unlikely to converge
   const identifyIssues = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 15 },
     redFlags: jsonRedFlags,
   })(async (code: string) => {
     return await llm.chat(
@@ -196,8 +200,9 @@ ${code}`,
   });
 
   // Step 2: Classify Severity (single word for better convergence)
+  // maxSamples: 10 - severity is simple, should converge quickly
   const classifySeverity = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 10 },
     redFlags: jsonRedFlags,
   })(async (issuesJson: string) => {
     return await llm.chat(
@@ -210,18 +215,18 @@ Issues: ${issuesJson}`,
     );
   });
 
-  // Step 3: Suggest Fix (short phrase)
+  // Step 3: Suggest Fix Type (constrained categories for production convergence)
   const suggestFix = reliable<string>({
-    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 30 },
-    redFlags: [
-      RedFlag.tooLong(100),
-      RedFlag.emptyResponse(),
-    ],
+    vote: { k, strategy: 'first-to-ahead-by-k', parallel: false, maxSamples: 15 },
+    redFlags: jsonRedFlags,
   })(async (context: string) => {
     return await llm.chat(
-      `One fix in 5 words or less:
+      `What fix type is needed?
+Pick ONE from: ADD_NULL_CHECK, ADD_ERROR_HANDLING, ADD_TYPE_ANNOTATION, VALIDATE_INPUT, USE_SAFE_METHOD, IMPROVE_PERFORMANCE, NO_FIX_NEEDED
+Respond ONLY with JSON: {"fix":"FIX_TYPE"}
+
 ${context}`,
-      { system: 'Reply with only 5 words maximum. No punctuation.' }
+      { system: 'Respond with exactly one JSON object. No explanation.' }
     );
   });
 

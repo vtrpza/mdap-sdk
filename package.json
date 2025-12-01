@@ -5,7 +5,7 @@
   "description": "Massively Decomposed Agentic Processes - Make your AI agents reliable",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/mdap-sdk"
+    "url": "https://github.com/vtrpza/mdap-sdk"
   },
   "workspaces": [
     "packages/*"

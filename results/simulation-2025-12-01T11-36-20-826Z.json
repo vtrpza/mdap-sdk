@@ -1,0 +1,298 @@
+{
+  "config": {
+    "steps": 10,
+    "k": 3,
+    "model": "gpt-4o-mini",
+    "dryRun": true
+  },
+  "results": {
+    "totalIterations": 10,
+    "totalSteps": 30,
+    "successfulIterations": 10,
+    "failedIterations": 0,
+    "successRate": 1,
+    "totalSamples": 166,
+    "flaggedSamples": 0,
+    "avgConfidence": 0.853459595959596,
+    "totalTimeMs": 1687,
+    "avgTimePerStepMs": 168.7,
+    "estimatedCostUsd": 0.009959999999999995
+  },
+  "comparison": {
+    "singleSampleExpectedFailures": 1,
+    "mdapActualFailures": 0,
+    "reliabilityImprovement": "1.0"
+  },
+  "metrics": [
+    {
+      "iteration": 1,
+      "snippetName": "divide",
+      "identify": {
+        "samples": 6,
+        "flagged": 0,
+        "confidence": 0.6666666666666666,
+        "converged": true,
+        "timeMs": 62
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "totalTimeMs": 123,
+      "success": true
+    },
+    {
+      "iteration": 2,
+      "snippetName": "fetchUser",
+      "identify": {
+        "samples": 6,
+        "flagged": 0,
+        "confidence": 0.6666666666666666,
+        "converged": true,
+        "timeMs": 61
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 122,
+      "success": true
+    },
+    {
+      "iteration": 3,
+      "snippetName": "findItem",
+      "identify": {
+        "samples": 10,
+        "flagged": 0,
+        "confidence": 0.6,
+        "converged": true,
+        "timeMs": 102
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "totalTimeMs": 163,
+      "success": true
+    },
+    {
+      "iteration": 4,
+      "snippetName": "UserService",
+      "identify": {
+        "samples": 15,
+        "flagged": 0,
+        "confidence": 0.4666666666666667,
+        "converged": false,
+        "timeMs": 152
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 213,
+      "success": true
+    },
+    {
+      "iteration": 5,
+      "snippetName": "parseConfig",
+      "identify": {
+        "samples": 8,
+        "flagged": 0,
+        "confidence": 0.625,
+        "converged": true,
+        "timeMs": 82
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 29
+      },
+      "totalTimeMs": 142,
+      "success": true
+    },
+    {
+      "iteration": 6,
+      "snippetName": "getUserByName",
+      "identify": {
+        "samples": 11,
+        "flagged": 0,
+        "confidence": 0.5454545454545454,
+        "converged": true,
+        "timeMs": 112
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 173,
+      "success": true
+    },
+    {
+      "iteration": 7,
+      "snippetName": "safeDiv",
+      "identify": {
+        "samples": 15,
+        "flagged": 0,
+        "confidence": 0.4,
+        "converged": false,
+        "timeMs": 154
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 214,
+      "success": true
+    },
+    {
+      "iteration": 8,
+      "snippetName": "fetchWithRetry",
+      "identify": {
+        "samples": 6,
+        "flagged": 0,
+        "confidence": 0.6666666666666666,
+        "converged": true,
+        "timeMs": 61
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 122,
+      "success": true
+    },
+    {
+      "iteration": 9,
+      "snippetName": "debounce",
+      "identify": {
+        "samples": 14,
+        "flagged": 0,
+        "confidence": 0.5,
+        "converged": true,
+        "timeMs": 141
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 29
+      },
+      "totalTimeMs": 201,
+      "success": true
+    },
+    {
+      "iteration": 10,
+      "snippetName": "processItems",
+      "identify": {
+        "samples": 15,
+        "flagged": 0,
+        "confidence": 0.4666666666666667,
+        "converged": false,
+        "timeMs": 152
+      },
+      "classify": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 31
+      },
+      "suggest": {
+        "samples": 3,
+        "flagged": 0,
+        "confidence": 1,
+        "converged": true,
+        "timeMs": 30
+      },
+      "totalTimeMs": 213,
+      "success": true
+    }
+  ]
+}
