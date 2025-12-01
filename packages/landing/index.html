@@ -279,22 +279,53 @@
       </div>
 
       <!-- Stats grid -->
-      <div id="stats-section" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-        <div class="panel p-6 text-center">
-          <div id="stat-accuracy" class="stat-value">0%</div>
+      <div id="stats-section" class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <!-- Accuracy -->
+        <div class="panel p-8 text-center group hover:border-signal-success/30 transition-all duration-500">
+          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center border border-signal-success/30 text-signal-success">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div id="stat-accuracy" class="stat-value text-signal-success">0%</div>
           <div class="stat-label">Accuracy</div>
+          <div class="text-xs text-steel-600 mt-2 font-mono">verified in simulation</div>
         </div>
-        <div class="panel p-6 text-center">
-          <div id="stat-improvement" class="stat-value">0x</div>
+
+        <!-- Reliability -->
+        <div class="panel p-8 text-center group hover:border-amber-glow/30 transition-all duration-500">
+          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center border border-amber-glow/30 text-amber-glow">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <div id="stat-improvement" class="stat-value gradient-text">0x</div>
           <div class="stat-label">More Reliable</div>
+          <div class="text-xs text-steel-600 mt-2 font-mono">vs single LLM call</div>
         </div>
-        <div class="panel p-6 text-center">
-          <div id="stat-samples" class="stat-value">0</div>
+
+        <!-- Samples -->
+        <div class="panel p-8 text-center group hover:border-cyan-data/30 transition-all duration-500">
+          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center border border-cyan-data/30 text-cyan-data">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <div id="stat-samples" class="stat-value gradient-text-cyan">0</div>
           <div class="stat-label">Avg Samples</div>
+          <div class="text-xs text-steel-600 mt-2 font-mono">adaptive per task</div>
         </div>
-        <div class="panel p-6 text-center">
-          <div id="stat-cost" class="stat-value">$0</div>
+
+        <!-- Cost -->
+        <div class="panel p-8 text-center group hover:border-amber-glow/30 transition-all duration-500">
+          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center border border-amber-glow/30 text-amber-glow">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div id="stat-cost" class="stat-value gradient-text">$0</div>
           <div class="stat-label">Per Call</div>
+          <div class="text-xs text-steel-600 mt-2 font-mono">total: $0.06/100 calls</div>
         </div>
       </div>
 
@@ -510,9 +541,7 @@
       <!-- Section header -->
       <div class="text-center mb-16">
         <div class="section-label justify-center mb-4">
-          <span class="w-8 h-px bg-amber-glow/40"></span>
           Quick Start
-          <span class="w-8 h-px bg-amber-glow/40"></span>
         </div>
         <h2 class="section-title mb-6">
           Get <span class="gradient-text">Started</span>

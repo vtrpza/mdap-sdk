@@ -196,11 +196,15 @@
 
   /* ===== Stats ===== */
   .stat-value {
-    @apply font-display font-extrabold text-5xl md:text-6xl gradient-text
-           tabular-nums tracking-tight;
+    @apply font-display font-extrabold text-4xl md:text-5xl
+           tabular-nums tracking-tight leading-none;
+  }
+  .stat-value.gradient-text {
+    @apply bg-gradient-to-r from-amber-glow via-amber-bright to-amber-muted
+           bg-clip-text text-transparent;
   }
   .stat-label {
-    @apply font-mono text-xs uppercase tracking-widest text-steel-400 mt-2;
+    @apply font-mono text-xs uppercase tracking-widest text-steel-400 mt-3;
   }
 
   /* ===== Grid overlay effect ===== */
