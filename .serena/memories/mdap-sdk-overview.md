@@ -86,6 +86,17 @@ pnpm test         # Run all tests (76 tests)
 pnpm typecheck    # Type checking
 ```
 
+## Critical Usage Note
+
+**Prompt Design for Convergence**: Voting only works when responses can converge. Use:
+- Constrained categories (not free text)
+- Structured JSON output
+- Low temperature (0.1)
+- JSON validation red flags
+- maxSamples: 30 (fail fast)
+
+See README.md "Designing Prompts for Convergence" section.
+
 ## Status
 
 **ALL ROADMAP ITEMS COMPLETE**
