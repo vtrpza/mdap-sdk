@@ -19,7 +19,9 @@
     "clean": "pnpm -r clean",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish",
+    "simulate": "npx tsx examples/simulation/code-analysis-1000.ts",
+    "simulate:dry": "npx tsx examples/simulation/code-analysis-1000.ts --dry-run"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
