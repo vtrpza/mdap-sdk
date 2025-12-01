@@ -356,12 +356,178 @@
   animation: particleFloat 8s ease-in-out infinite;
 }
 
+/* ===== Mobile Menu ===== */
+.mobile-menu {
+  @apply fixed inset-0 z-40 backdrop-blur-xl
+         flex flex-col items-center justify-center gap-8
+         opacity-0 pointer-events-none transition-all duration-300;
+  background-color: rgba(10, 10, 11, 0.98);
+}
+.mobile-menu.active {
+  @apply opacity-100 pointer-events-auto;
+}
+.mobile-menu a {
+  @apply font-mono text-2xl uppercase tracking-widest text-steel-300
+         transition-colors duration-300 hover:text-amber-glow;
+}
+.mobile-menu-close {
+  @apply absolute top-6 right-6 p-2 text-steel-400 hover:text-amber-glow
+         transition-colors;
+}
+
 /* ===== Responsive adjustments ===== */
+
+/* Large tablets and below */
+@media (max-width: 1024px) {
+  .hero-visualization {
+    @apply hidden;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
+  /* Typography scaling */
   .section-title {
-    @apply text-3xl;
+    @apply text-2xl;
+  }
+  .section-subtitle {
+    @apply text-base;
   }
   .stat-value {
-    @apply text-4xl;
+    @apply text-3xl;
+  }
+  .stat-label {
+    @apply text-2xs;
+  }
+  .display-text {
+    @apply text-3xl;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-xs;
+  }
+
+  /* Buttons - larger touch targets */
+  .btn-primary,
+  .btn-secondary {
+    @apply px-6 py-3 text-xs w-full sm:w-auto justify-center;
+  }
+  .btn-ghost {
+    @apply px-3 py-2;
+  }
+
+  /* Cards & Panels */
+  .panel {
+    @apply p-4;
+  }
+  .card {
+    @apply p-4;
+  }
+
+  /* Code blocks */
+  .code-block {
+    @apply p-4 text-xs;
+  }
+
+  /* Feature icons */
+  .feature-icon {
+    @apply w-10 h-10;
+  }
+
+  /* Stats grid - stack on mobile */
+  #stats-section {
+    @apply gap-3;
+  }
+  #stats-section > div {
+    @apply p-4;
+  }
+  #stats-section .w-12 {
+    @apply w-10 h-10;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  /* Extra tight typography */
+  .section-title {
+    @apply text-xl;
+  }
+  .display-text {
+    @apply text-2xl;
+  }
+  .stat-value {
+    @apply text-2xl;
+  }
+
+  /* Full-width buttons */
+  .btn-primary,
+  .btn-secondary {
+    @apply w-full text-center;
+  }
+
+  /* Reduce padding globally */
+  .panel, .card {
+    @apply p-3;
+  }
+
+  /* Stats - single column on tiny screens */
+  #stats-section {
+    @apply grid-cols-1;
+  }
+
+  /* Hide decorative elements */
+  .corner-accents::before,
+  .corner-accents::after {
+    @apply hidden;
+  }
+  .noise-overlay {
+    @apply hidden;
+  }
+  #particles-container {
+    @apply hidden;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  /* Remove hover-dependent animations */
+  .nav-link::after {
+    @apply hidden;
+  }
+  .card:hover {
+    @apply border-steel-800/50 bg-void-surface/60;
+  }
+  .btn-primary:hover {
+    @apply bg-amber-glow text-void shadow-none;
+  }
+
+  /* Ensure minimum touch target size (44px) */
+  .btn-ghost,
+  .nav-link,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .min-h-screen {
+    min-height: auto;
+  }
+  section {
+    @apply py-12;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  nav {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

@@ -9,6 +9,7 @@ import { DEMO_STATS } from './demo/mock-llm';
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu();
   initParticles();
   initOrbitingParticles();
   initScrollAnimations();
@@ -16,6 +17,44 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initDemo();
 });
+
+/**
+ * Initialize mobile menu functionality
+ */
+function initMobileMenu(): void {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const menuLinks = menu?.querySelectorAll('a');
+
+  if (!menuBtn || !menu) return;
+
+  // Open menu
+  menuBtn.addEventListener('click', () => {
+    menu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Close menu
+  const closeMenu = (): void => {
+    menu.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Close on link click
+  menuLinks?.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+}
 
 /**
  * Initialize floating background particles
