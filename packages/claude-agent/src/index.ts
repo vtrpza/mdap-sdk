@@ -24,10 +24,7 @@ import {
   RedFlag,
   estimateCost,
   calculateMinK,
-  type ReliableConfig,
-  type VoteResult,
   type RedFlagRule,
-  type CostEstimateConfig
 } from '@mdap/core';
 
 /**
@@ -315,7 +312,7 @@ export function calculateRecommendedK(
  * }
  * ```
  */
-export function mdapMiddleware(config: MdapAgentConfig = {}) {
+export function mdapMiddleware(_config: MdapAgentConfig = {}) {
   // Note: This is a placeholder for full Claude Agent SDK integration
   // Full implementation would require the SDK types
   return <T extends (...args: unknown[]) => unknown>(queryFn: T): T => {

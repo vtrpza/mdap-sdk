@@ -33,7 +33,7 @@ Text: ${text}`,
 });
 
 // Example 2: Code generation with higher k
-const generateFunction = reliable({
+const _generateFunction = reliable({
   vote: { k: 5 },  // Higher threshold for code
   redFlags: [
     RedFlag.emptyResponse(),

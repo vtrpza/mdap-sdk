@@ -3,7 +3,7 @@
  * Chain multiple reliable steps together with automatic error handling
  */
 
-import type { VoteResult, ReliableConfig, RedFlagRule } from './types.js';
+import type { VoteResult, ReliableConfig } from './types.js';
 import { reliable } from './voter.js';
 
 /**

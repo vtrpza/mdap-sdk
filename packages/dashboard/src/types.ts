@@ -2,7 +2,7 @@
  * Dashboard Types
  */
 
-import type { VoteResult, WorkflowResult, StepResult } from '@mdap/core';
+import type { VoteResult } from '@mdap/core';
 
 /**
  * A tracked workflow execution
