@@ -167,19 +167,13 @@ function animateStats(): void {
     { id: 'stat-accuracy', value: DEMO_STATS.mdapAccuracy * 100, suffix: '%', decimals: 0 },
     { id: 'stat-improvement', value: DEMO_STATS.reliabilityImprovement, suffix: 'x', decimals: 0 },
     { id: 'stat-samples', value: DEMO_STATS.avgSamplesPerCall, suffix: '', decimals: 1 },
-    {
-      id: 'stat-cost',
-      value: DEMO_STATS.costPerClassification * 10000,
-      suffix: '',
-      decimals: 0,
-      prefix: '$0.000',
-    },
+    // Cost is now static in HTML - no animation needed
   ];
 
-  stats.forEach(({ id, value, suffix, decimals, prefix }) => {
+  stats.forEach(({ id, value, suffix, decimals }) => {
     const el = document.getElementById(id);
     if (el) {
-      animateNumber(el, 0, value, 2000, decimals, suffix, prefix);
+      animateNumber(el, 0, value, 2000, decimals, suffix);
     }
   });
 }
@@ -193,8 +187,7 @@ function animateNumber(
   end: number,
   duration: number,
   decimals: number,
-  suffix: string,
-  prefix?: string
+  suffix: string
 ): void {
   const startTime = performance.now();
 
@@ -205,11 +198,7 @@ function animateNumber(
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = start + (end - start) * eased;
 
-    if (prefix) {
-      el.textContent = prefix + current.toFixed(decimals).slice(-1) + suffix;
-    } else {
-      el.textContent = current.toFixed(decimals) + suffix;
-    }
+    el.textContent = current.toFixed(decimals) + suffix;
 
     if (progress < 1) {
       requestAnimationFrame(update);
