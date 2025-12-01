@@ -49,6 +49,15 @@ export {
   formatCostEstimate
 } from './cost.js';
 
+// Workflow orchestration
+export {
+  Workflow,
+  workflow,
+  pipeline,
+  parallel,
+  decompose
+} from './workflow.js';
+
 // Types
 export type {
   LLMCall,
@@ -61,3 +70,9 @@ export type {
   CostEstimate,
   CostEstimateConfig
 } from './types.js';
+
+export type {
+  WorkflowStep,
+  WorkflowResult,
+  StepResult
+} from './workflow.js';
