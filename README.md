@@ -236,12 +236,138 @@ const step2 = reliable({ vote: { k: 3 } })(processData);
 const step3 = reliable({ vote: { k: 2 } })(formatOutput);
 
 // Chain them together
-async function workflow(input: string) {
+async function myWorkflow(input: string) {
   const r1 = await step1(input);
   const r2 = await step2(r1.winner);
   const r3 = await step3(r2.winner);
   return r3.winner;
 }
+```
+
+## Workflow Orchestration
+
+Chain multiple reliable steps together with the workflow API:
+
+### Workflow Builder
+
+```typescript
+import { workflow, RedFlag } from '@mdap/core';
+
+const analysisWorkflow = workflow<string>('document-analysis', {
+  vote: { k: 3 },
+  redFlags: [RedFlag.emptyResponse()]
+})
+  .step('extract', async (text) => {
+    return await llm(`extract entities from: ${text}`);
+  })
+  .step('summarize', async (entities) => {
+    return await llm(`summarize: ${entities}`);
+  })
+  .step('classify', async (summary) => {
+    return await llm(`classify sentiment: ${summary}`);
+  });
+
+const result = await analysisWorkflow.run('Your input document...');
+console.log(result.output);        // Final output
+console.log(result.totalSamples);  // Total samples across all steps
+console.log(result.steps);         // Details for each step
+```
+
+### Pipeline (Simple Linear Chain)
+
+```typescript
+import { pipeline } from '@mdap/core';
+
+const myPipeline = pipeline<string, string>([
+  { name: 'extract', fn: async (input) => llm(`extract: ${input}`) },
+  { name: 'analyze', fn: async (data) => llm(`analyze: ${data}`) },
+  { name: 'format', fn: async (result) => llm(`format: ${result}`) }
+], { vote: { k: 2 } });
+
+const result = await myPipeline('input text');
+```
+
+### Parallel Execution
+
+```typescript
+import { parallel } from '@mdap/core';
+
+const results = await parallel({
+  entities: () => llm('extract entities from: doc'),
+  sentiment: () => llm('sentiment analysis: doc'),
+  summary: () => llm('summarize: doc')
+}, { vote: { k: 2 } });
+
+console.log(results.entities.winner);
+console.log(results.sentiment.winner);
+console.log(results.summary.winner);
+```
+
+### Decompose Pattern (MAKER Methodology)
+
+```typescript
+import { decompose } from '@mdap/core';
+
+const result = await decompose<string, string, string>(
+  'Large task to process',
+  // Decomposer: split into subtasks
+  async (input) => JSON.parse(await llm(`split into subtasks: ${input}`)),
+  // Executor: process each subtask
+  async (subtask) => await llm(`process: ${subtask}`),
+  // Aggregator: combine results
+  (results) => results.map(r => r.winner).join('\n'),
+  { vote: { k: 2 } }
+);
+```
+
+## CLI Tool
+
+Install globally or use with npx:
+
+```bash
+npm install -g @mdap/cli
+# or
+npx @mdap/cli <command>
+```
+
+### Estimate Cost
+
+```bash
+# Basic estimation
+mdap estimate --steps 10000
+
+# With custom parameters
+mdap estimate --steps 10000 --success-rate 0.99 --target 0.95
+
+# Full options
+mdap estimate \
+  --steps 10000 \
+  --success-rate 0.99 \
+  --target 0.95 \
+  --input-cost 0.5 \
+  --output-cost 1.5 \
+  --input-tokens 300 \
+  --output-tokens 200
+```
+
+### Validate Response
+
+```bash
+# Check response against default rules
+mdap validate "Your LLM response here"
+
+# With custom max tokens
+mdap validate "Response text" --max-tokens 750
+
+# With specific rules
+mdap validate "Response text" --rules tooLong,invalidJson,emptyResponse
+```
+
+### Help
+
+```bash
+mdap help
+mdap --version
 ```
 
 ## How It Works
@@ -332,8 +458,9 @@ console.log(result.mdap.confidence); // 0.0-1.0
 
 | Package | Description |
 |---------|-------------|
-| `@mdap/core` | Core voting, red flags, cost estimation |
+| `@mdap/core` | Core voting, red flags, cost estimation, workflow orchestration |
 | `@mdap/adapters` | OpenAI, Anthropic adapters |
+| `@mdap/cli` | Command-line tools for cost estimation and validation |
 | `@mdap/mcp` | MCP server for Claude Code/Cursor/VS Code |
 | `@mdap/claude-agent` | Claude Agent SDK integration |
 
@@ -347,8 +474,10 @@ console.log(result.mdap.confidence); // 0.0-1.0
 - [x] MCP server
 - [x] Claude Code subagents
 - [x] Claude Agent SDK integration
-- [ ] Workflow orchestration
-- [ ] CLI tool
+- [x] Workflow orchestration
+- [x] CLI tool
+- [x] Unit tests (76 tests)
+- [x] GitHub Actions CI/CD
 - [ ] Dashboard
 - [ ] Semantic deduplication
 

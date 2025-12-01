@@ -58,6 +58,15 @@ export {
   decompose
 } from './workflow.js';
 
+// Semantic deduplication
+export {
+  createSimilarityFunction,
+  clusterResponses,
+  createSemanticSerializer,
+  withSemanticDedup,
+  SemanticPatterns
+} from './semantic.js';
+
 // Types
 export type {
   LLMCall,
@@ -76,3 +85,10 @@ export type {
   WorkflowResult,
   StepResult
 } from './workflow.js';
+
+export type {
+  SimilarityFunction,
+  NormalizeFunction,
+  SemanticConfig,
+  SemanticCluster
+} from './semantic.js';

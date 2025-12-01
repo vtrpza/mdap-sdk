@@ -13,7 +13,7 @@ import {
   parallel,
   decompose,
   RedFlag
-} from '@mdap/core';
+} from '../packages/core/dist/index.js';
 
 // Mock LLM call - in real usage this would call your actual LLM
 async function mockLLM(prompt: string): Promise<string> {
