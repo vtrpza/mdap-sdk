@@ -22,7 +22,7 @@
   "scripts": {
     "build": "tsup src/index.ts src/cli.ts --format esm --dts --clean && cp -r src/public dist/",
     "dev": "tsup src/index.ts src/cli.ts --format esm --dts --watch",
-    "typecheck": "pnpm exec tsc -b ../core && pnpm exec tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "keywords": [

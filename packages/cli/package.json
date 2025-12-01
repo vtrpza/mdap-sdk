@@ -21,7 +21,7 @@
   "scripts": {
     "build": "tsup src/cli.ts src/index.ts --format esm --dts --clean",
     "dev": "tsup src/cli.ts src/index.ts --format esm --dts --watch",
-    "typecheck": "pnpm exec tsc -b ../core && pnpm exec tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "keywords": [
