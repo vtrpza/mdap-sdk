@@ -26,7 +26,7 @@
  */
 
 // Core voting functionality
-export { reliable, vote } from './voter.js';
+export { reliable, vote } from "./voter.js";
 
 // Red flag detection
 export {
@@ -37,8 +37,8 @@ export {
   mustMatch,
   mustNotMatch,
   containsPhrase,
-  custom
-} from './red-flags.js';
+  custom,
+} from "./red-flags.js";
 
 // Cost estimation
 export {
@@ -46,8 +46,8 @@ export {
   calculateMinK,
   calculateExpectedSamples,
   calculateSuccessProbability,
-  formatCostEstimate
-} from './cost.js';
+  formatCostEstimate,
+} from "./cost.js";
 
 // Workflow orchestration
 export {
@@ -55,8 +55,8 @@ export {
   workflow,
   pipeline,
   parallel,
-  decompose
-} from './workflow.js';
+  decompose,
+} from "./workflow.js";
 
 // Semantic deduplication
 export {
@@ -64,10 +64,33 @@ export {
   clusterResponses,
   createSemanticSerializer,
   withSemanticDedup,
-  SemanticPatterns
-} from './semantic.js';
+  SemanticPatterns,
+} from "./semantic.js";
 
-// Types
+// Execute - Agentic execution with full MDAP reliability
+export {
+  executeReliable,
+  formatExecuteResult,
+  parseRedFlag,
+  parseRedFlags,
+  getDefaultRedFlags,
+  createAdapter,
+} from "./execute.js";
+
+export type {
+  Provider,
+  RedFlagInput,
+  ExecuteConfig,
+  ExecuteResult,
+  LLMAdapter,
+} from "./execute.js";
+
+// Configuration loading
+export { loadConfig, getDefaultConfig, validateConfig } from "./config.js";
+
+export type { MdapConfig, ResolvedConfig } from "./config.js";
+
+// Types and Presets
 export type {
   LLMCall,
   VoteConfig,
@@ -77,18 +100,16 @@ export type {
   ReliableConfig,
   ReliableFunction,
   CostEstimate,
-  CostEstimateConfig
-} from './types.js';
+  CostEstimateConfig,
+} from "./types.js";
 
-export type {
-  WorkflowStep,
-  WorkflowResult,
-  StepResult
-} from './workflow.js';
+export { VotePresets } from "./types.js";
+
+export type { WorkflowStep, WorkflowResult, StepResult } from "./workflow.js";
 
 export type {
   SimilarityFunction,
   NormalizeFunction,
   SemanticConfig,
-  SemanticCluster
-} from './semantic.js';
+  SemanticCluster,
+} from "./semantic.js";

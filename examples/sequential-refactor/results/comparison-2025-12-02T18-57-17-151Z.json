@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-12-02T18:57:17.151Z",
+  "config": {
+    "maxSteps": 50,
+    "startStep": 1,
+    "model": "gpt-4.1-mini",
+    "k": 3
+  },
+  "baseline": {
+    "totalSteps": 50,
+    "correctSteps": 50,
+    "accuracy": 1,
+    "firstError": null,
+    "allCorrect": true,
+    "totalTimeMs": 41044,
+    "inputTokens": 4200,
+    "outputTokens": 480,
+    "cost": 0.002448
+  },
+  "mdap": {
+    "totalSteps": 50,
+    "correctSteps": 50,
+    "accuracy": 1,
+    "firstError": null,
+    "allCorrect": true,
+    "totalTimeMs": 52318,
+    "inputTokens": 10923,
+    "outputTokens": 1113,
+    "cost": 0.00615,
+    "avgSamples": 3,
+    "avgConfidence": 1
+  },
+  "improvement": {
+    "accuracyGain": 0,
+    "errorReduction": 0,
+    "costOverhead": 2.5122549019607843
+  }
+}

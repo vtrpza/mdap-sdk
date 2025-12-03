@@ -42,13 +42,68 @@ export interface VoteConfig {
   initialBatch?: number;
 
   /**
+   * Number of samples to draw in parallel when continuing after initial batch.
+   * Only used when parallel=true.
+   * Set to 1 for sequential continuation (safer for rate limits).
+   * @default 2
+   */
+  continuationBatch?: number;
+
+  /**
+   * Maximum concurrent requests at any time.
+   * Helps respect API rate limits.
+   * @default 5
+   */
+  maxConcurrency?: number;
+
+  /**
    * Voting strategy to use.
-   * - 'first-to-k': First candidate to reach k votes wins (simpler)
+   * - 'first-to-k': First candidate to reach k votes wins (faster, simpler)
    * - 'first-to-ahead-by-k': First candidate to lead by k votes wins (more robust)
    * @default 'first-to-ahead-by-k'
    */
-  strategy?: 'first-to-k' | 'first-to-ahead-by-k';
+  strategy?: "first-to-k" | "first-to-ahead-by-k";
+
+  /**
+   * Enable early termination when winner is mathematically certain.
+   * Reduces unnecessary API calls when consensus is clear.
+   * @default true
+   */
+  earlyTermination?: boolean;
 }
+
+/**
+ * Preset configurations for common use cases
+ */
+export const VotePresets = {
+  /** Fast preset: k=2, first-to-k, optimized for speed */
+  fast: {
+    k: 2,
+    strategy: "first-to-k" as const,
+    maxSamples: 10,
+    parallel: true,
+    initialBatch: 3,
+    continuationBatch: 2,
+  },
+  /** Balanced preset: k=3, first-to-ahead-by-k (default behavior) */
+  balanced: {
+    k: 3,
+    strategy: "first-to-ahead-by-k" as const,
+    maxSamples: 30,
+    parallel: true,
+    initialBatch: 3,
+    continuationBatch: 2,
+  },
+  /** Robust preset: k=5, first-to-ahead-by-k, maximum reliability */
+  robust: {
+    k: 5,
+    strategy: "first-to-ahead-by-k" as const,
+    maxSamples: 100,
+    parallel: true,
+    initialBatch: 5,
+    continuationBatch: 3,
+  },
+} as const;
 
 /**
  * A red flag rule that checks if a response should be discarded

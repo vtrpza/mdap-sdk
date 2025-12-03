@@ -1,0 +1,4504 @@
+{
+  "issues": [
+    {
+      "id": 1,
+      "line": 30,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data1.value;",
+      "after": "return data1?.value ?? null;"
+    },
+    {
+      "id": 2,
+      "line": 35,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data2.value;",
+      "after": "return data2?.value ?? null;"
+    },
+    {
+      "id": 3,
+      "line": 40,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data3.value;",
+      "after": "return data3?.value ?? null;"
+    },
+    {
+      "id": 4,
+      "line": 45,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data4.value;",
+      "after": "return data4?.value ?? null;"
+    },
+    {
+      "id": 5,
+      "line": 50,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data5.value;",
+      "after": "return data5?.value ?? null;"
+    },
+    {
+      "id": 6,
+      "line": 55,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data6.value;",
+      "after": "return data6?.value ?? null;"
+    },
+    {
+      "id": 7,
+      "line": 60,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data7.value;",
+      "after": "return data7?.value ?? null;"
+    },
+    {
+      "id": 8,
+      "line": 65,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data8.value;",
+      "after": "return data8?.value ?? null;"
+    },
+    {
+      "id": 9,
+      "line": 70,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data9.value;",
+      "after": "return data9?.value ?? null;"
+    },
+    {
+      "id": 10,
+      "line": 75,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data10.value;",
+      "after": "return data10?.value ?? null;"
+    },
+    {
+      "id": 11,
+      "line": 80,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data11.value;",
+      "after": "return data11?.value ?? null;"
+    },
+    {
+      "id": 12,
+      "line": 85,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data12.value;",
+      "after": "return data12?.value ?? null;"
+    },
+    {
+      "id": 13,
+      "line": 90,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data13.value;",
+      "after": "return data13?.value ?? null;"
+    },
+    {
+      "id": 14,
+      "line": 95,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data14.value;",
+      "after": "return data14?.value ?? null;"
+    },
+    {
+      "id": 15,
+      "line": 100,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data15.value;",
+      "after": "return data15?.value ?? null;"
+    },
+    {
+      "id": 16,
+      "line": 105,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data16.value;",
+      "after": "return data16?.value ?? null;"
+    },
+    {
+      "id": 17,
+      "line": 110,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data17.value;",
+      "after": "return data17?.value ?? null;"
+    },
+    {
+      "id": 18,
+      "line": 115,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data18.value;",
+      "after": "return data18?.value ?? null;"
+    },
+    {
+      "id": 19,
+      "line": 120,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data19.value;",
+      "after": "return data19?.value ?? null;"
+    },
+    {
+      "id": 20,
+      "line": 125,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Add null check before accessing property",
+      "before": "return data20.value;",
+      "after": "return data20?.value ?? null;"
+    },
+    {
+      "id": 21,
+      "line": 130,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id21 == target21)",
+      "after": "if (id21 === target21)"
+    },
+    {
+      "id": 22,
+      "line": 135,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id22 == target22)",
+      "after": "if (id22 === target22)"
+    },
+    {
+      "id": 23,
+      "line": 140,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id23 == target23)",
+      "after": "if (id23 === target23)"
+    },
+    {
+      "id": 24,
+      "line": 145,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id24 == target24)",
+      "after": "if (id24 === target24)"
+    },
+    {
+      "id": 25,
+      "line": 150,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id25 == target25)",
+      "after": "if (id25 === target25)"
+    },
+    {
+      "id": 26,
+      "line": 155,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id26 == target26)",
+      "after": "if (id26 === target26)"
+    },
+    {
+      "id": 27,
+      "line": 160,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id27 == target27)",
+      "after": "if (id27 === target27)"
+    },
+    {
+      "id": 28,
+      "line": 165,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id28 == target28)",
+      "after": "if (id28 === target28)"
+    },
+    {
+      "id": 29,
+      "line": 170,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id29 == target29)",
+      "after": "if (id29 === target29)"
+    },
+    {
+      "id": 30,
+      "line": 175,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id30 == target30)",
+      "after": "if (id30 === target30)"
+    },
+    {
+      "id": 31,
+      "line": 180,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id31 == target31)",
+      "after": "if (id31 === target31)"
+    },
+    {
+      "id": 32,
+      "line": 185,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id32 == target32)",
+      "after": "if (id32 === target32)"
+    },
+    {
+      "id": 33,
+      "line": 190,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id33 == target33)",
+      "after": "if (id33 === target33)"
+    },
+    {
+      "id": 34,
+      "line": 195,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id34 == target34)",
+      "after": "if (id34 === target34)"
+    },
+    {
+      "id": 35,
+      "line": 200,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id35 == target35)",
+      "after": "if (id35 === target35)"
+    },
+    {
+      "id": 36,
+      "line": 205,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id36 == target36)",
+      "after": "if (id36 === target36)"
+    },
+    {
+      "id": 37,
+      "line": 210,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id37 == target37)",
+      "after": "if (id37 === target37)"
+    },
+    {
+      "id": 38,
+      "line": 215,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id38 == target38)",
+      "after": "if (id38 === target38)"
+    },
+    {
+      "id": 39,
+      "line": 220,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id39 == target39)",
+      "after": "if (id39 === target39)"
+    },
+    {
+      "id": 40,
+      "line": 225,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Use strict equality instead of loose equality",
+      "before": "if (id40 == target40)",
+      "after": "if (id40 === target40)"
+    },
+    {
+      "id": 41,
+      "line": 230,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items41.length; i++)",
+      "after": "for (let i = 0; i < items41.length; i++)"
+    },
+    {
+      "id": 42,
+      "line": 235,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items42.length; i++)",
+      "after": "for (let i = 0; i < items42.length; i++)"
+    },
+    {
+      "id": 43,
+      "line": 240,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items43.length; i++)",
+      "after": "for (let i = 0; i < items43.length; i++)"
+    },
+    {
+      "id": 44,
+      "line": 245,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items44.length; i++)",
+      "after": "for (let i = 0; i < items44.length; i++)"
+    },
+    {
+      "id": 45,
+      "line": 250,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items45.length; i++)",
+      "after": "for (let i = 0; i < items45.length; i++)"
+    },
+    {
+      "id": 46,
+      "line": 255,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items46.length; i++)",
+      "after": "for (let i = 0; i < items46.length; i++)"
+    },
+    {
+      "id": 47,
+      "line": 260,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items47.length; i++)",
+      "after": "for (let i = 0; i < items47.length; i++)"
+    },
+    {
+      "id": 48,
+      "line": 265,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items48.length; i++)",
+      "after": "for (let i = 0; i < items48.length; i++)"
+    },
+    {
+      "id": 49,
+      "line": 270,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items49.length; i++)",
+      "after": "for (let i = 0; i < items49.length; i++)"
+    },
+    {
+      "id": 50,
+      "line": 275,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items50.length; i++)",
+      "after": "for (let i = 0; i < items50.length; i++)"
+    },
+    {
+      "id": 51,
+      "line": 280,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items51.length; i++)",
+      "after": "for (let i = 0; i < items51.length; i++)"
+    },
+    {
+      "id": 52,
+      "line": 285,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items52.length; i++)",
+      "after": "for (let i = 0; i < items52.length; i++)"
+    },
+    {
+      "id": 53,
+      "line": 290,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items53.length; i++)",
+      "after": "for (let i = 0; i < items53.length; i++)"
+    },
+    {
+      "id": 54,
+      "line": 295,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items54.length; i++)",
+      "after": "for (let i = 0; i < items54.length; i++)"
+    },
+    {
+      "id": 55,
+      "line": 300,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Fix off-by-one error in loop condition",
+      "before": "for (let i = 0; i <= items55.length; i++)",
+      "after": "for (let i = 0; i < items55.length; i++)"
+    },
+    {
+      "id": 56,
+      "line": 305,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total56;",
+      "after": "let total56 = 0;"
+    },
+    {
+      "id": 57,
+      "line": 310,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total57;",
+      "after": "let total57 = 0;"
+    },
+    {
+      "id": 58,
+      "line": 315,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total58;",
+      "after": "let total58 = 0;"
+    },
+    {
+      "id": 59,
+      "line": 320,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total59;",
+      "after": "let total59 = 0;"
+    },
+    {
+      "id": 60,
+      "line": 325,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total60;",
+      "after": "let total60 = 0;"
+    },
+    {
+      "id": 61,
+      "line": 330,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total61;",
+      "after": "let total61 = 0;"
+    },
+    {
+      "id": 62,
+      "line": 335,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total62;",
+      "after": "let total62 = 0;"
+    },
+    {
+      "id": 63,
+      "line": 340,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total63;",
+      "after": "let total63 = 0;"
+    },
+    {
+      "id": 64,
+      "line": 345,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total64;",
+      "after": "let total64 = 0;"
+    },
+    {
+      "id": 65,
+      "line": 350,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total65;",
+      "after": "let total65 = 0;"
+    },
+    {
+      "id": 66,
+      "line": 355,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total66;",
+      "after": "let total66 = 0;"
+    },
+    {
+      "id": 67,
+      "line": 360,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total67;",
+      "after": "let total67 = 0;"
+    },
+    {
+      "id": 68,
+      "line": 365,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total68;",
+      "after": "let total68 = 0;"
+    },
+    {
+      "id": 69,
+      "line": 370,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total69;",
+      "after": "let total69 = 0;"
+    },
+    {
+      "id": 70,
+      "line": 375,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Initialize variable before use",
+      "before": "let total70;",
+      "after": "let total70 = 0;"
+    },
+    {
+      "id": 71,
+      "line": 380,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr71.filter(x => { x > 0; })",
+      "after": "arr71.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 72,
+      "line": 385,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr72.filter(x => { x > 0; })",
+      "after": "arr72.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 73,
+      "line": 390,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr73.filter(x => { x > 0; })",
+      "after": "arr73.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 74,
+      "line": 395,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr74.filter(x => { x > 0; })",
+      "after": "arr74.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 75,
+      "line": 400,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr75.filter(x => { x > 0; })",
+      "after": "arr75.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 76,
+      "line": 405,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr76.filter(x => { x > 0; })",
+      "after": "arr76.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 77,
+      "line": 410,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr77.filter(x => { x > 0; })",
+      "after": "arr77.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 78,
+      "line": 415,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr78.filter(x => { x > 0; })",
+      "after": "arr78.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 79,
+      "line": 420,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr79.filter(x => { x > 0; })",
+      "after": "arr79.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 80,
+      "line": 425,
+      "category": "BUG",
+      "difficulty": "medium",
+      "description": "Add missing return statement in callback",
+      "before": "arr80.filter(x => { x > 0; })",
+      "after": "arr80.filter(x => { return x > 0; })"
+    },
+    {
+      "id": 81,
+      "line": 430,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status81 = 'active')",
+      "after": "if (status81 === 'active')"
+    },
+    {
+      "id": 82,
+      "line": 435,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status82 = 'active')",
+      "after": "if (status82 === 'active')"
+    },
+    {
+      "id": 83,
+      "line": 440,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status83 = 'active')",
+      "after": "if (status83 === 'active')"
+    },
+    {
+      "id": 84,
+      "line": 445,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status84 = 'active')",
+      "after": "if (status84 === 'active')"
+    },
+    {
+      "id": 85,
+      "line": 450,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status85 = 'active')",
+      "after": "if (status85 === 'active')"
+    },
+    {
+      "id": 86,
+      "line": 455,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status86 = 'active')",
+      "after": "if (status86 === 'active')"
+    },
+    {
+      "id": 87,
+      "line": 460,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status87 = 'active')",
+      "after": "if (status87 === 'active')"
+    },
+    {
+      "id": 88,
+      "line": 465,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status88 = 'active')",
+      "after": "if (status88 === 'active')"
+    },
+    {
+      "id": 89,
+      "line": 470,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status89 = 'active')",
+      "after": "if (status89 === 'active')"
+    },
+    {
+      "id": 90,
+      "line": 475,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix assignment used as comparison",
+      "before": "if (status90 = 'active')",
+      "after": "if (status90 === 'active')"
+    },
+    {
+      "id": 91,
+      "line": 480,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum91 =+ value91;",
+      "after": "sum91 += value91;"
+    },
+    {
+      "id": 92,
+      "line": 485,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum92 =+ value92;",
+      "after": "sum92 += value92;"
+    },
+    {
+      "id": 93,
+      "line": 490,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum93 =+ value93;",
+      "after": "sum93 += value93;"
+    },
+    {
+      "id": 94,
+      "line": 495,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum94 =+ value94;",
+      "after": "sum94 += value94;"
+    },
+    {
+      "id": 95,
+      "line": 500,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum95 =+ value95;",
+      "after": "sum95 += value95;"
+    },
+    {
+      "id": 96,
+      "line": 505,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum96 =+ value96;",
+      "after": "sum96 += value96;"
+    },
+    {
+      "id": 97,
+      "line": 510,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum97 =+ value97;",
+      "after": "sum97 += value97;"
+    },
+    {
+      "id": 98,
+      "line": 515,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum98 =+ value98;",
+      "after": "sum98 += value98;"
+    },
+    {
+      "id": 99,
+      "line": 520,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum99 =+ value99;",
+      "after": "sum99 += value99;"
+    },
+    {
+      "id": 100,
+      "line": 525,
+      "category": "BUG",
+      "difficulty": "easy",
+      "description": "Fix operator typo",
+      "before": "sum100 =+ value100;",
+      "after": "sum100 += value100;"
+    },
+    {
+      "id": 101,
+      "line": 536,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table101 WHERE id = \" + userId101)",
+      "after": "db.query(\"SELECT * FROM table101 WHERE id = ?\", [userId101])"
+    },
+    {
+      "id": 102,
+      "line": 541,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table102 WHERE id = \" + userId102)",
+      "after": "db.query(\"SELECT * FROM table102 WHERE id = ?\", [userId102])"
+    },
+    {
+      "id": 103,
+      "line": 546,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table103 WHERE id = \" + userId103)",
+      "after": "db.query(\"SELECT * FROM table103 WHERE id = ?\", [userId103])"
+    },
+    {
+      "id": 104,
+      "line": 551,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table104 WHERE id = \" + userId104)",
+      "after": "db.query(\"SELECT * FROM table104 WHERE id = ?\", [userId104])"
+    },
+    {
+      "id": 105,
+      "line": 556,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table105 WHERE id = \" + userId105)",
+      "after": "db.query(\"SELECT * FROM table105 WHERE id = ?\", [userId105])"
+    },
+    {
+      "id": 106,
+      "line": 561,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table106 WHERE id = \" + userId106)",
+      "after": "db.query(\"SELECT * FROM table106 WHERE id = ?\", [userId106])"
+    },
+    {
+      "id": 107,
+      "line": 566,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table107 WHERE id = \" + userId107)",
+      "after": "db.query(\"SELECT * FROM table107 WHERE id = ?\", [userId107])"
+    },
+    {
+      "id": 108,
+      "line": 571,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table108 WHERE id = \" + userId108)",
+      "after": "db.query(\"SELECT * FROM table108 WHERE id = ?\", [userId108])"
+    },
+    {
+      "id": 109,
+      "line": 576,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table109 WHERE id = \" + userId109)",
+      "after": "db.query(\"SELECT * FROM table109 WHERE id = ?\", [userId109])"
+    },
+    {
+      "id": 110,
+      "line": 581,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table110 WHERE id = \" + userId110)",
+      "after": "db.query(\"SELECT * FROM table110 WHERE id = ?\", [userId110])"
+    },
+    {
+      "id": 111,
+      "line": 586,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table111 WHERE id = \" + userId111)",
+      "after": "db.query(\"SELECT * FROM table111 WHERE id = ?\", [userId111])"
+    },
+    {
+      "id": 112,
+      "line": 591,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table112 WHERE id = \" + userId112)",
+      "after": "db.query(\"SELECT * FROM table112 WHERE id = ?\", [userId112])"
+    },
+    {
+      "id": 113,
+      "line": 596,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table113 WHERE id = \" + userId113)",
+      "after": "db.query(\"SELECT * FROM table113 WHERE id = ?\", [userId113])"
+    },
+    {
+      "id": 114,
+      "line": 601,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table114 WHERE id = \" + userId114)",
+      "after": "db.query(\"SELECT * FROM table114 WHERE id = ?\", [userId114])"
+    },
+    {
+      "id": 115,
+      "line": 606,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table115 WHERE id = \" + userId115)",
+      "after": "db.query(\"SELECT * FROM table115 WHERE id = ?\", [userId115])"
+    },
+    {
+      "id": 116,
+      "line": 611,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table116 WHERE id = \" + userId116)",
+      "after": "db.query(\"SELECT * FROM table116 WHERE id = ?\", [userId116])"
+    },
+    {
+      "id": 117,
+      "line": 616,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table117 WHERE id = \" + userId117)",
+      "after": "db.query(\"SELECT * FROM table117 WHERE id = ?\", [userId117])"
+    },
+    {
+      "id": 118,
+      "line": 621,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table118 WHERE id = \" + userId118)",
+      "after": "db.query(\"SELECT * FROM table118 WHERE id = ?\", [userId118])"
+    },
+    {
+      "id": 119,
+      "line": 626,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table119 WHERE id = \" + userId119)",
+      "after": "db.query(\"SELECT * FROM table119 WHERE id = ?\", [userId119])"
+    },
+    {
+      "id": 120,
+      "line": 631,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table120 WHERE id = \" + userId120)",
+      "after": "db.query(\"SELECT * FROM table120 WHERE id = ?\", [userId120])"
+    },
+    {
+      "id": 121,
+      "line": 636,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table121 WHERE id = \" + userId121)",
+      "after": "db.query(\"SELECT * FROM table121 WHERE id = ?\", [userId121])"
+    },
+    {
+      "id": 122,
+      "line": 641,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table122 WHERE id = \" + userId122)",
+      "after": "db.query(\"SELECT * FROM table122 WHERE id = ?\", [userId122])"
+    },
+    {
+      "id": 123,
+      "line": 646,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table123 WHERE id = \" + userId123)",
+      "after": "db.query(\"SELECT * FROM table123 WHERE id = ?\", [userId123])"
+    },
+    {
+      "id": 124,
+      "line": 651,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table124 WHERE id = \" + userId124)",
+      "after": "db.query(\"SELECT * FROM table124 WHERE id = ?\", [userId124])"
+    },
+    {
+      "id": 125,
+      "line": 656,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Use parameterized query to prevent SQL injection",
+      "before": "db.query(\"SELECT * FROM table125 WHERE id = \" + userId125)",
+      "after": "db.query(\"SELECT * FROM table125 WHERE id = ?\", [userId125])"
+    },
+    {
+      "id": 126,
+      "line": 661,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element126.innerHTML = userInput126;",
+      "after": "element126.textContent = userInput126;"
+    },
+    {
+      "id": 127,
+      "line": 666,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element127.innerHTML = userInput127;",
+      "after": "element127.textContent = userInput127;"
+    },
+    {
+      "id": 128,
+      "line": 671,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element128.innerHTML = userInput128;",
+      "after": "element128.textContent = userInput128;"
+    },
+    {
+      "id": 129,
+      "line": 676,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element129.innerHTML = userInput129;",
+      "after": "element129.textContent = userInput129;"
+    },
+    {
+      "id": 130,
+      "line": 681,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element130.innerHTML = userInput130;",
+      "after": "element130.textContent = userInput130;"
+    },
+    {
+      "id": 131,
+      "line": 686,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element131.innerHTML = userInput131;",
+      "after": "element131.textContent = userInput131;"
+    },
+    {
+      "id": 132,
+      "line": 691,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element132.innerHTML = userInput132;",
+      "after": "element132.textContent = userInput132;"
+    },
+    {
+      "id": 133,
+      "line": 696,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element133.innerHTML = userInput133;",
+      "after": "element133.textContent = userInput133;"
+    },
+    {
+      "id": 134,
+      "line": 701,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element134.innerHTML = userInput134;",
+      "after": "element134.textContent = userInput134;"
+    },
+    {
+      "id": 135,
+      "line": 706,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element135.innerHTML = userInput135;",
+      "after": "element135.textContent = userInput135;"
+    },
+    {
+      "id": 136,
+      "line": 711,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element136.innerHTML = userInput136;",
+      "after": "element136.textContent = userInput136;"
+    },
+    {
+      "id": 137,
+      "line": 716,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element137.innerHTML = userInput137;",
+      "after": "element137.textContent = userInput137;"
+    },
+    {
+      "id": 138,
+      "line": 721,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element138.innerHTML = userInput138;",
+      "after": "element138.textContent = userInput138;"
+    },
+    {
+      "id": 139,
+      "line": 726,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element139.innerHTML = userInput139;",
+      "after": "element139.textContent = userInput139;"
+    },
+    {
+      "id": 140,
+      "line": 731,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element140.innerHTML = userInput140;",
+      "after": "element140.textContent = userInput140;"
+    },
+    {
+      "id": 141,
+      "line": 736,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element141.innerHTML = userInput141;",
+      "after": "element141.textContent = userInput141;"
+    },
+    {
+      "id": 142,
+      "line": 741,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element142.innerHTML = userInput142;",
+      "after": "element142.textContent = userInput142;"
+    },
+    {
+      "id": 143,
+      "line": 746,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element143.innerHTML = userInput143;",
+      "after": "element143.textContent = userInput143;"
+    },
+    {
+      "id": 144,
+      "line": 751,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element144.innerHTML = userInput144;",
+      "after": "element144.textContent = userInput144;"
+    },
+    {
+      "id": 145,
+      "line": 756,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element145.innerHTML = userInput145;",
+      "after": "element145.textContent = userInput145;"
+    },
+    {
+      "id": 146,
+      "line": 761,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element146.innerHTML = userInput146;",
+      "after": "element146.textContent = userInput146;"
+    },
+    {
+      "id": 147,
+      "line": 766,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element147.innerHTML = userInput147;",
+      "after": "element147.textContent = userInput147;"
+    },
+    {
+      "id": 148,
+      "line": 771,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element148.innerHTML = userInput148;",
+      "after": "element148.textContent = userInput148;"
+    },
+    {
+      "id": 149,
+      "line": 776,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element149.innerHTML = userInput149;",
+      "after": "element149.textContent = userInput149;"
+    },
+    {
+      "id": 150,
+      "line": 781,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Sanitize user input to prevent XSS",
+      "before": "element150.innerHTML = userInput150;",
+      "after": "element150.textContent = userInput150;"
+    },
+    {
+      "id": 151,
+      "line": 786,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey151 = 'sk-secret151abc123';",
+      "after": "const apiKey151 = process.env.API_KEY_151 ?? '';"
+    },
+    {
+      "id": 152,
+      "line": 791,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey152 = 'sk-secret152abc123';",
+      "after": "const apiKey152 = process.env.API_KEY_152 ?? '';"
+    },
+    {
+      "id": 153,
+      "line": 796,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey153 = 'sk-secret153abc123';",
+      "after": "const apiKey153 = process.env.API_KEY_153 ?? '';"
+    },
+    {
+      "id": 154,
+      "line": 801,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey154 = 'sk-secret154abc123';",
+      "after": "const apiKey154 = process.env.API_KEY_154 ?? '';"
+    },
+    {
+      "id": 155,
+      "line": 806,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey155 = 'sk-secret155abc123';",
+      "after": "const apiKey155 = process.env.API_KEY_155 ?? '';"
+    },
+    {
+      "id": 156,
+      "line": 811,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey156 = 'sk-secret156abc123';",
+      "after": "const apiKey156 = process.env.API_KEY_156 ?? '';"
+    },
+    {
+      "id": 157,
+      "line": 816,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey157 = 'sk-secret157abc123';",
+      "after": "const apiKey157 = process.env.API_KEY_157 ?? '';"
+    },
+    {
+      "id": 158,
+      "line": 821,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey158 = 'sk-secret158abc123';",
+      "after": "const apiKey158 = process.env.API_KEY_158 ?? '';"
+    },
+    {
+      "id": 159,
+      "line": 826,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey159 = 'sk-secret159abc123';",
+      "after": "const apiKey159 = process.env.API_KEY_159 ?? '';"
+    },
+    {
+      "id": 160,
+      "line": 831,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey160 = 'sk-secret160abc123';",
+      "after": "const apiKey160 = process.env.API_KEY_160 ?? '';"
+    },
+    {
+      "id": 161,
+      "line": 836,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey161 = 'sk-secret161abc123';",
+      "after": "const apiKey161 = process.env.API_KEY_161 ?? '';"
+    },
+    {
+      "id": 162,
+      "line": 841,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey162 = 'sk-secret162abc123';",
+      "after": "const apiKey162 = process.env.API_KEY_162 ?? '';"
+    },
+    {
+      "id": 163,
+      "line": 846,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey163 = 'sk-secret163abc123';",
+      "after": "const apiKey163 = process.env.API_KEY_163 ?? '';"
+    },
+    {
+      "id": 164,
+      "line": 851,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey164 = 'sk-secret164abc123';",
+      "after": "const apiKey164 = process.env.API_KEY_164 ?? '';"
+    },
+    {
+      "id": 165,
+      "line": 856,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey165 = 'sk-secret165abc123';",
+      "after": "const apiKey165 = process.env.API_KEY_165 ?? '';"
+    },
+    {
+      "id": 166,
+      "line": 861,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey166 = 'sk-secret166abc123';",
+      "after": "const apiKey166 = process.env.API_KEY_166 ?? '';"
+    },
+    {
+      "id": 167,
+      "line": 866,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey167 = 'sk-secret167abc123';",
+      "after": "const apiKey167 = process.env.API_KEY_167 ?? '';"
+    },
+    {
+      "id": 168,
+      "line": 871,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey168 = 'sk-secret168abc123';",
+      "after": "const apiKey168 = process.env.API_KEY_168 ?? '';"
+    },
+    {
+      "id": 169,
+      "line": 876,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey169 = 'sk-secret169abc123';",
+      "after": "const apiKey169 = process.env.API_KEY_169 ?? '';"
+    },
+    {
+      "id": 170,
+      "line": 881,
+      "category": "SECURITY",
+      "difficulty": "easy",
+      "description": "Move hardcoded secret to environment variable",
+      "before": "const apiKey170 = 'sk-secret170abc123';",
+      "after": "const apiKey170 = process.env.API_KEY_170 ?? '';"
+    },
+    {
+      "id": 171,
+      "line": 886,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename171)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename171)))"
+    },
+    {
+      "id": 172,
+      "line": 891,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename172)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename172)))"
+    },
+    {
+      "id": 173,
+      "line": 896,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename173)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename173)))"
+    },
+    {
+      "id": 174,
+      "line": 901,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename174)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename174)))"
+    },
+    {
+      "id": 175,
+      "line": 906,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename175)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename175)))"
+    },
+    {
+      "id": 176,
+      "line": 911,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename176)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename176)))"
+    },
+    {
+      "id": 177,
+      "line": 916,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename177)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename177)))"
+    },
+    {
+      "id": 178,
+      "line": 921,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename178)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename178)))"
+    },
+    {
+      "id": 179,
+      "line": 926,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename179)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename179)))"
+    },
+    {
+      "id": 180,
+      "line": 931,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename180)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename180)))"
+    },
+    {
+      "id": 181,
+      "line": 936,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename181)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename181)))"
+    },
+    {
+      "id": 182,
+      "line": 941,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename182)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename182)))"
+    },
+    {
+      "id": 183,
+      "line": 946,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename183)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename183)))"
+    },
+    {
+      "id": 184,
+      "line": 951,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename184)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename184)))"
+    },
+    {
+      "id": 185,
+      "line": 956,
+      "category": "SECURITY",
+      "difficulty": "medium",
+      "description": "Validate path to prevent directory traversal",
+      "before": "fs.readFile('./uploads/' + filename185)",
+      "after": "fs.readFile(path.join('./uploads', path.basename(filename185)))"
+    },
+    {
+      "id": 186,
+      "line": 961,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression186)",
+      "after": "JSON.parse(expression186)"
+    },
+    {
+      "id": 187,
+      "line": 966,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression187)",
+      "after": "JSON.parse(expression187)"
+    },
+    {
+      "id": 188,
+      "line": 971,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression188)",
+      "after": "JSON.parse(expression188)"
+    },
+    {
+      "id": 189,
+      "line": 976,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression189)",
+      "after": "JSON.parse(expression189)"
+    },
+    {
+      "id": 190,
+      "line": 981,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression190)",
+      "after": "JSON.parse(expression190)"
+    },
+    {
+      "id": 191,
+      "line": 986,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression191)",
+      "after": "JSON.parse(expression191)"
+    },
+    {
+      "id": 192,
+      "line": 991,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression192)",
+      "after": "JSON.parse(expression192)"
+    },
+    {
+      "id": 193,
+      "line": 996,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression193)",
+      "after": "JSON.parse(expression193)"
+    },
+    {
+      "id": 194,
+      "line": 1001,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression194)",
+      "after": "JSON.parse(expression194)"
+    },
+    {
+      "id": 195,
+      "line": 1006,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression195)",
+      "after": "JSON.parse(expression195)"
+    },
+    {
+      "id": 196,
+      "line": 1011,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression196)",
+      "after": "JSON.parse(expression196)"
+    },
+    {
+      "id": 197,
+      "line": 1016,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression197)",
+      "after": "JSON.parse(expression197)"
+    },
+    {
+      "id": 198,
+      "line": 1021,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression198)",
+      "after": "JSON.parse(expression198)"
+    },
+    {
+      "id": 199,
+      "line": 1026,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression199)",
+      "after": "JSON.parse(expression199)"
+    },
+    {
+      "id": 200,
+      "line": 1031,
+      "category": "SECURITY",
+      "difficulty": "hard",
+      "description": "Replace eval with safe alternative",
+      "before": "eval(expression200)",
+      "after": "JSON.parse(expression200)"
+    },
+    {
+      "id": 201,
+      "line": 1042,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str201)",
+      "after": "parseInt(str201, 10)"
+    },
+    {
+      "id": 202,
+      "line": 1047,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str202)",
+      "after": "parseInt(str202, 10)"
+    },
+    {
+      "id": 203,
+      "line": 1052,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str203)",
+      "after": "parseInt(str203, 10)"
+    },
+    {
+      "id": 204,
+      "line": 1057,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str204)",
+      "after": "parseInt(str204, 10)"
+    },
+    {
+      "id": 205,
+      "line": 1062,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str205)",
+      "after": "parseInt(str205, 10)"
+    },
+    {
+      "id": 206,
+      "line": 1067,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str206)",
+      "after": "parseInt(str206, 10)"
+    },
+    {
+      "id": 207,
+      "line": 1072,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str207)",
+      "after": "parseInt(str207, 10)"
+    },
+    {
+      "id": 208,
+      "line": 1077,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str208)",
+      "after": "parseInt(str208, 10)"
+    },
+    {
+      "id": 209,
+      "line": 1082,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str209)",
+      "after": "parseInt(str209, 10)"
+    },
+    {
+      "id": 210,
+      "line": 1087,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str210)",
+      "after": "parseInt(str210, 10)"
+    },
+    {
+      "id": 211,
+      "line": 1092,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str211)",
+      "after": "parseInt(str211, 10)"
+    },
+    {
+      "id": 212,
+      "line": 1097,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str212)",
+      "after": "parseInt(str212, 10)"
+    },
+    {
+      "id": 213,
+      "line": 1102,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str213)",
+      "after": "parseInt(str213, 10)"
+    },
+    {
+      "id": 214,
+      "line": 1107,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str214)",
+      "after": "parseInt(str214, 10)"
+    },
+    {
+      "id": 215,
+      "line": 1112,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str215)",
+      "after": "parseInt(str215, 10)"
+    },
+    {
+      "id": 216,
+      "line": 1117,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str216)",
+      "after": "parseInt(str216, 10)"
+    },
+    {
+      "id": 217,
+      "line": 1122,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str217)",
+      "after": "parseInt(str217, 10)"
+    },
+    {
+      "id": 218,
+      "line": 1127,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str218)",
+      "after": "parseInt(str218, 10)"
+    },
+    {
+      "id": 219,
+      "line": 1132,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str219)",
+      "after": "parseInt(str219, 10)"
+    },
+    {
+      "id": 220,
+      "line": 1137,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str220)",
+      "after": "parseInt(str220, 10)"
+    },
+    {
+      "id": 221,
+      "line": 1142,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str221)",
+      "after": "parseInt(str221, 10)"
+    },
+    {
+      "id": 222,
+      "line": 1147,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str222)",
+      "after": "parseInt(str222, 10)"
+    },
+    {
+      "id": 223,
+      "line": 1152,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str223)",
+      "after": "parseInt(str223, 10)"
+    },
+    {
+      "id": 224,
+      "line": 1157,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str224)",
+      "after": "parseInt(str224, 10)"
+    },
+    {
+      "id": 225,
+      "line": 1162,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add radix parameter to parseInt",
+      "before": "parseInt(str225)",
+      "after": "parseInt(str225, 10)"
+    },
+    {
+      "id": 226,
+      "line": 1167,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process226(data)",
+      "after": "function process226(data: unknown)"
+    },
+    {
+      "id": 227,
+      "line": 1172,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process227(data)",
+      "after": "function process227(data: unknown)"
+    },
+    {
+      "id": 228,
+      "line": 1177,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process228(data)",
+      "after": "function process228(data: unknown)"
+    },
+    {
+      "id": 229,
+      "line": 1182,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process229(data)",
+      "after": "function process229(data: unknown)"
+    },
+    {
+      "id": 230,
+      "line": 1187,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process230(data)",
+      "after": "function process230(data: unknown)"
+    },
+    {
+      "id": 231,
+      "line": 1192,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process231(data)",
+      "after": "function process231(data: unknown)"
+    },
+    {
+      "id": 232,
+      "line": 1197,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process232(data)",
+      "after": "function process232(data: unknown)"
+    },
+    {
+      "id": 233,
+      "line": 1202,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process233(data)",
+      "after": "function process233(data: unknown)"
+    },
+    {
+      "id": 234,
+      "line": 1207,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process234(data)",
+      "after": "function process234(data: unknown)"
+    },
+    {
+      "id": 235,
+      "line": 1212,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process235(data)",
+      "after": "function process235(data: unknown)"
+    },
+    {
+      "id": 236,
+      "line": 1217,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process236(data)",
+      "after": "function process236(data: unknown)"
+    },
+    {
+      "id": 237,
+      "line": 1222,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process237(data)",
+      "after": "function process237(data: unknown)"
+    },
+    {
+      "id": 238,
+      "line": 1227,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process238(data)",
+      "after": "function process238(data: unknown)"
+    },
+    {
+      "id": 239,
+      "line": 1232,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process239(data)",
+      "after": "function process239(data: unknown)"
+    },
+    {
+      "id": 240,
+      "line": 1237,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process240(data)",
+      "after": "function process240(data: unknown)"
+    },
+    {
+      "id": 241,
+      "line": 1242,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process241(data)",
+      "after": "function process241(data: unknown)"
+    },
+    {
+      "id": 242,
+      "line": 1247,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process242(data)",
+      "after": "function process242(data: unknown)"
+    },
+    {
+      "id": 243,
+      "line": 1252,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process243(data)",
+      "after": "function process243(data: unknown)"
+    },
+    {
+      "id": 244,
+      "line": 1257,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process244(data)",
+      "after": "function process244(data: unknown)"
+    },
+    {
+      "id": 245,
+      "line": 1262,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process245(data)",
+      "after": "function process245(data: unknown)"
+    },
+    {
+      "id": 246,
+      "line": 1267,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process246(data)",
+      "after": "function process246(data: unknown)"
+    },
+    {
+      "id": 247,
+      "line": 1272,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process247(data)",
+      "after": "function process247(data: unknown)"
+    },
+    {
+      "id": 248,
+      "line": 1277,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process248(data)",
+      "after": "function process248(data: unknown)"
+    },
+    {
+      "id": 249,
+      "line": 1282,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process249(data)",
+      "after": "function process249(data: unknown)"
+    },
+    {
+      "id": 250,
+      "line": 1287,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add type annotation to parameter",
+      "before": "function process250(data)",
+      "after": "function process250(data: unknown)"
+    },
+    {
+      "id": 251,
+      "line": 1292,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue251()",
+      "after": "function getValue251(): string | null"
+    },
+    {
+      "id": 252,
+      "line": 1297,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue252()",
+      "after": "function getValue252(): string | null"
+    },
+    {
+      "id": 253,
+      "line": 1302,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue253()",
+      "after": "function getValue253(): string | null"
+    },
+    {
+      "id": 254,
+      "line": 1307,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue254()",
+      "after": "function getValue254(): string | null"
+    },
+    {
+      "id": 255,
+      "line": 1312,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue255()",
+      "after": "function getValue255(): string | null"
+    },
+    {
+      "id": 256,
+      "line": 1317,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue256()",
+      "after": "function getValue256(): string | null"
+    },
+    {
+      "id": 257,
+      "line": 1322,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue257()",
+      "after": "function getValue257(): string | null"
+    },
+    {
+      "id": 258,
+      "line": 1327,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue258()",
+      "after": "function getValue258(): string | null"
+    },
+    {
+      "id": 259,
+      "line": 1332,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue259()",
+      "after": "function getValue259(): string | null"
+    },
+    {
+      "id": 260,
+      "line": 1337,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue260()",
+      "after": "function getValue260(): string | null"
+    },
+    {
+      "id": 261,
+      "line": 1342,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue261()",
+      "after": "function getValue261(): string | null"
+    },
+    {
+      "id": 262,
+      "line": 1347,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue262()",
+      "after": "function getValue262(): string | null"
+    },
+    {
+      "id": 263,
+      "line": 1352,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue263()",
+      "after": "function getValue263(): string | null"
+    },
+    {
+      "id": 264,
+      "line": 1357,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue264()",
+      "after": "function getValue264(): string | null"
+    },
+    {
+      "id": 265,
+      "line": 1362,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue265()",
+      "after": "function getValue265(): string | null"
+    },
+    {
+      "id": 266,
+      "line": 1367,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue266()",
+      "after": "function getValue266(): string | null"
+    },
+    {
+      "id": 267,
+      "line": 1372,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue267()",
+      "after": "function getValue267(): string | null"
+    },
+    {
+      "id": 268,
+      "line": 1377,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue268()",
+      "after": "function getValue268(): string | null"
+    },
+    {
+      "id": 269,
+      "line": 1382,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue269()",
+      "after": "function getValue269(): string | null"
+    },
+    {
+      "id": 270,
+      "line": 1387,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue270()",
+      "after": "function getValue270(): string | null"
+    },
+    {
+      "id": 271,
+      "line": 1392,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue271()",
+      "after": "function getValue271(): string | null"
+    },
+    {
+      "id": 272,
+      "line": 1397,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue272()",
+      "after": "function getValue272(): string | null"
+    },
+    {
+      "id": 273,
+      "line": 1402,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue273()",
+      "after": "function getValue273(): string | null"
+    },
+    {
+      "id": 274,
+      "line": 1407,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue274()",
+      "after": "function getValue274(): string | null"
+    },
+    {
+      "id": 275,
+      "line": 1412,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Add return type annotation",
+      "before": "function getValue275()",
+      "after": "function getValue275(): string | null"
+    },
+    {
+      "id": 276,
+      "line": 1417,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result276: any",
+      "after": "let result276: unknown"
+    },
+    {
+      "id": 277,
+      "line": 1422,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result277: any",
+      "after": "let result277: unknown"
+    },
+    {
+      "id": 278,
+      "line": 1427,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result278: any",
+      "after": "let result278: unknown"
+    },
+    {
+      "id": 279,
+      "line": 1432,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result279: any",
+      "after": "let result279: unknown"
+    },
+    {
+      "id": 280,
+      "line": 1437,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result280: any",
+      "after": "let result280: unknown"
+    },
+    {
+      "id": 281,
+      "line": 1442,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result281: any",
+      "after": "let result281: unknown"
+    },
+    {
+      "id": 282,
+      "line": 1447,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result282: any",
+      "after": "let result282: unknown"
+    },
+    {
+      "id": 283,
+      "line": 1452,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result283: any",
+      "after": "let result283: unknown"
+    },
+    {
+      "id": 284,
+      "line": 1457,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result284: any",
+      "after": "let result284: unknown"
+    },
+    {
+      "id": 285,
+      "line": 1462,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result285: any",
+      "after": "let result285: unknown"
+    },
+    {
+      "id": 286,
+      "line": 1467,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result286: any",
+      "after": "let result286: unknown"
+    },
+    {
+      "id": 287,
+      "line": 1472,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result287: any",
+      "after": "let result287: unknown"
+    },
+    {
+      "id": 288,
+      "line": 1477,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result288: any",
+      "after": "let result288: unknown"
+    },
+    {
+      "id": 289,
+      "line": 1482,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result289: any",
+      "after": "let result289: unknown"
+    },
+    {
+      "id": 290,
+      "line": 1487,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result290: any",
+      "after": "let result290: unknown"
+    },
+    {
+      "id": 291,
+      "line": 1492,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result291: any",
+      "after": "let result291: unknown"
+    },
+    {
+      "id": 292,
+      "line": 1497,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result292: any",
+      "after": "let result292: unknown"
+    },
+    {
+      "id": 293,
+      "line": 1502,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result293: any",
+      "after": "let result293: unknown"
+    },
+    {
+      "id": 294,
+      "line": 1507,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result294: any",
+      "after": "let result294: unknown"
+    },
+    {
+      "id": 295,
+      "line": 1512,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result295: any",
+      "after": "let result295: unknown"
+    },
+    {
+      "id": 296,
+      "line": 1517,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result296: any",
+      "after": "let result296: unknown"
+    },
+    {
+      "id": 297,
+      "line": 1522,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result297: any",
+      "after": "let result297: unknown"
+    },
+    {
+      "id": 298,
+      "line": 1527,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result298: any",
+      "after": "let result298: unknown"
+    },
+    {
+      "id": 299,
+      "line": 1532,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result299: any",
+      "after": "let result299: unknown"
+    },
+    {
+      "id": 300,
+      "line": 1537,
+      "category": "TYPE_SAFETY",
+      "difficulty": "easy",
+      "description": "Replace any with unknown for type safety",
+      "before": "let result300: any",
+      "after": "let result300: unknown"
+    },
+    {
+      "id": 301,
+      "line": 1548,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data301 = JSON.parse(input301);",
+      "after": "let data301; try { data301 = JSON.parse(input301); } catch { data301 = null; }"
+    },
+    {
+      "id": 302,
+      "line": 1553,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data302 = JSON.parse(input302);",
+      "after": "let data302; try { data302 = JSON.parse(input302); } catch { data302 = null; }"
+    },
+    {
+      "id": 303,
+      "line": 1558,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data303 = JSON.parse(input303);",
+      "after": "let data303; try { data303 = JSON.parse(input303); } catch { data303 = null; }"
+    },
+    {
+      "id": 304,
+      "line": 1563,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data304 = JSON.parse(input304);",
+      "after": "let data304; try { data304 = JSON.parse(input304); } catch { data304 = null; }"
+    },
+    {
+      "id": 305,
+      "line": 1568,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data305 = JSON.parse(input305);",
+      "after": "let data305; try { data305 = JSON.parse(input305); } catch { data305 = null; }"
+    },
+    {
+      "id": 306,
+      "line": 1573,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data306 = JSON.parse(input306);",
+      "after": "let data306; try { data306 = JSON.parse(input306); } catch { data306 = null; }"
+    },
+    {
+      "id": 307,
+      "line": 1578,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data307 = JSON.parse(input307);",
+      "after": "let data307; try { data307 = JSON.parse(input307); } catch { data307 = null; }"
+    },
+    {
+      "id": 308,
+      "line": 1583,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data308 = JSON.parse(input308);",
+      "after": "let data308; try { data308 = JSON.parse(input308); } catch { data308 = null; }"
+    },
+    {
+      "id": 309,
+      "line": 1588,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data309 = JSON.parse(input309);",
+      "after": "let data309; try { data309 = JSON.parse(input309); } catch { data309 = null; }"
+    },
+    {
+      "id": 310,
+      "line": 1593,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data310 = JSON.parse(input310);",
+      "after": "let data310; try { data310 = JSON.parse(input310); } catch { data310 = null; }"
+    },
+    {
+      "id": 311,
+      "line": 1598,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data311 = JSON.parse(input311);",
+      "after": "let data311; try { data311 = JSON.parse(input311); } catch { data311 = null; }"
+    },
+    {
+      "id": 312,
+      "line": 1603,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data312 = JSON.parse(input312);",
+      "after": "let data312; try { data312 = JSON.parse(input312); } catch { data312 = null; }"
+    },
+    {
+      "id": 313,
+      "line": 1608,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data313 = JSON.parse(input313);",
+      "after": "let data313; try { data313 = JSON.parse(input313); } catch { data313 = null; }"
+    },
+    {
+      "id": 314,
+      "line": 1613,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data314 = JSON.parse(input314);",
+      "after": "let data314; try { data314 = JSON.parse(input314); } catch { data314 = null; }"
+    },
+    {
+      "id": 315,
+      "line": 1618,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data315 = JSON.parse(input315);",
+      "after": "let data315; try { data315 = JSON.parse(input315); } catch { data315 = null; }"
+    },
+    {
+      "id": 316,
+      "line": 1623,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data316 = JSON.parse(input316);",
+      "after": "let data316; try { data316 = JSON.parse(input316); } catch { data316 = null; }"
+    },
+    {
+      "id": 317,
+      "line": 1628,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data317 = JSON.parse(input317);",
+      "after": "let data317; try { data317 = JSON.parse(input317); } catch { data317 = null; }"
+    },
+    {
+      "id": 318,
+      "line": 1633,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data318 = JSON.parse(input318);",
+      "after": "let data318; try { data318 = JSON.parse(input318); } catch { data318 = null; }"
+    },
+    {
+      "id": 319,
+      "line": 1638,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data319 = JSON.parse(input319);",
+      "after": "let data319; try { data319 = JSON.parse(input319); } catch { data319 = null; }"
+    },
+    {
+      "id": 320,
+      "line": 1643,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data320 = JSON.parse(input320);",
+      "after": "let data320; try { data320 = JSON.parse(input320); } catch { data320 = null; }"
+    },
+    {
+      "id": 321,
+      "line": 1648,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data321 = JSON.parse(input321);",
+      "after": "let data321; try { data321 = JSON.parse(input321); } catch { data321 = null; }"
+    },
+    {
+      "id": 322,
+      "line": 1653,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data322 = JSON.parse(input322);",
+      "after": "let data322; try { data322 = JSON.parse(input322); } catch { data322 = null; }"
+    },
+    {
+      "id": 323,
+      "line": 1658,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data323 = JSON.parse(input323);",
+      "after": "let data323; try { data323 = JSON.parse(input323); } catch { data323 = null; }"
+    },
+    {
+      "id": 324,
+      "line": 1663,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data324 = JSON.parse(input324);",
+      "after": "let data324; try { data324 = JSON.parse(input324); } catch { data324 = null; }"
+    },
+    {
+      "id": 325,
+      "line": 1668,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data325 = JSON.parse(input325);",
+      "after": "let data325; try { data325 = JSON.parse(input325); } catch { data325 = null; }"
+    },
+    {
+      "id": 326,
+      "line": 1673,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data326 = JSON.parse(input326);",
+      "after": "let data326; try { data326 = JSON.parse(input326); } catch { data326 = null; }"
+    },
+    {
+      "id": 327,
+      "line": 1678,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data327 = JSON.parse(input327);",
+      "after": "let data327; try { data327 = JSON.parse(input327); } catch { data327 = null; }"
+    },
+    {
+      "id": 328,
+      "line": 1683,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data328 = JSON.parse(input328);",
+      "after": "let data328; try { data328 = JSON.parse(input328); } catch { data328 = null; }"
+    },
+    {
+      "id": 329,
+      "line": 1688,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data329 = JSON.parse(input329);",
+      "after": "let data329; try { data329 = JSON.parse(input329); } catch { data329 = null; }"
+    },
+    {
+      "id": 330,
+      "line": 1693,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Wrap in try/catch for error handling",
+      "before": "const data330 = JSON.parse(input330);",
+      "after": "let data330; try { data330 = JSON.parse(input330); } catch { data330 = null; }"
+    },
+    {
+      "id": 331,
+      "line": 1698,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response331.json();",
+      "after": "if (!response331.ok) throw new Error('Request failed'); return await response331.json();"
+    },
+    {
+      "id": 332,
+      "line": 1703,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response332.json();",
+      "after": "if (!response332.ok) throw new Error('Request failed'); return await response332.json();"
+    },
+    {
+      "id": 333,
+      "line": 1708,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response333.json();",
+      "after": "if (!response333.ok) throw new Error('Request failed'); return await response333.json();"
+    },
+    {
+      "id": 334,
+      "line": 1713,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response334.json();",
+      "after": "if (!response334.ok) throw new Error('Request failed'); return await response334.json();"
+    },
+    {
+      "id": 335,
+      "line": 1718,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response335.json();",
+      "after": "if (!response335.ok) throw new Error('Request failed'); return await response335.json();"
+    },
+    {
+      "id": 336,
+      "line": 1723,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response336.json();",
+      "after": "if (!response336.ok) throw new Error('Request failed'); return await response336.json();"
+    },
+    {
+      "id": 337,
+      "line": 1728,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response337.json();",
+      "after": "if (!response337.ok) throw new Error('Request failed'); return await response337.json();"
+    },
+    {
+      "id": 338,
+      "line": 1733,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response338.json();",
+      "after": "if (!response338.ok) throw new Error('Request failed'); return await response338.json();"
+    },
+    {
+      "id": 339,
+      "line": 1738,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response339.json();",
+      "after": "if (!response339.ok) throw new Error('Request failed'); return await response339.json();"
+    },
+    {
+      "id": 340,
+      "line": 1743,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response340.json();",
+      "after": "if (!response340.ok) throw new Error('Request failed'); return await response340.json();"
+    },
+    {
+      "id": 341,
+      "line": 1748,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response341.json();",
+      "after": "if (!response341.ok) throw new Error('Request failed'); return await response341.json();"
+    },
+    {
+      "id": 342,
+      "line": 1753,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response342.json();",
+      "after": "if (!response342.ok) throw new Error('Request failed'); return await response342.json();"
+    },
+    {
+      "id": 343,
+      "line": 1758,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response343.json();",
+      "after": "if (!response343.ok) throw new Error('Request failed'); return await response343.json();"
+    },
+    {
+      "id": 344,
+      "line": 1763,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response344.json();",
+      "after": "if (!response344.ok) throw new Error('Request failed'); return await response344.json();"
+    },
+    {
+      "id": 345,
+      "line": 1768,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response345.json();",
+      "after": "if (!response345.ok) throw new Error('Request failed'); return await response345.json();"
+    },
+    {
+      "id": 346,
+      "line": 1773,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response346.json();",
+      "after": "if (!response346.ok) throw new Error('Request failed'); return await response346.json();"
+    },
+    {
+      "id": 347,
+      "line": 1778,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response347.json();",
+      "after": "if (!response347.ok) throw new Error('Request failed'); return await response347.json();"
+    },
+    {
+      "id": 348,
+      "line": 1783,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response348.json();",
+      "after": "if (!response348.ok) throw new Error('Request failed'); return await response348.json();"
+    },
+    {
+      "id": 349,
+      "line": 1788,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response349.json();",
+      "after": "if (!response349.ok) throw new Error('Request failed'); return await response349.json();"
+    },
+    {
+      "id": 350,
+      "line": 1793,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response350.json();",
+      "after": "if (!response350.ok) throw new Error('Request failed'); return await response350.json();"
+    },
+    {
+      "id": 351,
+      "line": 1798,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response351.json();",
+      "after": "if (!response351.ok) throw new Error('Request failed'); return await response351.json();"
+    },
+    {
+      "id": 352,
+      "line": 1803,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response352.json();",
+      "after": "if (!response352.ok) throw new Error('Request failed'); return await response352.json();"
+    },
+    {
+      "id": 353,
+      "line": 1808,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response353.json();",
+      "after": "if (!response353.ok) throw new Error('Request failed'); return await response353.json();"
+    },
+    {
+      "id": 354,
+      "line": 1813,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response354.json();",
+      "after": "if (!response354.ok) throw new Error('Request failed'); return await response354.json();"
+    },
+    {
+      "id": 355,
+      "line": 1818,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response355.json();",
+      "after": "if (!response355.ok) throw new Error('Request failed'); return await response355.json();"
+    },
+    {
+      "id": 356,
+      "line": 1823,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response356.json();",
+      "after": "if (!response356.ok) throw new Error('Request failed'); return await response356.json();"
+    },
+    {
+      "id": 357,
+      "line": 1828,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response357.json();",
+      "after": "if (!response357.ok) throw new Error('Request failed'); return await response357.json();"
+    },
+    {
+      "id": 358,
+      "line": 1833,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response358.json();",
+      "after": "if (!response358.ok) throw new Error('Request failed'); return await response358.json();"
+    },
+    {
+      "id": 359,
+      "line": 1838,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response359.json();",
+      "after": "if (!response359.ok) throw new Error('Request failed'); return await response359.json();"
+    },
+    {
+      "id": 360,
+      "line": 1843,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Check response.ok before parsing",
+      "before": "return await response360.json();",
+      "after": "if (!response360.ok) throw new Error('Request failed'); return await response360.json();"
+    },
+    {
+      "id": 361,
+      "line": 1848,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val361 = config361.setting;",
+      "after": "const val361 = config361.setting ?? 'default';"
+    },
+    {
+      "id": 362,
+      "line": 1853,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val362 = config362.setting;",
+      "after": "const val362 = config362.setting ?? 'default';"
+    },
+    {
+      "id": 363,
+      "line": 1858,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val363 = config363.setting;",
+      "after": "const val363 = config363.setting ?? 'default';"
+    },
+    {
+      "id": 364,
+      "line": 1863,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val364 = config364.setting;",
+      "after": "const val364 = config364.setting ?? 'default';"
+    },
+    {
+      "id": 365,
+      "line": 1868,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val365 = config365.setting;",
+      "after": "const val365 = config365.setting ?? 'default';"
+    },
+    {
+      "id": 366,
+      "line": 1873,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val366 = config366.setting;",
+      "after": "const val366 = config366.setting ?? 'default';"
+    },
+    {
+      "id": 367,
+      "line": 1878,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val367 = config367.setting;",
+      "after": "const val367 = config367.setting ?? 'default';"
+    },
+    {
+      "id": 368,
+      "line": 1883,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val368 = config368.setting;",
+      "after": "const val368 = config368.setting ?? 'default';"
+    },
+    {
+      "id": 369,
+      "line": 1888,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val369 = config369.setting;",
+      "after": "const val369 = config369.setting ?? 'default';"
+    },
+    {
+      "id": 370,
+      "line": 1893,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val370 = config370.setting;",
+      "after": "const val370 = config370.setting ?? 'default';"
+    },
+    {
+      "id": 371,
+      "line": 1898,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val371 = config371.setting;",
+      "after": "const val371 = config371.setting ?? 'default';"
+    },
+    {
+      "id": 372,
+      "line": 1903,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val372 = config372.setting;",
+      "after": "const val372 = config372.setting ?? 'default';"
+    },
+    {
+      "id": 373,
+      "line": 1908,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val373 = config373.setting;",
+      "after": "const val373 = config373.setting ?? 'default';"
+    },
+    {
+      "id": 374,
+      "line": 1913,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val374 = config374.setting;",
+      "after": "const val374 = config374.setting ?? 'default';"
+    },
+    {
+      "id": 375,
+      "line": 1918,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val375 = config375.setting;",
+      "after": "const val375 = config375.setting ?? 'default';"
+    },
+    {
+      "id": 376,
+      "line": 1923,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val376 = config376.setting;",
+      "after": "const val376 = config376.setting ?? 'default';"
+    },
+    {
+      "id": 377,
+      "line": 1928,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val377 = config377.setting;",
+      "after": "const val377 = config377.setting ?? 'default';"
+    },
+    {
+      "id": 378,
+      "line": 1933,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val378 = config378.setting;",
+      "after": "const val378 = config378.setting ?? 'default';"
+    },
+    {
+      "id": 379,
+      "line": 1938,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val379 = config379.setting;",
+      "after": "const val379 = config379.setting ?? 'default';"
+    },
+    {
+      "id": 380,
+      "line": 1943,
+      "category": "ERROR_HANDLING",
+      "difficulty": "easy",
+      "description": "Add fallback for undefined value",
+      "before": "const val380 = config380.setting;",
+      "after": "const val380 = config380.setting ?? 'default';"
+    },
+    {
+      "id": 381,
+      "line": 1948,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise381.then(handle381);",
+      "after": "promise381.then(handle381).catch(err => console.error(err));"
+    },
+    {
+      "id": 382,
+      "line": 1953,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise382.then(handle382);",
+      "after": "promise382.then(handle382).catch(err => console.error(err));"
+    },
+    {
+      "id": 383,
+      "line": 1958,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise383.then(handle383);",
+      "after": "promise383.then(handle383).catch(err => console.error(err));"
+    },
+    {
+      "id": 384,
+      "line": 1963,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise384.then(handle384);",
+      "after": "promise384.then(handle384).catch(err => console.error(err));"
+    },
+    {
+      "id": 385,
+      "line": 1968,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise385.then(handle385);",
+      "after": "promise385.then(handle385).catch(err => console.error(err));"
+    },
+    {
+      "id": 386,
+      "line": 1973,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise386.then(handle386);",
+      "after": "promise386.then(handle386).catch(err => console.error(err));"
+    },
+    {
+      "id": 387,
+      "line": 1978,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise387.then(handle387);",
+      "after": "promise387.then(handle387).catch(err => console.error(err));"
+    },
+    {
+      "id": 388,
+      "line": 1983,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise388.then(handle388);",
+      "after": "promise388.then(handle388).catch(err => console.error(err));"
+    },
+    {
+      "id": 389,
+      "line": 1988,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise389.then(handle389);",
+      "after": "promise389.then(handle389).catch(err => console.error(err));"
+    },
+    {
+      "id": 390,
+      "line": 1993,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise390.then(handle390);",
+      "after": "promise390.then(handle390).catch(err => console.error(err));"
+    },
+    {
+      "id": 391,
+      "line": 1998,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise391.then(handle391);",
+      "after": "promise391.then(handle391).catch(err => console.error(err));"
+    },
+    {
+      "id": 392,
+      "line": 2003,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise392.then(handle392);",
+      "after": "promise392.then(handle392).catch(err => console.error(err));"
+    },
+    {
+      "id": 393,
+      "line": 2008,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise393.then(handle393);",
+      "after": "promise393.then(handle393).catch(err => console.error(err));"
+    },
+    {
+      "id": 394,
+      "line": 2013,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise394.then(handle394);",
+      "after": "promise394.then(handle394).catch(err => console.error(err));"
+    },
+    {
+      "id": 395,
+      "line": 2018,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise395.then(handle395);",
+      "after": "promise395.then(handle395).catch(err => console.error(err));"
+    },
+    {
+      "id": 396,
+      "line": 2023,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise396.then(handle396);",
+      "after": "promise396.then(handle396).catch(err => console.error(err));"
+    },
+    {
+      "id": 397,
+      "line": 2028,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise397.then(handle397);",
+      "after": "promise397.then(handle397).catch(err => console.error(err));"
+    },
+    {
+      "id": 398,
+      "line": 2033,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise398.then(handle398);",
+      "after": "promise398.then(handle398).catch(err => console.error(err));"
+    },
+    {
+      "id": 399,
+      "line": 2038,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise399.then(handle399);",
+      "after": "promise399.then(handle399).catch(err => console.error(err));"
+    },
+    {
+      "id": 400,
+      "line": 2043,
+      "category": "ERROR_HANDLING",
+      "difficulty": "medium",
+      "description": "Add catch handler for promise",
+      "before": "promise400.then(handle400);",
+      "after": "promise400.then(handle400).catch(err => console.error(err));"
+    },
+    {
+      "id": 401,
+      "line": 2054,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items401.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items401) { await process(item); }"
+    },
+    {
+      "id": 402,
+      "line": 2059,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items402.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items402) { await process(item); }"
+    },
+    {
+      "id": 403,
+      "line": 2064,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items403.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items403) { await process(item); }"
+    },
+    {
+      "id": 404,
+      "line": 2069,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items404.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items404) { await process(item); }"
+    },
+    {
+      "id": 405,
+      "line": 2074,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items405.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items405) { await process(item); }"
+    },
+    {
+      "id": 406,
+      "line": 2079,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items406.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items406) { await process(item); }"
+    },
+    {
+      "id": 407,
+      "line": 2084,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items407.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items407) { await process(item); }"
+    },
+    {
+      "id": 408,
+      "line": 2089,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items408.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items408) { await process(item); }"
+    },
+    {
+      "id": 409,
+      "line": 2094,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items409.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items409) { await process(item); }"
+    },
+    {
+      "id": 410,
+      "line": 2099,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items410.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items410) { await process(item); }"
+    },
+    {
+      "id": 411,
+      "line": 2104,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items411.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items411) { await process(item); }"
+    },
+    {
+      "id": 412,
+      "line": 2109,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items412.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items412) { await process(item); }"
+    },
+    {
+      "id": 413,
+      "line": 2114,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items413.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items413) { await process(item); }"
+    },
+    {
+      "id": 414,
+      "line": 2119,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items414.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items414) { await process(item); }"
+    },
+    {
+      "id": 415,
+      "line": 2124,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items415.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items415) { await process(item); }"
+    },
+    {
+      "id": 416,
+      "line": 2129,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items416.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items416) { await process(item); }"
+    },
+    {
+      "id": 417,
+      "line": 2134,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items417.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items417) { await process(item); }"
+    },
+    {
+      "id": 418,
+      "line": 2139,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items418.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items418) { await process(item); }"
+    },
+    {
+      "id": 419,
+      "line": 2144,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items419.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items419) { await process(item); }"
+    },
+    {
+      "id": 420,
+      "line": 2149,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix async forEach - use for...of instead",
+      "before": "items420.forEach(async (item) => { await process(item); });",
+      "after": "for (const item of items420) { await process(item); }"
+    },
+    {
+      "id": 421,
+      "line": 2154,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i421 = 0; i421 < 3; i421++) { setTimeout(() => log(i421), 100); }",
+      "after": "for (let i421 = 0; i421 < 3; i421++) { setTimeout(() => log(i421), 100); }"
+    },
+    {
+      "id": 422,
+      "line": 2159,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i422 = 0; i422 < 3; i422++) { setTimeout(() => log(i422), 100); }",
+      "after": "for (let i422 = 0; i422 < 3; i422++) { setTimeout(() => log(i422), 100); }"
+    },
+    {
+      "id": 423,
+      "line": 2164,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i423 = 0; i423 < 3; i423++) { setTimeout(() => log(i423), 100); }",
+      "after": "for (let i423 = 0; i423 < 3; i423++) { setTimeout(() => log(i423), 100); }"
+    },
+    {
+      "id": 424,
+      "line": 2169,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i424 = 0; i424 < 3; i424++) { setTimeout(() => log(i424), 100); }",
+      "after": "for (let i424 = 0; i424 < 3; i424++) { setTimeout(() => log(i424), 100); }"
+    },
+    {
+      "id": 425,
+      "line": 2174,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i425 = 0; i425 < 3; i425++) { setTimeout(() => log(i425), 100); }",
+      "after": "for (let i425 = 0; i425 < 3; i425++) { setTimeout(() => log(i425), 100); }"
+    },
+    {
+      "id": 426,
+      "line": 2179,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i426 = 0; i426 < 3; i426++) { setTimeout(() => log(i426), 100); }",
+      "after": "for (let i426 = 0; i426 < 3; i426++) { setTimeout(() => log(i426), 100); }"
+    },
+    {
+      "id": 427,
+      "line": 2184,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i427 = 0; i427 < 3; i427++) { setTimeout(() => log(i427), 100); }",
+      "after": "for (let i427 = 0; i427 < 3; i427++) { setTimeout(() => log(i427), 100); }"
+    },
+    {
+      "id": 428,
+      "line": 2189,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i428 = 0; i428 < 3; i428++) { setTimeout(() => log(i428), 100); }",
+      "after": "for (let i428 = 0; i428 < 3; i428++) { setTimeout(() => log(i428), 100); }"
+    },
+    {
+      "id": 429,
+      "line": 2194,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i429 = 0; i429 < 3; i429++) { setTimeout(() => log(i429), 100); }",
+      "after": "for (let i429 = 0; i429 < 3; i429++) { setTimeout(() => log(i429), 100); }"
+    },
+    {
+      "id": 430,
+      "line": 2199,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i430 = 0; i430 < 3; i430++) { setTimeout(() => log(i430), 100); }",
+      "after": "for (let i430 = 0; i430 < 3; i430++) { setTimeout(() => log(i430), 100); }"
+    },
+    {
+      "id": 431,
+      "line": 2204,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i431 = 0; i431 < 3; i431++) { setTimeout(() => log(i431), 100); }",
+      "after": "for (let i431 = 0; i431 < 3; i431++) { setTimeout(() => log(i431), 100); }"
+    },
+    {
+      "id": 432,
+      "line": 2209,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i432 = 0; i432 < 3; i432++) { setTimeout(() => log(i432), 100); }",
+      "after": "for (let i432 = 0; i432 < 3; i432++) { setTimeout(() => log(i432), 100); }"
+    },
+    {
+      "id": 433,
+      "line": 2214,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i433 = 0; i433 < 3; i433++) { setTimeout(() => log(i433), 100); }",
+      "after": "for (let i433 = 0; i433 < 3; i433++) { setTimeout(() => log(i433), 100); }"
+    },
+    {
+      "id": 434,
+      "line": 2219,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i434 = 0; i434 < 3; i434++) { setTimeout(() => log(i434), 100); }",
+      "after": "for (let i434 = 0; i434 < 3; i434++) { setTimeout(() => log(i434), 100); }"
+    },
+    {
+      "id": 435,
+      "line": 2224,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Fix closure capturing loop variable",
+      "before": "for (var i435 = 0; i435 < 3; i435++) { setTimeout(() => log(i435), 100); }",
+      "after": "for (let i435 = 0; i435 < 3; i435++) { setTimeout(() => log(i435), 100); }"
+    },
+    {
+      "id": 436,
+      "line": 2229,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result436 = asyncFetch436();",
+      "after": "const result436 = await asyncFetch436();"
+    },
+    {
+      "id": 437,
+      "line": 2234,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result437 = asyncFetch437();",
+      "after": "const result437 = await asyncFetch437();"
+    },
+    {
+      "id": 438,
+      "line": 2239,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result438 = asyncFetch438();",
+      "after": "const result438 = await asyncFetch438();"
+    },
+    {
+      "id": 439,
+      "line": 2244,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result439 = asyncFetch439();",
+      "after": "const result439 = await asyncFetch439();"
+    },
+    {
+      "id": 440,
+      "line": 2249,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result440 = asyncFetch440();",
+      "after": "const result440 = await asyncFetch440();"
+    },
+    {
+      "id": 441,
+      "line": 2254,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result441 = asyncFetch441();",
+      "after": "const result441 = await asyncFetch441();"
+    },
+    {
+      "id": 442,
+      "line": 2259,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result442 = asyncFetch442();",
+      "after": "const result442 = await asyncFetch442();"
+    },
+    {
+      "id": 443,
+      "line": 2264,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result443 = asyncFetch443();",
+      "after": "const result443 = await asyncFetch443();"
+    },
+    {
+      "id": 444,
+      "line": 2269,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result444 = asyncFetch444();",
+      "after": "const result444 = await asyncFetch444();"
+    },
+    {
+      "id": 445,
+      "line": 2274,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result445 = asyncFetch445();",
+      "after": "const result445 = await asyncFetch445();"
+    },
+    {
+      "id": 446,
+      "line": 2279,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result446 = asyncFetch446();",
+      "after": "const result446 = await asyncFetch446();"
+    },
+    {
+      "id": 447,
+      "line": 2284,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result447 = asyncFetch447();",
+      "after": "const result447 = await asyncFetch447();"
+    },
+    {
+      "id": 448,
+      "line": 2289,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result448 = asyncFetch448();",
+      "after": "const result448 = await asyncFetch448();"
+    },
+    {
+      "id": 449,
+      "line": 2294,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result449 = asyncFetch449();",
+      "after": "const result449 = await asyncFetch449();"
+    },
+    {
+      "id": 450,
+      "line": 2299,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result450 = asyncFetch450();",
+      "after": "const result450 = await asyncFetch450();"
+    },
+    {
+      "id": 451,
+      "line": 2304,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result451 = asyncFetch451();",
+      "after": "const result451 = await asyncFetch451();"
+    },
+    {
+      "id": 452,
+      "line": 2309,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result452 = asyncFetch452();",
+      "after": "const result452 = await asyncFetch452();"
+    },
+    {
+      "id": 453,
+      "line": 2314,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result453 = asyncFetch453();",
+      "after": "const result453 = await asyncFetch453();"
+    },
+    {
+      "id": 454,
+      "line": 2319,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result454 = asyncFetch454();",
+      "after": "const result454 = await asyncFetch454();"
+    },
+    {
+      "id": 455,
+      "line": 2324,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Add missing await for async function",
+      "before": "const result455 = asyncFetch455();",
+      "after": "const result455 = await asyncFetch455();"
+    },
+    {
+      "id": 456,
+      "line": 2329,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy456 = original456;",
+      "after": "const copy456 = { ...original456 };"
+    },
+    {
+      "id": 457,
+      "line": 2334,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy457 = original457;",
+      "after": "const copy457 = { ...original457 };"
+    },
+    {
+      "id": 458,
+      "line": 2339,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy458 = original458;",
+      "after": "const copy458 = { ...original458 };"
+    },
+    {
+      "id": 459,
+      "line": 2344,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy459 = original459;",
+      "after": "const copy459 = { ...original459 };"
+    },
+    {
+      "id": 460,
+      "line": 2349,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy460 = original460;",
+      "after": "const copy460 = { ...original460 };"
+    },
+    {
+      "id": 461,
+      "line": 2354,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy461 = original461;",
+      "after": "const copy461 = { ...original461 };"
+    },
+    {
+      "id": 462,
+      "line": 2359,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy462 = original462;",
+      "after": "const copy462 = { ...original462 };"
+    },
+    {
+      "id": 463,
+      "line": 2364,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy463 = original463;",
+      "after": "const copy463 = { ...original463 };"
+    },
+    {
+      "id": 464,
+      "line": 2369,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy464 = original464;",
+      "after": "const copy464 = { ...original464 };"
+    },
+    {
+      "id": 465,
+      "line": 2374,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy465 = original465;",
+      "after": "const copy465 = { ...original465 };"
+    },
+    {
+      "id": 466,
+      "line": 2379,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy466 = original466;",
+      "after": "const copy466 = { ...original466 };"
+    },
+    {
+      "id": 467,
+      "line": 2384,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy467 = original467;",
+      "after": "const copy467 = { ...original467 };"
+    },
+    {
+      "id": 468,
+      "line": 2389,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy468 = original468;",
+      "after": "const copy468 = { ...original468 };"
+    },
+    {
+      "id": 469,
+      "line": 2394,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy469 = original469;",
+      "after": "const copy469 = { ...original469 };"
+    },
+    {
+      "id": 470,
+      "line": 2399,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Clone object instead of referencing",
+      "before": "const copy470 = original470;",
+      "after": "const copy470 = { ...original470 };"
+    },
+    {
+      "id": 471,
+      "line": 2404,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr471.push(item471); return arr471;",
+      "after": "return [...arr471, item471];"
+    },
+    {
+      "id": 472,
+      "line": 2409,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr472.push(item472); return arr472;",
+      "after": "return [...arr472, item472];"
+    },
+    {
+      "id": 473,
+      "line": 2414,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr473.push(item473); return arr473;",
+      "after": "return [...arr473, item473];"
+    },
+    {
+      "id": 474,
+      "line": 2419,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr474.push(item474); return arr474;",
+      "after": "return [...arr474, item474];"
+    },
+    {
+      "id": 475,
+      "line": 2424,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr475.push(item475); return arr475;",
+      "after": "return [...arr475, item475];"
+    },
+    {
+      "id": 476,
+      "line": 2429,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr476.push(item476); return arr476;",
+      "after": "return [...arr476, item476];"
+    },
+    {
+      "id": 477,
+      "line": 2434,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr477.push(item477); return arr477;",
+      "after": "return [...arr477, item477];"
+    },
+    {
+      "id": 478,
+      "line": 2439,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr478.push(item478); return arr478;",
+      "after": "return [...arr478, item478];"
+    },
+    {
+      "id": 479,
+      "line": 2444,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr479.push(item479); return arr479;",
+      "after": "return [...arr479, item479];"
+    },
+    {
+      "id": 480,
+      "line": 2449,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr480.push(item480); return arr480;",
+      "after": "return [...arr480, item480];"
+    },
+    {
+      "id": 481,
+      "line": 2454,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr481.push(item481); return arr481;",
+      "after": "return [...arr481, item481];"
+    },
+    {
+      "id": 482,
+      "line": 2459,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr482.push(item482); return arr482;",
+      "after": "return [...arr482, item482];"
+    },
+    {
+      "id": 483,
+      "line": 2464,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr483.push(item483); return arr483;",
+      "after": "return [...arr483, item483];"
+    },
+    {
+      "id": 484,
+      "line": 2469,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr484.push(item484); return arr484;",
+      "after": "return [...arr484, item484];"
+    },
+    {
+      "id": 485,
+      "line": 2474,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Return new array instead of mutating",
+      "before": "arr485.push(item485); return arr485;",
+      "after": "return [...arr485, item485];"
+    },
+    {
+      "id": 486,
+      "line": 2479,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float486 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float486 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 487,
+      "line": 2484,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float487 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float487 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 488,
+      "line": 2489,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float488 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float488 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 489,
+      "line": 2494,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float489 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float489 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 490,
+      "line": 2499,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float490 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float490 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 491,
+      "line": 2504,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float491 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float491 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 492,
+      "line": 2509,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float492 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float492 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 493,
+      "line": 2514,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float493 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float493 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 494,
+      "line": 2519,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float494 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float494 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 495,
+      "line": 2524,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float495 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float495 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 496,
+      "line": 2529,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float496 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float496 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 497,
+      "line": 2534,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float497 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float497 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 498,
+      "line": 2539,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float498 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float498 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 499,
+      "line": 2544,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float499 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float499 - 0.3) < Number.EPSILON)"
+    },
+    {
+      "id": 500,
+      "line": 2549,
+      "category": "TRICKY",
+      "difficulty": "hard",
+      "description": "Use epsilon comparison for floating point",
+      "before": "if (float500 === 0.1 + 0.2)",
+      "after": "if (Math.abs(float500 - 0.3) < Number.EPSILON)"
+    }
+  ]
+}

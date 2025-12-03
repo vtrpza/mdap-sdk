@@ -19,12 +19,7 @@
     "clean": "pnpm -r clean",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish",
-    "simulate": "npx tsx examples/simulation/code-analysis-1000.ts",
-    "simulate:dry": "npx tsx examples/simulation/code-analysis-1000.ts --dry-run",
-    "landing:dev": "pnpm --filter @mdap/landing dev",
-    "landing:build": "pnpm --filter @mdap/landing build",
-    "landing:preview": "pnpm --filter @mdap/landing preview"
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
@@ -33,6 +28,7 @@
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "jiti": "^2.6.1",
+    "openai": "^6.9.1",
     "prettier": "^3.1.0",
     "tsup": "^8.0.0",
     "typescript": "^5.3.0",

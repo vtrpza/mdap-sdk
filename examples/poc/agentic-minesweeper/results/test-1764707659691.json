@@ -1,0 +1,65 @@
+{
+  "config": {
+    "model": "gpt-4.1-mini",
+    "useMdap": true,
+    "k": 3,
+    "temperature": 0.1,
+    "maxSteps": 5,
+    "outputDir": "/home/fatdog/Work/vibe/mdap-sdk/examples/poc/agentic-minesweeper/outputs",
+    "trialId": "test-1764707659691"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "Add CSS reset: * { margin: 0; padding: 0; box-sizing: border-box; }",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+      "samples": 3,
+      "inputTokens": 1407,
+      "outputTokens": 318,
+      "timeMs": 6451
+    },
+    {
+      "step": 2,
+      "action": "Add body styles: center content, dark background (#1a1a2e), min-height 100vh, font-family system-ui",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n    body {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: #1a1a2e;\n      min-height: 100vh;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen,\n        Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+      "samples": 3,
+      "inputTokens": 1497,
+      "outputTokens": 573,
+      "timeMs": 8689
+    },
+    {
+      "step": 3,
+      "action": "Add .container styles: display flex, flex-direction column, align-items center, padding 20px",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n    body {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: #1a1a2e;\n      min-height: 100vh;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen,\n        Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    }\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      padding: 20px;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+      "samples": 3,
+      "inputTokens": 1731,
+      "outputTokens": 663,
+      "timeMs": 11735
+    },
+    {
+      "step": 4,
+      "action": "Add .header styles: text-align center, margin-bottom 20px, color white",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n    body {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: #1a1a2e;\n      min-height: 100vh;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen,\n        Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    }\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      padding: 20px;\n    }\n    .header {\n      text-align: center;\n      margin-bottom: 20px;\n      color: white;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+      "samples": 3,
+      "inputTokens": 1812,
+      "outputTokens": 738,
+      "timeMs": 17313
+    },
+    {
+      "step": 5,
+      "action": "Add h1 styles: font-size 2.5rem, margin-bottom 10px, text-shadow for glow effect",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n    body {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: #1a1a2e;\n      min-height: 100vh;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen,\n        Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    }\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      padding: 20px;\n    }\n    .header {\n      text-align: center;\n      margin-bottom: 20px;\n      color: white;\n    }\n    h1 {\n      font-size: 2.5rem;\n      margin-bottom: 10px;\n      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+      "samples": 5,
+      "inputTokens": 3180,
+      "outputTokens": 1491,
+      "timeMs": 26001
+    }
+  ],
+  "finalCode": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Minesweeper</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n    body {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: #1a1a2e;\n      min-height: 100vh;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen,\n        Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    }\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      padding: 20px;\n    }\n    .header {\n      text-align: center;\n      margin-bottom: 20px;\n      color: white;\n    }\n    h1 {\n      font-size: 2.5rem;\n      margin-bottom: 10px;\n      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;\n    }\n  </style>\n</head>\n<body>\n  <script>\n  </script>\n</body>\n</html>",
+  "totalSteps": 5,
+  "completed": true,
+  "totalTimeMs": 70190,
+  "totalInputTokens": 9627,
+  "totalOutputTokens": 3783,
+  "estimatedCost": 0.009903600000000002
+}

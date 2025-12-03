@@ -10,6 +10,7 @@ Voting-based error correction for LLM agents. Based on the research paper ["Solv
 ## The Problem
 
 LLMs have a persistent error rate. Even at 99% accuracy per step:
+
 - After 100 steps: ~37% chance of at least one error
 - After 1,000 steps: ~0.004% chance of success
 - After 1,000,000 steps: effectively impossible
@@ -31,31 +32,33 @@ npm install @mdap/core @mdap/adapters
 ```
 
 ```typescript
-import { reliable, RedFlag } from '@mdap/core';
-import { createOpenAI } from '@mdap/adapters';
+import { reliable, RedFlag } from "@mdap/core";
+import { createOpenAI } from "@mdap/adapters";
 
 // Create an LLM adapter
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  model: 'gpt-4.1-mini'
+  model: "gpt-4.1-mini",
 });
 
 // Wrap any LLM call with reliability
 const extractEntities = reliable({
-  vote: { k: 3 },  // First-to-ahead-by-3 voting
+  vote: { k: 3 }, // First-to-ahead-by-3 voting
   redFlags: [
-    RedFlag.tooLong(750),    // Flag overly long responses
-    RedFlag.invalidJson()     // Flag malformed JSON
-  ]
+    RedFlag.tooLong(750), // Flag overly long responses
+    RedFlag.invalidJson(), // Flag malformed JSON
+  ],
 })(async (text: string) => {
   return await openai.chat(`Extract entities as JSON from: ${text}`);
 });
 
 // Use it like any async function
-const result = await extractEntities("Apple Inc. was founded by Steve Jobs in Cupertino.");
+const result = await extractEntities(
+  "Apple Inc. was founded by Steve Jobs in Cupertino.",
+);
 
-console.log(result.winner);      // The winning response
-console.log(result.confidence);  // Confidence score (0-1)
+console.log(result.winner); // The winning response
+console.log(result.confidence); // Confidence score (0-1)
 console.log(result.totalSamples); // Number of samples drawn
 ```
 
@@ -65,37 +68,37 @@ console.log(result.totalSamples); // Number of samples drawn
 
 ```typescript
 // First-to-k: First response to get k votes wins (faster)
-reliable({ vote: { k: 3, strategy: 'first-to-k' } })
+reliable({ vote: { k: 3, strategy: "first-to-k" } });
 
 // First-to-ahead-by-k: Must lead by k votes (more robust, default)
-reliable({ vote: { k: 3, strategy: 'first-to-ahead-by-k' } })
+reliable({ vote: { k: 3, strategy: "first-to-ahead-by-k" } });
 ```
 
 ### Built-in Red Flags
 
 ```typescript
-import { RedFlag } from '@mdap/core';
+import { RedFlag } from "@mdap/core";
 
 // Response too long (indicates confusion)
-RedFlag.tooLong(maxTokens)
+RedFlag.tooLong(maxTokens);
 
 // Empty or whitespace response
-RedFlag.emptyResponse()
+RedFlag.emptyResponse();
 
 // Invalid JSON (when expecting JSON output)
-RedFlag.invalidJson()
+RedFlag.invalidJson();
 
 // Must match a pattern
-RedFlag.mustMatch(/^\{.*\}$/)
+RedFlag.mustMatch(/^\{.*\}$/);
 
 // Must NOT match a pattern
-RedFlag.mustNotMatch(/error|sorry|cannot/i)
+RedFlag.mustNotMatch(/error|sorry|cannot/i);
 
 // Contains problematic phrases
-RedFlag.containsPhrase(['I cannot', 'I\'m not sure'])
+RedFlag.containsPhrase(["I cannot", "I'm not sure"]);
 
 // Custom rule
-RedFlag.custom('myRule', (response) => response.includes('ERROR'))
+RedFlag.custom("myRule", (response) => response.includes("ERROR"));
 ```
 
 ### ⚠️ Designing Prompts for Convergence
@@ -140,21 +143,21 @@ Code: ${code}`);
 
 #### Best Practices
 
-| Practice | Why |
-|----------|-----|
-| **Use fixed categories** | Multiple choice converges better than free text |
-| **Request JSON output** | Structured format = consistent format |
-| **Keep responses short** | "Add null check" vs long explanations |
-| **Lower temperature** | 0.1 instead of 0.7 for consistency |
-| **Add JSON validation red flag** | Reject malformed responses early |
-| **Set reasonable maxSamples** | 30 instead of 100 to fail fast |
+| Practice                         | Why                                             |
+| -------------------------------- | ----------------------------------------------- |
+| **Use fixed categories**         | Multiple choice converges better than free text |
+| **Request JSON output**          | Structured format = consistent format           |
+| **Keep responses short**         | "Add null check" vs long explanations           |
+| **Lower temperature**            | 0.1 instead of 0.7 for consistency              |
+| **Add JSON validation red flag** | Reject malformed responses early                |
+| **Set reasonable maxSamples**    | 30 instead of 100 to fail fast                  |
 
 #### Temperature Settings
 
 ```typescript
 // For voting to work, use LOW temperature
 createOpenAI({
-  temperature: 0.1,  // ✅ Consistent outputs
+  temperature: 0.1, // ✅ Consistent outputs
   // temperature: 0.7  // ❌ Too much variation
 });
 ```
@@ -167,9 +170,13 @@ Always validate JSON when expecting structured output:
 const jsonRedFlags = [
   RedFlag.tooLong(200),
   RedFlag.emptyResponse(),
-  RedFlag.custom('invalidJson', (r) => {
-    try { JSON.parse(r); return false; }
-    catch { return true; }
+  RedFlag.custom("invalidJson", (r) => {
+    try {
+      JSON.parse(r);
+      return false;
+    } catch {
+      return true;
+    }
   }),
 ];
 ```
@@ -177,6 +184,7 @@ const jsonRedFlags = [
 #### When Voting Won't Help
 
 Voting is **not suitable** for:
+
 - Creative writing (intentionally varied outputs)
 - Brainstorming (want diverse ideas)
 - Subjective opinions (no "correct" answer)
@@ -188,14 +196,14 @@ Use voting for tasks with **deterministic, verifiable answers**.
 Before running expensive workflows, estimate the cost:
 
 ```typescript
-import { estimateCost, formatCostEstimate } from '@mdap/core';
+import { estimateCost, formatCostEstimate } from "@mdap/core";
 
 const estimate = estimateCost({
   steps: 10000,
-  successRate: 0.99,        // Per-step success rate
-  targetReliability: 0.95,  // Target overall success
+  successRate: 0.99, // Per-step success rate
+  targetReliability: 0.95, // Target overall success
   inputCostPerMillion: 0.5, // $/1M input tokens
-  outputCostPerMillion: 1.5 // $/1M output tokens
+  outputCostPerMillion: 1.5, // $/1M output tokens
 });
 
 console.log(formatCostEstimate(estimate));
@@ -214,10 +222,10 @@ Create a reliable wrapper around an LLM call.
 ```typescript
 interface ReliableConfig<TOutput> {
   vote?: {
-    k?: number;           // Vote threshold (default: 3)
-    maxSamples?: number;  // Safety limit (default: 100)
-    parallel?: boolean;   // Run samples in parallel (default: true)
-    strategy?: 'first-to-k' | 'first-to-ahead-by-k';
+    k?: number; // Vote threshold (default: 3)
+    maxSamples?: number; // Safety limit (default: 100)
+    parallel?: boolean; // Run samples in parallel (default: true)
+    strategy?: "first-to-k" | "first-to-ahead-by-k";
   };
   redFlags?: RedFlagRule<TOutput>[];
   serialize?: (response: TOutput) => string;
@@ -243,12 +251,12 @@ const result = await vote(
 
 ```typescript
 interface VoteResult<TOutput> {
-  winner: TOutput;           // The winning response
-  confidence: number;        // Confidence score (0-1)
-  totalSamples: number;      // Samples drawn
-  flaggedSamples: number;    // Samples discarded
+  winner: TOutput; // The winning response
+  confidence: number; // Confidence score (0-1)
+  totalSamples: number; // Samples drawn
+  flaggedSamples: number; // Samples discarded
   votes: Map<string, number>; // Vote distribution
-  converged: boolean;        // Whether voting converged
+  converged: boolean; // Whether voting converged
 }
 ```
 
@@ -257,13 +265,13 @@ interface VoteResult<TOutput> {
 ### OpenAI
 
 ```typescript
-import { createOpenAI } from '@mdap/adapters';
+import { createOpenAI } from "@mdap/adapters";
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  model: 'gpt-4.1-mini',
+  model: "gpt-4.1-mini",
   temperature: 0.1,
-  maxTokens: 1024
+  maxTokens: 1024,
 });
 
 await openai.chat("Hello!", { system: "You are helpful." });
@@ -272,11 +280,11 @@ await openai.chat("Hello!", { system: "You are helpful." });
 ### Anthropic
 
 ```typescript
-import { createAnthropic } from '@mdap/adapters';
+import { createAnthropic } from "@mdap/adapters";
 
 const claude = createAnthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
-  model: 'claude-3-5-haiku-latest'
+  model: "claude-3-5-haiku-latest",
 });
 
 await claude.chat("Hello!");
@@ -289,11 +297,11 @@ await claude.chat("Hello!");
 ```typescript
 const extractEntities = reliable({
   vote: { k: 3 },
-  redFlags: [RedFlag.invalidJson(), RedFlag.tooLong(500)]
+  redFlags: [RedFlag.invalidJson(), RedFlag.tooLong(500)],
 })(async (text: string) => {
   return await openai.chat(
     `Extract named entities from this text as JSON: ${text}`,
-    { system: 'Respond only with valid JSON array of entities.' }
+    { system: "Respond only with valid JSON array of entities." },
   );
 });
 ```
@@ -302,11 +310,11 @@ const extractEntities = reliable({
 
 ```typescript
 const generateCode = reliable({
-  vote: { k: 5 },  // Higher k for more critical output
+  vote: { k: 5 }, // Higher k for more critical output
   redFlags: [
     RedFlag.emptyResponse(),
-    RedFlag.containsPhrase(['TODO', 'FIXME', '...'])
-  ]
+    RedFlag.containsPhrase(["TODO", "FIXME", "..."]),
+  ],
 })(async (spec: string) => {
   return await openai.chat(`Write TypeScript code for: ${spec}`);
 });
@@ -336,52 +344,58 @@ Chain multiple reliable steps together with the workflow API:
 ### Workflow Builder
 
 ```typescript
-import { workflow, RedFlag } from '@mdap/core';
+import { workflow, RedFlag } from "@mdap/core";
 
-const analysisWorkflow = workflow<string>('document-analysis', {
+const analysisWorkflow = workflow<string>("document-analysis", {
   vote: { k: 3 },
-  redFlags: [RedFlag.emptyResponse()]
+  redFlags: [RedFlag.emptyResponse()],
 })
-  .step('extract', async (text) => {
+  .step("extract", async (text) => {
     return await llm(`extract entities from: ${text}`);
   })
-  .step('summarize', async (entities) => {
+  .step("summarize", async (entities) => {
     return await llm(`summarize: ${entities}`);
   })
-  .step('classify', async (summary) => {
+  .step("classify", async (summary) => {
     return await llm(`classify sentiment: ${summary}`);
   });
 
-const result = await analysisWorkflow.run('Your input document...');
-console.log(result.output);        // Final output
-console.log(result.totalSamples);  // Total samples across all steps
-console.log(result.steps);         // Details for each step
+const result = await analysisWorkflow.run("Your input document...");
+console.log(result.output); // Final output
+console.log(result.totalSamples); // Total samples across all steps
+console.log(result.steps); // Details for each step
 ```
 
 ### Pipeline (Simple Linear Chain)
 
 ```typescript
-import { pipeline } from '@mdap/core';
+import { pipeline } from "@mdap/core";
 
-const myPipeline = pipeline<string, string>([
-  { name: 'extract', fn: async (input) => llm(`extract: ${input}`) },
-  { name: 'analyze', fn: async (data) => llm(`analyze: ${data}`) },
-  { name: 'format', fn: async (result) => llm(`format: ${result}`) }
-], { vote: { k: 2 } });
+const myPipeline = pipeline<string, string>(
+  [
+    { name: "extract", fn: async (input) => llm(`extract: ${input}`) },
+    { name: "analyze", fn: async (data) => llm(`analyze: ${data}`) },
+    { name: "format", fn: async (result) => llm(`format: ${result}`) },
+  ],
+  { vote: { k: 2 } },
+);
 
-const result = await myPipeline('input text');
+const result = await myPipeline("input text");
 ```
 
 ### Parallel Execution
 
 ```typescript
-import { parallel } from '@mdap/core';
+import { parallel } from "@mdap/core";
 
-const results = await parallel({
-  entities: () => llm('extract entities from: doc'),
-  sentiment: () => llm('sentiment analysis: doc'),
-  summary: () => llm('summarize: doc')
-}, { vote: { k: 2 } });
+const results = await parallel(
+  {
+    entities: () => llm("extract entities from: doc"),
+    sentiment: () => llm("sentiment analysis: doc"),
+    summary: () => llm("summarize: doc"),
+  },
+  { vote: { k: 2 } },
+);
 
 console.log(results.entities.winner);
 console.log(results.sentiment.winner);
@@ -391,17 +405,17 @@ console.log(results.summary.winner);
 ### Decompose Pattern (MAKER Methodology)
 
 ```typescript
-import { decompose } from '@mdap/core';
+import { decompose } from "@mdap/core";
 
 const result = await decompose<string, string, string>(
-  'Large task to process',
+  "Large task to process",
   // Decomposer: split into subtasks
   async (input) => JSON.parse(await llm(`split into subtasks: ${input}`)),
   // Executor: process each subtask
   async (subtask) => await llm(`process: ${subtask}`),
   // Aggregator: combine results
-  (results) => results.map(r => r.winner).join('\n'),
-  { vote: { k: 2 } }
+  (results) => results.map((r) => r.winner).join("\n"),
+  { vote: { k: 2 } },
 );
 ```
 
@@ -460,34 +474,40 @@ mdap --version
 Group semantically equivalent responses for better voting accuracy:
 
 ```typescript
-import { reliable, withSemanticDedup, SemanticPatterns } from '@mdap/core';
+import { reliable, withSemanticDedup, SemanticPatterns } from "@mdap/core";
 
 // JSON-aware comparison (ignores key order, whitespace)
 const extractJson = reliable(
-  withSemanticDedup({
-    vote: { k: 3 }
-  }, SemanticPatterns.json())
+  withSemanticDedup(
+    {
+      vote: { k: 3 },
+    },
+    SemanticPatterns.json(),
+  ),
 )(jsonExtractor);
 
 // Fuzzy text matching (allows minor differences)
 const summarize = reliable(
-  withSemanticDedup({
-    vote: { k: 3 }
-  }, SemanticPatterns.fuzzy(0.85))
+  withSemanticDedup(
+    {
+      vote: { k: 3 },
+    },
+    SemanticPatterns.fuzzy(0.85),
+  ),
 )(textSummarizer);
 
 // Custom semantic similarity
-import { createSemanticSerializer } from '@mdap/core';
+import { createSemanticSerializer } from "@mdap/core";
 
 const customSerialize = createSemanticSerializer({
   threshold: 0.9,
   ignoreCase: true,
-  normalize: (s) => s.replace(/\s+/g, ' ').trim()
+  normalize: (s) => s.replace(/\s+/g, " ").trim(),
 });
 
 const extract = reliable({
   vote: { k: 3 },
-  serialize: customSerialize
+  serialize: customSerialize,
 })(myLLMCall);
 ```
 
@@ -525,6 +545,7 @@ tracker.completeWorkflow(wf.id);
 ```
 
 The dashboard provides:
+
 - Real-time workflow monitoring via SSE
 - Statistics: total workflows, success rate, avg confidence
 - Step-by-step execution details
@@ -535,6 +556,7 @@ The dashboard provides:
 ### The Math (Simplified)
 
 Given:
+
 - `p` = per-step success rate (e.g., 0.99)
 - `k` = voting threshold
 - `s` = total steps
@@ -555,11 +577,33 @@ With `k=3` and `p=0.99`, you can solve **millions of steps** with high confidenc
 
 ## Comparison
 
-| Approach | 1K Steps | 10K Steps | 1M Steps |
-|----------|----------|-----------|----------|
-| Single LLM call | ~0% | 0% | 0% |
-| Simple retry | ~5% | 0% | 0% |
-| MDAP (k=3) | ~99.9% | ~99% | ~95% |
+| Approach        | 1K Steps | 10K Steps | 1M Steps |
+| --------------- | -------- | --------- | -------- |
+| Single LLM call | ~0%      | 0%        | 0%       |
+| Simple retry    | ~5%      | 0%        | 0%       |
+| MDAP (k=3)      | ~99.9%   | ~99%      | ~95%     |
+
+## Case Study: Code Classifier
+
+We ran a real-world comparison using 50 code snippets classified 250 times each:
+
+| Metric          | Baseline | MDAP  | Notes                       |
+| --------------- | -------- | ----- | --------------------------- |
+| Accuracy        | 78.8%    | 78.0% | Same (task is subjective)   |
+| Valid Responses | 100%     | 100%  | Red flags caught malformed  |
+| Convergence     | N/A      | 100%  | Perfect consensus           |
+| Avg Confidence  | N/A      | 99.4% | Strong agreement            |
+| Token Overhead  | 1x       | 3.27x | Modest cost for reliability |
+
+**Key Insight**: MDAP doesn't improve accuracy on subjective tasks - it provides **consistency**, **confidence scores**, and **format validation**. The 22% "errors" are genuinely ambiguous cases (e.g., is a missing `await` a BUG or PERFORMANCE issue?).
+
+**When MDAP shines:**
+
+- Catching malformed responses before they propagate
+- Providing confidence scores to flag uncertain results
+- Ensuring reproducible behavior via voting consensus
+
+See the [full case study documentation](/docs/case-study-code-classifier.md) for detailed analysis.
 
 ## Claude Code Integration
 
@@ -581,9 +625,67 @@ Add MDAP tools to any MCP client (Claude Code, Cursor, VS Code):
 ```
 
 **Available tools:**
+
+- `mdap_execute` - **NEW**: Run prompts with full MDAP reliability (voting + red flags)
 - `mdap_estimate_cost` - Predict cost before running workflows
 - `mdap_validate` - Check responses for red flags
 - `mdap_calculate_k` - Calculate optimal vote threshold
+
+### Agentic Execution
+
+The `mdap_execute` tool enables AI agents to self-correct using the paper's methodology. Agents can run any prompt with full voting-based error correction:
+
+```typescript
+// MCP tool call
+mdap_execute({
+  prompt: "Extract entities as JSON from: Apple Inc. was founded by Steve Jobs",
+  system: "Respond only with valid JSON array of entity names",
+  k: 3,                                    // Paper recommendation
+  redFlags: ["tooLong:750", "invalidJson"], // Discard confused responses
+  provider: "openai",
+  model: "gpt-4.1-mini"                    // Paper's most cost-effective model
+})
+
+// Returns
+{
+  winner: '["Apple Inc.", "Steve Jobs"]',
+  confidence: 1.0,
+  totalSamples: 5,
+  flaggedSamples: 1,
+  converged: true,
+  usage: { totalTokens: 847, estimatedCost: 0.0012 }
+}
+```
+
+**Red flag formats:**
+
+- `"tooLong:750"` - Flag responses over 750 tokens
+- `"invalidJson"` - Flag invalid JSON
+- `"emptyResponse"` - Flag empty responses
+- `"mustMatch:^\\{.*\\}$"` - Must match regex
+- `"containsPhrase:I cannot,error"` - Flag if contains phrase
+
+### CLI Execution
+
+Run MDAP from the command line for scripting and automation:
+
+```bash
+# Execute with full MDAP reliability
+mdap execute "Extract entities as JSON from: Apple was founded by Steve Jobs" \
+  --system "Respond only with valid JSON" \
+  --k 3 \
+  --red-flags "tooLong:500,invalidJson" \
+  --provider openai \
+  --model gpt-4.1-mini
+
+# Output as JSON for scripting
+mdap execute "Classify sentiment: Great product!" --json
+
+# Use with Anthropic
+mdap execute "Summarize this text" \
+  --provider anthropic \
+  --model claude-3-5-haiku-latest
+```
 
 ### Subagents
 
@@ -594,6 +696,7 @@ cp -r node_modules/@mdap/core/../../../templates/agents/* .claude/agents/
 ```
 
 **Available agents:**
+
 - `mdap-executor` - Run tasks with MDAP reliability patterns
 - `mdap-validator` - Validate LLM outputs for red flags
 - `mdap-decomposer` - Break tasks into single-step operations
@@ -603,27 +706,27 @@ cp -r node_modules/@mdap/core/../../../templates/agents/* .claude/agents/
 For programmatic integration:
 
 ```typescript
-import { withMdap, estimateAgentCost } from '@mdap/claude-agent';
+import { withMdap, estimateAgentCost } from "@mdap/claude-agent";
 
 // Wrap any async operation
 const result = await withMdap({ k: 3 })(async () => {
-  return await agent.query({ prompt: 'Extract...' });
+  return await agent.query({ prompt: "Extract..." });
 });
 
-console.log(result.result);        // Winning response
+console.log(result.result); // Winning response
 console.log(result.mdap.confidence); // 0.0-1.0
 ```
 
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| `@mdap/core` | Core voting, red flags, cost estimation, workflow orchestration, semantic deduplication |
-| `@mdap/adapters` | OpenAI, Anthropic adapters |
-| `@mdap/cli` | Command-line tools for cost estimation and validation |
-| `@mdap/mcp` | MCP server for Claude Code/Cursor/VS Code |
-| `@mdap/claude-agent` | Claude Agent SDK integration |
-| `@mdap/dashboard` | Web UI for real-time workflow monitoring |
+| Package              | Description                                                                             |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| `@mdap/core`         | Core voting, red flags, cost estimation, workflow orchestration, semantic deduplication |
+| `@mdap/adapters`     | OpenAI, Anthropic adapters                                                              |
+| `@mdap/cli`          | Command-line tools for cost estimation and validation                                   |
+| `@mdap/mcp`          | MCP server for Claude Code/Cursor/VS Code                                               |
+| `@mdap/claude-agent` | Claude Agent SDK integration                                                            |
+| `@mdap/dashboard`    | Web UI for real-time workflow monitoring                                                |
 
 ## Roadmap
 

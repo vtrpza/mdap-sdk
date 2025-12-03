@@ -1,0 +1,1930 @@
+{
+  "baseline": {
+    "method": "baseline",
+    "totalSteps": 50,
+    "successfulSteps": 50,
+    "firstDivergence": 1,
+    "stepsMatchingExpected": 30,
+    "finalMatchesGolden": false,
+    "steps": [
+      {
+        "step": 1,
+        "issue": {
+          "id": 1,
+          "line": 30,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data1.value;",
+          "after": "return data1?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data1 ? data1.value : undefined;",
+        "expectedCode": "return data1?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 797
+      },
+      {
+        "step": 2,
+        "issue": {
+          "id": 2,
+          "line": 35,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data2.value;",
+          "after": "return data2?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data2 ? data2.value : undefined;",
+        "expectedCode": "return data2?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 946
+      },
+      {
+        "step": 3,
+        "issue": {
+          "id": 3,
+          "line": 40,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data3.value;",
+          "after": "return data3?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data3 ? data3.value : undefined;",
+        "expectedCode": "return data3?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 705
+      },
+      {
+        "step": 4,
+        "issue": {
+          "id": 4,
+          "line": 45,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data4.value;",
+          "after": "return data4?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data4 ? data4.value : undefined;",
+        "expectedCode": "return data4?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 574
+      },
+      {
+        "step": 5,
+        "issue": {
+          "id": 5,
+          "line": 50,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data5.value;",
+          "after": "return data5?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data5 ? data5.value : undefined;",
+        "expectedCode": "return data5?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 581
+      },
+      {
+        "step": 6,
+        "issue": {
+          "id": 6,
+          "line": 55,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data6.value;",
+          "after": "return data6?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data6 ? data6.value : undefined;",
+        "expectedCode": "return data6?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 605
+      },
+      {
+        "step": 7,
+        "issue": {
+          "id": 7,
+          "line": 60,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data7.value;",
+          "after": "return data7?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data7 ? data7.value : undefined;",
+        "expectedCode": "return data7?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 710
+      },
+      {
+        "step": 8,
+        "issue": {
+          "id": 8,
+          "line": 65,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data8.value;",
+          "after": "return data8?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data8 ? data8.value : undefined;",
+        "expectedCode": "return data8?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 541
+      },
+      {
+        "step": 9,
+        "issue": {
+          "id": 9,
+          "line": 70,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data9.value;",
+          "after": "return data9?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data9 ? data9.value : undefined;",
+        "expectedCode": "return data9?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 993
+      },
+      {
+        "step": 10,
+        "issue": {
+          "id": 10,
+          "line": 75,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data10.value;",
+          "after": "return data10?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data10 ? data10.value : undefined;",
+        "expectedCode": "return data10?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 571
+      },
+      {
+        "step": 11,
+        "issue": {
+          "id": 11,
+          "line": 80,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data11.value;",
+          "after": "return data11?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data11 ? data11.value : undefined;",
+        "expectedCode": "return data11?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 674
+      },
+      {
+        "step": 12,
+        "issue": {
+          "id": 12,
+          "line": 85,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data12.value;",
+          "after": "return data12?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data12 ? data12.value : undefined;",
+        "expectedCode": "return data12?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 461
+      },
+      {
+        "step": 13,
+        "issue": {
+          "id": 13,
+          "line": 90,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data13.value;",
+          "after": "return data13?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data13 ? data13.value : undefined;",
+        "expectedCode": "return data13?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1192
+      },
+      {
+        "step": 14,
+        "issue": {
+          "id": 14,
+          "line": 95,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data14.value;",
+          "after": "return data14?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data14 ? data14.value : undefined;",
+        "expectedCode": "return data14?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 818
+      },
+      {
+        "step": 15,
+        "issue": {
+          "id": 15,
+          "line": 100,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data15.value;",
+          "after": "return data15?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data15 ? data15.value : undefined;",
+        "expectedCode": "return data15?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 555
+      },
+      {
+        "step": 16,
+        "issue": {
+          "id": 16,
+          "line": 105,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data16.value;",
+          "after": "return data16?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data16 ? data16.value : undefined;",
+        "expectedCode": "return data16?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 714
+      },
+      {
+        "step": 17,
+        "issue": {
+          "id": 17,
+          "line": 110,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data17.value;",
+          "after": "return data17?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data17 ? data17.value : undefined;",
+        "expectedCode": "return data17?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 553
+      },
+      {
+        "step": 18,
+        "issue": {
+          "id": 18,
+          "line": 115,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data18.value;",
+          "after": "return data18?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data18 ? data18.value : undefined;",
+        "expectedCode": "return data18?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 504
+      },
+      {
+        "step": 19,
+        "issue": {
+          "id": 19,
+          "line": 120,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data19.value;",
+          "after": "return data19?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data19 ? data19.value : undefined;",
+        "expectedCode": "return data19?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 568
+      },
+      {
+        "step": 20,
+        "issue": {
+          "id": 20,
+          "line": 125,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data20.value;",
+          "after": "return data20?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data20 ? data20.value : undefined;",
+        "expectedCode": "return data20?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 541
+      },
+      {
+        "step": 21,
+        "issue": {
+          "id": 21,
+          "line": 130,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id21 == target21)",
+          "after": "if (id21 === target21)"
+        },
+        "success": true,
+        "codeAfter": "if (id21 === target21)",
+        "expectedCode": "if (id21 === target21)",
+        "matchesExpected": true,
+        "latencyMs": 795
+      },
+      {
+        "step": 22,
+        "issue": {
+          "id": 22,
+          "line": 135,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id22 == target22)",
+          "after": "if (id22 === target22)"
+        },
+        "success": true,
+        "codeAfter": "if (id22 === target22)",
+        "expectedCode": "if (id22 === target22)",
+        "matchesExpected": true,
+        "latencyMs": 491
+      },
+      {
+        "step": 23,
+        "issue": {
+          "id": 23,
+          "line": 140,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id23 == target23)",
+          "after": "if (id23 === target23)"
+        },
+        "success": true,
+        "codeAfter": "if (id23 === target23)",
+        "expectedCode": "if (id23 === target23)",
+        "matchesExpected": true,
+        "latencyMs": 736
+      },
+      {
+        "step": 24,
+        "issue": {
+          "id": 24,
+          "line": 145,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id24 == target24)",
+          "after": "if (id24 === target24)"
+        },
+        "success": true,
+        "codeAfter": "if (id24 === target24)",
+        "expectedCode": "if (id24 === target24)",
+        "matchesExpected": true,
+        "latencyMs": 512
+      },
+      {
+        "step": 25,
+        "issue": {
+          "id": 25,
+          "line": 150,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id25 == target25)",
+          "after": "if (id25 === target25)"
+        },
+        "success": true,
+        "codeAfter": "if (id25 === target25)",
+        "expectedCode": "if (id25 === target25)",
+        "matchesExpected": true,
+        "latencyMs": 590
+      },
+      {
+        "step": 26,
+        "issue": {
+          "id": 26,
+          "line": 155,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id26 == target26)",
+          "after": "if (id26 === target26)"
+        },
+        "success": true,
+        "codeAfter": "if (id26 === target26)",
+        "expectedCode": "if (id26 === target26)",
+        "matchesExpected": true,
+        "latencyMs": 561
+      },
+      {
+        "step": 27,
+        "issue": {
+          "id": 27,
+          "line": 160,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id27 == target27)",
+          "after": "if (id27 === target27)"
+        },
+        "success": true,
+        "codeAfter": "if (id27 === target27)",
+        "expectedCode": "if (id27 === target27)",
+        "matchesExpected": true,
+        "latencyMs": 610
+      },
+      {
+        "step": 28,
+        "issue": {
+          "id": 28,
+          "line": 165,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id28 == target28)",
+          "after": "if (id28 === target28)"
+        },
+        "success": true,
+        "codeAfter": "if (id28 === target28)",
+        "expectedCode": "if (id28 === target28)",
+        "matchesExpected": true,
+        "latencyMs": 508
+      },
+      {
+        "step": 29,
+        "issue": {
+          "id": 29,
+          "line": 170,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id29 == target29)",
+          "after": "if (id29 === target29)"
+        },
+        "success": true,
+        "codeAfter": "if (id29 === target29)",
+        "expectedCode": "if (id29 === target29)",
+        "matchesExpected": true,
+        "latencyMs": 621
+      },
+      {
+        "step": 30,
+        "issue": {
+          "id": 30,
+          "line": 175,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id30 == target30)",
+          "after": "if (id30 === target30)"
+        },
+        "success": true,
+        "codeAfter": "if (id30 === target30)",
+        "expectedCode": "if (id30 === target30)",
+        "matchesExpected": true,
+        "latencyMs": 530
+      },
+      {
+        "step": 31,
+        "issue": {
+          "id": 31,
+          "line": 180,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id31 == target31)",
+          "after": "if (id31 === target31)"
+        },
+        "success": true,
+        "codeAfter": "if (id31 === target31)",
+        "expectedCode": "if (id31 === target31)",
+        "matchesExpected": true,
+        "latencyMs": 640
+      },
+      {
+        "step": 32,
+        "issue": {
+          "id": 32,
+          "line": 185,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id32 == target32)",
+          "after": "if (id32 === target32)"
+        },
+        "success": true,
+        "codeAfter": "if (id32 === target32)",
+        "expectedCode": "if (id32 === target32)",
+        "matchesExpected": true,
+        "latencyMs": 562
+      },
+      {
+        "step": 33,
+        "issue": {
+          "id": 33,
+          "line": 190,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id33 == target33)",
+          "after": "if (id33 === target33)"
+        },
+        "success": true,
+        "codeAfter": "if (id33 === target33)",
+        "expectedCode": "if (id33 === target33)",
+        "matchesExpected": true,
+        "latencyMs": 459
+      },
+      {
+        "step": 34,
+        "issue": {
+          "id": 34,
+          "line": 195,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id34 == target34)",
+          "after": "if (id34 === target34)"
+        },
+        "success": true,
+        "codeAfter": "if (id34 === target34)",
+        "expectedCode": "if (id34 === target34)",
+        "matchesExpected": true,
+        "latencyMs": 660
+      },
+      {
+        "step": 35,
+        "issue": {
+          "id": 35,
+          "line": 200,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id35 == target35)",
+          "after": "if (id35 === target35)"
+        },
+        "success": true,
+        "codeAfter": "if (id35 === target35)",
+        "expectedCode": "if (id35 === target35)",
+        "matchesExpected": true,
+        "latencyMs": 570
+      },
+      {
+        "step": 36,
+        "issue": {
+          "id": 36,
+          "line": 205,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id36 == target36)",
+          "after": "if (id36 === target36)"
+        },
+        "success": true,
+        "codeAfter": "if (id36 === target36)",
+        "expectedCode": "if (id36 === target36)",
+        "matchesExpected": true,
+        "latencyMs": 530
+      },
+      {
+        "step": 37,
+        "issue": {
+          "id": 37,
+          "line": 210,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id37 == target37)",
+          "after": "if (id37 === target37)"
+        },
+        "success": true,
+        "codeAfter": "if (id37 === target37)",
+        "expectedCode": "if (id37 === target37)",
+        "matchesExpected": true,
+        "latencyMs": 762
+      },
+      {
+        "step": 38,
+        "issue": {
+          "id": 38,
+          "line": 215,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id38 == target38)",
+          "after": "if (id38 === target38)"
+        },
+        "success": true,
+        "codeAfter": "if (id38 === target38)",
+        "expectedCode": "if (id38 === target38)",
+        "matchesExpected": true,
+        "latencyMs": 1988
+      },
+      {
+        "step": 39,
+        "issue": {
+          "id": 39,
+          "line": 220,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id39 == target39)",
+          "after": "if (id39 === target39)"
+        },
+        "success": true,
+        "codeAfter": "if (id39 === target39)",
+        "expectedCode": "if (id39 === target39)",
+        "matchesExpected": true,
+        "latencyMs": 858
+      },
+      {
+        "step": 40,
+        "issue": {
+          "id": 40,
+          "line": 225,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id40 == target40)",
+          "after": "if (id40 === target40)"
+        },
+        "success": true,
+        "codeAfter": "if (id40 === target40)",
+        "expectedCode": "if (id40 === target40)",
+        "matchesExpected": true,
+        "latencyMs": 610
+      },
+      {
+        "step": 41,
+        "issue": {
+          "id": 41,
+          "line": 230,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items41.length; i++)",
+          "after": "for (let i = 0; i < items41.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items41.length; i++)",
+        "expectedCode": "for (let i = 0; i < items41.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 630
+      },
+      {
+        "step": 42,
+        "issue": {
+          "id": 42,
+          "line": 235,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items42.length; i++)",
+          "after": "for (let i = 0; i < items42.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items42.length; i++)",
+        "expectedCode": "for (let i = 0; i < items42.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 2041
+      },
+      {
+        "step": 43,
+        "issue": {
+          "id": 43,
+          "line": 240,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items43.length; i++)",
+          "after": "for (let i = 0; i < items43.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items43.length; i++)",
+        "expectedCode": "for (let i = 0; i < items43.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 707
+      },
+      {
+        "step": 44,
+        "issue": {
+          "id": 44,
+          "line": 245,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items44.length; i++)",
+          "after": "for (let i = 0; i < items44.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items44.length; i++)",
+        "expectedCode": "for (let i = 0; i < items44.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 713
+      },
+      {
+        "step": 45,
+        "issue": {
+          "id": 45,
+          "line": 250,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items45.length; i++)",
+          "after": "for (let i = 0; i < items45.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items45.length; i++)",
+        "expectedCode": "for (let i = 0; i < items45.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 766
+      },
+      {
+        "step": 46,
+        "issue": {
+          "id": 46,
+          "line": 255,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items46.length; i++)",
+          "after": "for (let i = 0; i < items46.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items46.length; i++)",
+        "expectedCode": "for (let i = 0; i < items46.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 2242
+      },
+      {
+        "step": 47,
+        "issue": {
+          "id": 47,
+          "line": 260,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items47.length; i++)",
+          "after": "for (let i = 0; i < items47.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items47.length; i++)",
+        "expectedCode": "for (let i = 0; i < items47.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 678
+      },
+      {
+        "step": 48,
+        "issue": {
+          "id": 48,
+          "line": 265,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items48.length; i++)",
+          "after": "for (let i = 0; i < items48.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items48.length; i++)",
+        "expectedCode": "for (let i = 0; i < items48.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 623
+      },
+      {
+        "step": 49,
+        "issue": {
+          "id": 49,
+          "line": 270,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items49.length; i++)",
+          "after": "for (let i = 0; i < items49.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items49.length; i++)",
+        "expectedCode": "for (let i = 0; i < items49.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 686
+      },
+      {
+        "step": 50,
+        "issue": {
+          "id": 50,
+          "line": 275,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items50.length; i++)",
+          "after": "for (let i = 0; i < items50.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items50.length; i++)",
+        "expectedCode": "for (let i = 0; i < items50.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 1245
+      }
+    ],
+    "totalLatencyMs": 40032,
+    "totalInputTokens": 5060,
+    "totalOutputTokens": 520,
+    "estimatedCost": 0.002856
+  },
+  "mdap": {
+    "method": "mdap",
+    "totalSteps": 50,
+    "successfulSteps": 50,
+    "firstDivergence": 1,
+    "stepsMatchingExpected": 30,
+    "finalMatchesGolden": false,
+    "steps": [
+      {
+        "step": 1,
+        "issue": {
+          "id": 1,
+          "line": 30,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data1.value;",
+          "after": "return data1?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data1 ? data1.value : undefined;",
+        "expectedCode": "return data1?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1899,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 2,
+        "issue": {
+          "id": 2,
+          "line": 35,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data2.value;",
+          "after": "return data2?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data2 ? data2.value : undefined;",
+        "expectedCode": "return data2?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 637,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 3,
+        "issue": {
+          "id": 3,
+          "line": 40,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data3.value;",
+          "after": "return data3?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data3 ? data3.value : undefined;",
+        "expectedCode": "return data3?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 765,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 4,
+        "issue": {
+          "id": 4,
+          "line": 45,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data4.value;",
+          "after": "return data4?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data4 ? data4.value : undefined;",
+        "expectedCode": "return data4?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 657,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 5,
+        "issue": {
+          "id": 5,
+          "line": 50,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data5.value;",
+          "after": "return data5?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data5 ? data5.value : undefined;",
+        "expectedCode": "return data5?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 867,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 6,
+        "issue": {
+          "id": 6,
+          "line": 55,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data6.value;",
+          "after": "return data6?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data6 ? data6.value : undefined;",
+        "expectedCode": "return data6?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 677,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 7,
+        "issue": {
+          "id": 7,
+          "line": 60,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data7.value;",
+          "after": "return data7?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data7 ? data7.value : undefined;",
+        "expectedCode": "return data7?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 608,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 8,
+        "issue": {
+          "id": 8,
+          "line": 65,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data8.value;",
+          "after": "return data8?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data8 ? data8.value : undefined;",
+        "expectedCode": "return data8?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1292,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 9,
+        "issue": {
+          "id": 9,
+          "line": 70,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data9.value;",
+          "after": "return data9?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data9 ? data9.value : undefined;",
+        "expectedCode": "return data9?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 779,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 10,
+        "issue": {
+          "id": 10,
+          "line": 75,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data10.value;",
+          "after": "return data10?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data10 ? data10.value : undefined;",
+        "expectedCode": "return data10?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 594,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 11,
+        "issue": {
+          "id": 11,
+          "line": 80,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data11.value;",
+          "after": "return data11?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data11 ? data11.value : undefined;",
+        "expectedCode": "return data11?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1433,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 12,
+        "issue": {
+          "id": 12,
+          "line": 85,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data12.value;",
+          "after": "return data12?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data12 ? data12.value : undefined;",
+        "expectedCode": "return data12?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 679,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 13,
+        "issue": {
+          "id": 13,
+          "line": 90,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data13.value;",
+          "after": "return data13?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data13 ? data13.value : undefined;",
+        "expectedCode": "return data13?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1250,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 14,
+        "issue": {
+          "id": 14,
+          "line": 95,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data14.value;",
+          "after": "return data14?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data14 ? data14.value : undefined;",
+        "expectedCode": "return data14?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 764,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 15,
+        "issue": {
+          "id": 15,
+          "line": 100,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data15.value;",
+          "after": "return data15?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data15 ? data15.value : undefined;",
+        "expectedCode": "return data15?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 966,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 16,
+        "issue": {
+          "id": 16,
+          "line": 105,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data16.value;",
+          "after": "return data16?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data16 ? data16.value : undefined;",
+        "expectedCode": "return data16?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 641,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 17,
+        "issue": {
+          "id": 17,
+          "line": 110,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data17.value;",
+          "after": "return data17?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data17 ? data17.value : undefined;",
+        "expectedCode": "return data17?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 798,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 18,
+        "issue": {
+          "id": 18,
+          "line": 115,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data18.value;",
+          "after": "return data18?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data18 ? data18.value : undefined;",
+        "expectedCode": "return data18?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1008,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 19,
+        "issue": {
+          "id": 19,
+          "line": 120,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data19.value;",
+          "after": "return data19?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data19 ? data19.value : undefined;",
+        "expectedCode": "return data19?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 1686,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 20,
+        "issue": {
+          "id": 20,
+          "line": 125,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Add null check before accessing property",
+          "before": "return data20.value;",
+          "after": "return data20?.value ?? null;"
+        },
+        "success": true,
+        "codeAfter": "return data20 ? data20.value : undefined;",
+        "expectedCode": "return data20?.value ?? null;",
+        "matchesExpected": false,
+        "latencyMs": 863,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 21,
+        "issue": {
+          "id": 21,
+          "line": 130,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id21 == target21)",
+          "after": "if (id21 === target21)"
+        },
+        "success": true,
+        "codeAfter": "if (id21 === target21)",
+        "expectedCode": "if (id21 === target21)",
+        "matchesExpected": true,
+        "latencyMs": 1343,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 22,
+        "issue": {
+          "id": 22,
+          "line": 135,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id22 == target22)",
+          "after": "if (id22 === target22)"
+        },
+        "success": true,
+        "codeAfter": "if (id22 === target22)",
+        "expectedCode": "if (id22 === target22)",
+        "matchesExpected": true,
+        "latencyMs": 1309,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 23,
+        "issue": {
+          "id": 23,
+          "line": 140,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id23 == target23)",
+          "after": "if (id23 === target23)"
+        },
+        "success": true,
+        "codeAfter": "if (id23 === target23)",
+        "expectedCode": "if (id23 === target23)",
+        "matchesExpected": true,
+        "latencyMs": 571,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 24,
+        "issue": {
+          "id": 24,
+          "line": 145,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id24 == target24)",
+          "after": "if (id24 === target24)"
+        },
+        "success": true,
+        "codeAfter": "if (id24 === target24)",
+        "expectedCode": "if (id24 === target24)",
+        "matchesExpected": true,
+        "latencyMs": 678,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 25,
+        "issue": {
+          "id": 25,
+          "line": 150,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id25 == target25)",
+          "after": "if (id25 === target25)"
+        },
+        "success": true,
+        "codeAfter": "if (id25 === target25)",
+        "expectedCode": "if (id25 === target25)",
+        "matchesExpected": true,
+        "latencyMs": 744,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 26,
+        "issue": {
+          "id": 26,
+          "line": 155,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id26 == target26)",
+          "after": "if (id26 === target26)"
+        },
+        "success": true,
+        "codeAfter": "if (id26 === target26)",
+        "expectedCode": "if (id26 === target26)",
+        "matchesExpected": true,
+        "latencyMs": 615,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 27,
+        "issue": {
+          "id": 27,
+          "line": 160,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id27 == target27)",
+          "after": "if (id27 === target27)"
+        },
+        "success": true,
+        "codeAfter": "if (id27 === target27)",
+        "expectedCode": "if (id27 === target27)",
+        "matchesExpected": true,
+        "latencyMs": 783,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 28,
+        "issue": {
+          "id": 28,
+          "line": 165,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id28 == target28)",
+          "after": "if (id28 === target28)"
+        },
+        "success": true,
+        "codeAfter": "if (id28 === target28)",
+        "expectedCode": "if (id28 === target28)",
+        "matchesExpected": true,
+        "latencyMs": 642,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 29,
+        "issue": {
+          "id": 29,
+          "line": 170,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id29 == target29)",
+          "after": "if (id29 === target29)"
+        },
+        "success": true,
+        "codeAfter": "if (id29 === target29)",
+        "expectedCode": "if (id29 === target29)",
+        "matchesExpected": true,
+        "latencyMs": 633,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 30,
+        "issue": {
+          "id": 30,
+          "line": 175,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id30 == target30)",
+          "after": "if (id30 === target30)"
+        },
+        "success": true,
+        "codeAfter": "if (id30 === target30)",
+        "expectedCode": "if (id30 === target30)",
+        "matchesExpected": true,
+        "latencyMs": 650,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 31,
+        "issue": {
+          "id": 31,
+          "line": 180,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id31 == target31)",
+          "after": "if (id31 === target31)"
+        },
+        "success": true,
+        "codeAfter": "if (id31 === target31)",
+        "expectedCode": "if (id31 === target31)",
+        "matchesExpected": true,
+        "latencyMs": 750,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 32,
+        "issue": {
+          "id": 32,
+          "line": 185,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id32 == target32)",
+          "after": "if (id32 === target32)"
+        },
+        "success": true,
+        "codeAfter": "if (id32 === target32)",
+        "expectedCode": "if (id32 === target32)",
+        "matchesExpected": true,
+        "latencyMs": 685,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 33,
+        "issue": {
+          "id": 33,
+          "line": 190,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id33 == target33)",
+          "after": "if (id33 === target33)"
+        },
+        "success": true,
+        "codeAfter": "if (id33 === target33)",
+        "expectedCode": "if (id33 === target33)",
+        "matchesExpected": true,
+        "latencyMs": 1261,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 34,
+        "issue": {
+          "id": 34,
+          "line": 195,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id34 == target34)",
+          "after": "if (id34 === target34)"
+        },
+        "success": true,
+        "codeAfter": "if (id34 === target34)",
+        "expectedCode": "if (id34 === target34)",
+        "matchesExpected": true,
+        "latencyMs": 726,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 35,
+        "issue": {
+          "id": 35,
+          "line": 200,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id35 == target35)",
+          "after": "if (id35 === target35)"
+        },
+        "success": true,
+        "codeAfter": "if (id35 === target35)",
+        "expectedCode": "if (id35 === target35)",
+        "matchesExpected": true,
+        "latencyMs": 928,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 36,
+        "issue": {
+          "id": 36,
+          "line": 205,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id36 == target36)",
+          "after": "if (id36 === target36)"
+        },
+        "success": true,
+        "codeAfter": "if (id36 === target36)",
+        "expectedCode": "if (id36 === target36)",
+        "matchesExpected": true,
+        "latencyMs": 613,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 37,
+        "issue": {
+          "id": 37,
+          "line": 210,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id37 == target37)",
+          "after": "if (id37 === target37)"
+        },
+        "success": true,
+        "codeAfter": "if (id37 === target37)",
+        "expectedCode": "if (id37 === target37)",
+        "matchesExpected": true,
+        "latencyMs": 724,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 38,
+        "issue": {
+          "id": 38,
+          "line": 215,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id38 == target38)",
+          "after": "if (id38 === target38)"
+        },
+        "success": true,
+        "codeAfter": "if (id38 === target38)",
+        "expectedCode": "if (id38 === target38)",
+        "matchesExpected": true,
+        "latencyMs": 974,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 39,
+        "issue": {
+          "id": 39,
+          "line": 220,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id39 == target39)",
+          "after": "if (id39 === target39)"
+        },
+        "success": true,
+        "codeAfter": "if (id39 === target39)",
+        "expectedCode": "if (id39 === target39)",
+        "matchesExpected": true,
+        "latencyMs": 630,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 40,
+        "issue": {
+          "id": 40,
+          "line": 225,
+          "category": "BUG",
+          "difficulty": "easy",
+          "description": "Use strict equality instead of loose equality",
+          "before": "if (id40 == target40)",
+          "after": "if (id40 === target40)"
+        },
+        "success": true,
+        "codeAfter": "if (id40 === target40)",
+        "expectedCode": "if (id40 === target40)",
+        "matchesExpected": true,
+        "latencyMs": 575,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 41,
+        "issue": {
+          "id": 41,
+          "line": 230,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items41.length; i++)",
+          "after": "for (let i = 0; i < items41.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items41.length; i++)",
+        "expectedCode": "for (let i = 0; i < items41.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 544,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 42,
+        "issue": {
+          "id": 42,
+          "line": 235,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items42.length; i++)",
+          "after": "for (let i = 0; i < items42.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items42.length; i++)",
+        "expectedCode": "for (let i = 0; i < items42.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 647,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 43,
+        "issue": {
+          "id": 43,
+          "line": 240,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items43.length; i++)",
+          "after": "for (let i = 0; i < items43.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items43.length; i++)",
+        "expectedCode": "for (let i = 0; i < items43.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 1115,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 44,
+        "issue": {
+          "id": 44,
+          "line": 245,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items44.length; i++)",
+          "after": "for (let i = 0; i < items44.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items44.length; i++)",
+        "expectedCode": "for (let i = 0; i < items44.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 708,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 45,
+        "issue": {
+          "id": 45,
+          "line": 250,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items45.length; i++)",
+          "after": "for (let i = 0; i < items45.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items45.length; i++)",
+        "expectedCode": "for (let i = 0; i < items45.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 683,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 46,
+        "issue": {
+          "id": 46,
+          "line": 255,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items46.length; i++)",
+          "after": "for (let i = 0; i < items46.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items46.length; i++)",
+        "expectedCode": "for (let i = 0; i < items46.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 1125,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 47,
+        "issue": {
+          "id": 47,
+          "line": 260,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items47.length; i++)",
+          "after": "for (let i = 0; i < items47.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items47.length; i++)",
+        "expectedCode": "for (let i = 0; i < items47.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 651,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 48,
+        "issue": {
+          "id": 48,
+          "line": 265,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items48.length; i++)",
+          "after": "for (let i = 0; i < items48.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items48.length; i++)",
+        "expectedCode": "for (let i = 0; i < items48.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 760,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 49,
+        "issue": {
+          "id": 49,
+          "line": 270,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items49.length; i++)",
+          "after": "for (let i = 0; i < items49.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items49.length; i++)",
+        "expectedCode": "for (let i = 0; i < items49.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 796,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      },
+      {
+        "step": 50,
+        "issue": {
+          "id": 50,
+          "line": 275,
+          "category": "BUG",
+          "difficulty": "medium",
+          "description": "Fix off-by-one error in loop condition",
+          "before": "for (let i = 0; i <= items50.length; i++)",
+          "after": "for (let i = 0; i < items50.length; i++)"
+        },
+        "success": true,
+        "codeAfter": "for (let i = 0; i < items50.length; i++)",
+        "expectedCode": "for (let i = 0; i < items50.length; i++)",
+        "matchesExpected": true,
+        "latencyMs": 911,
+        "totalSamples": 3,
+        "flaggedSamples": 0,
+        "confidence": 1,
+        "converged": true
+      }
+    ],
+    "totalLatencyMs": 45148,
+    "totalInputTokens": 14220,
+    "totalOutputTokens": 1293,
+    "estimatedCost": 0.0077568
+  }
+}

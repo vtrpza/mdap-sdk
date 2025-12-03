@@ -9,22 +9,25 @@ import type {
   VoteResult,
   RedFlagRule,
   ResponseMeta,
-  ReliableConfig
-} from './types.js';
+  ReliableConfig,
+} from "./types.js";
 
 const DEFAULT_VOTE_CONFIG: Required<VoteConfig> = {
   k: 3,
   maxSamples: 100,
   parallel: true,
   initialBatch: 3,
-  strategy: 'first-to-ahead-by-k'
+  continuationBatch: 2,
+  maxConcurrency: 5,
+  strategy: "first-to-ahead-by-k",
+  earlyTermination: true,
 };
 
 /**
  * Default serializer for vote comparison
  */
 function defaultSerialize<T>(response: T): string {
-  if (typeof response === 'string') {
+  if (typeof response === "string") {
     return response;
   }
   if (response === null || response === undefined) {
@@ -44,7 +47,7 @@ function checkRedFlags<TOutput>(
   response: TOutput,
   redFlags: RedFlagRule<TOutput>[],
   meta?: ResponseMeta,
-  onFlag?: (response: TOutput, rule: RedFlagRule<TOutput>) => void
+  onFlag?: (response: TOutput, rule: RedFlagRule<TOutput>) => void,
 ): RedFlagRule<TOutput> | null {
   for (const rule of redFlags) {
     if (rule.check(response, meta)) {
@@ -61,7 +64,7 @@ function checkRedFlags<TOutput>(
 function shouldTerminate(
   votes: Map<string, number>,
   k: number,
-  strategy: 'first-to-k' | 'first-to-ahead-by-k'
+  strategy: "first-to-k" | "first-to-ahead-by-k",
 ): string | null {
   if (votes.size === 0) return null;
 
@@ -71,7 +74,7 @@ function shouldTerminate(
   const [leader, leaderVotes] = entries[0];
   const secondPlace = entries[1]?.[1] ?? 0;
 
-  if (strategy === 'first-to-k') {
+  if (strategy === "first-to-k") {
     // Simple: first candidate to reach k votes wins
     if (leaderVotes >= k) {
       return leader;
@@ -87,6 +90,40 @@ function shouldTerminate(
 }
 
 /**
+ * Check if the leader is guaranteed to win (meet convergence criteria).
+ * Used for early termination optimization.
+ *
+ * Returns true if leader will definitely win even in worst case (all remaining
+ * samples go to a single competitor).
+ */
+function isLeaderGuaranteedToWin(
+  votes: Map<string, number>,
+  k: number,
+  strategy: "first-to-k" | "first-to-ahead-by-k",
+  remainingSamples: number,
+): boolean {
+  if (votes.size === 0) return false;
+
+  const entries = Array.from(votes.entries());
+  entries.sort((a, b) => b[1] - a[1]);
+
+  const [_leader, leaderVotes] = entries[0];
+  const secondPlace = entries[1]?.[1] ?? 0;
+
+  if (strategy === "first-to-k") {
+    // Leader wins if they already have k votes
+    // Even if all remaining go to second place, leader already won
+    return leaderVotes >= k;
+  } else {
+    // first-to-ahead-by-k: leader must be k ahead of all others
+    // Worst case: all remaining samples go to second place
+    const worstCaseSecondPlace = secondPlace + remainingSamples;
+    // Leader wins if they're still k ahead in worst case
+    return leaderVotes >= k + worstCaseSecondPlace;
+  }
+}
+
+/**
  * Execute the voting process
  *
  * @param llmCall The LLM function to call for each sample
@@ -96,10 +133,19 @@ function shouldTerminate(
 export async function vote<TInput, TOutput>(
   llmCall: LLMCall<TInput, TOutput>,
   input: TInput,
-  config: ReliableConfig<TOutput> = {}
+  config: ReliableConfig<TOutput> = {},
 ): Promise<VoteResult<TOutput>> {
   const voteConfig = { ...DEFAULT_VOTE_CONFIG, ...config.vote };
-  const { k, maxSamples, parallel, initialBatch, strategy } = voteConfig;
+  const {
+    k,
+    maxSamples,
+    parallel,
+    initialBatch,
+    continuationBatch,
+    maxConcurrency,
+    strategy,
+    earlyTermination,
+  } = voteConfig;
   const redFlags = config.redFlags ?? [];
   const serialize = config.serialize ?? defaultSerialize;
 
@@ -118,11 +164,18 @@ export async function vote<TInput, TOutput>(
       const response = await llmCall(input);
 
       // Check red flags
-      const flaggedRule = checkRedFlags(response, redFlags, undefined, config.onFlag);
+      const flaggedRule = checkRedFlags(
+        response,
+        redFlags,
+        undefined,
+        config.onFlag,
+      );
       if (flaggedRule) {
         flaggedSamples++;
         if (config.debug) {
-          console.log(`[MDAP] Sample ${totalSamples} flagged by: ${flaggedRule.name}`);
+          console.log(
+            `[MDAP] Sample ${totalSamples} flagged by: ${flaggedRule.name}`,
+          );
         }
         return { flagged: true };
       }
@@ -136,7 +189,9 @@ export async function vote<TInput, TOutput>(
       config.onSample?.(response, currentVotes);
 
       if (config.debug) {
-        console.log(`[MDAP] Sample ${totalSamples}: "${key.slice(0, 50)}..." -> ${currentVotes} votes`);
+        console.log(
+          `[MDAP] Sample ${totalSamples}: "${key.slice(0, 50)}..." -> ${currentVotes} votes`,
+        );
       }
 
       return { flagged: false, key };
@@ -154,7 +209,13 @@ export async function vote<TInput, TOutput>(
   const initialBatchSize = parallel ? Math.max(initialBatch, k) : 1;
 
   if (parallel) {
-    await Promise.all(Array(initialBatchSize).fill(null).map(() => drawSample()));
+    // Respect maxConcurrency for initial batch
+    const batchSize = Math.min(initialBatchSize, maxConcurrency);
+    await Promise.all(
+      Array(batchSize)
+        .fill(null)
+        .map(() => drawSample()),
+    );
   } else {
     for (let i = 0; i < initialBatchSize; i++) {
       await drawSample();
@@ -163,10 +224,14 @@ export async function vote<TInput, TOutput>(
 
   // Continue sampling until we have a winner or hit max
   while (totalSamples < maxSamples) {
+    // Check for winner
     const winner = shouldTerminate(votes, k, strategy);
     if (winner !== null) {
       const winnerVotes = votes.get(winner) ?? 0;
-      const totalValidVotes = Array.from(votes.values()).reduce((a, b) => a + b, 0);
+      const totalValidVotes = Array.from(votes.values()).reduce(
+        (a, b) => a + b,
+        0,
+      );
 
       return {
         winner: responses.get(winner)!,
@@ -174,11 +239,56 @@ export async function vote<TInput, TOutput>(
         totalSamples,
         flaggedSamples,
         votes,
-        converged: true
+        converged: true,
       };
     }
 
-    await drawSample();
+    // Early termination: check if leader is guaranteed to win
+    const remainingSamples = maxSamples - totalSamples;
+    if (
+      earlyTermination &&
+      isLeaderGuaranteedToWin(votes, k, strategy, remainingSamples)
+    ) {
+      // Leader is guaranteed to win even in worst case - terminate early
+      const entries = Array.from(votes.entries());
+      entries.sort((a, b) => b[1] - a[1]);
+      const [winnerKey, winnerVotes] = entries[0];
+      const totalValidVotes = Array.from(votes.values()).reduce(
+        (a, b) => a + b,
+        0,
+      );
+
+      if (config.debug) {
+        console.log(
+          `[MDAP] Early termination: leader guaranteed to win (${winnerVotes} votes, ${remainingSamples} remaining)`,
+        );
+      }
+
+      return {
+        winner: responses.get(winnerKey)!,
+        confidence: winnerVotes / totalValidVotes,
+        totalSamples,
+        flaggedSamples,
+        votes,
+        converged: true,
+      };
+    }
+
+    // Draw continuation batch in parallel (if enabled) or single sample
+    if (parallel && continuationBatch > 1) {
+      const batchSize = Math.min(
+        continuationBatch,
+        maxSamples - totalSamples,
+        maxConcurrency,
+      );
+      await Promise.all(
+        Array(batchSize)
+          .fill(null)
+          .map(() => drawSample()),
+      );
+    } else {
+      await drawSample();
+    }
   }
 
   // Hit maxSamples without convergence - return the leader
@@ -186,7 +296,9 @@ export async function vote<TInput, TOutput>(
   entries.sort((a, b) => b[1] - a[1]);
 
   if (entries.length === 0) {
-    throw new Error(`MDAP: No valid samples after ${maxSamples} attempts. All were flagged.`);
+    throw new Error(
+      `MDAP: No valid samples after ${maxSamples} attempts. All were flagged.`,
+    );
   }
 
   const [winnerKey, winnerVotes] = entries[0];
@@ -198,7 +310,7 @@ export async function vote<TInput, TOutput>(
     totalSamples,
     flaggedSamples,
     votes,
-    converged: false
+    converged: false,
   };
 }
 
@@ -221,10 +333,10 @@ export async function vote<TInput, TOutput>(
  * ```
  */
 export function reliable<TOutput = string>(
-  config: ReliableConfig<TOutput> = {}
+  config: ReliableConfig<TOutput> = {},
 ) {
   return function <TInput>(
-    llmCall: LLMCall<TInput, TOutput>
+    llmCall: LLMCall<TInput, TOutput>,
   ): (input: TInput) => Promise<VoteResult<TOutput>> {
     return async (input: TInput) => {
       return vote(llmCall, input, config);

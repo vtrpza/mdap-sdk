@@ -39,6 +39,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@mdap/core": "workspace:*",
+    "@mdap/adapters": "workspace:*",
     "zod": "^3.23.0"
   },
   "devDependencies": {

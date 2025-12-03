@@ -1,0 +1,92 @@
+{
+  "timestamp": "2025-12-02T18:16:59.513Z",
+  "runsPerSnippet": 5,
+  "totalSteps": 250,
+  "baseline": {
+    "validRate": 1,
+    "accuracyRate": 0.788,
+    "errorRate": 0.21199999999999997,
+    "avgLatencyMs": 654.6,
+    "totalInputTokens": 46020,
+    "totalOutputTokens": 332
+  },
+  "mdap": {
+    "validRate": 1,
+    "accuracyRate": 0.78,
+    "errorRate": 0.21999999999999997,
+    "avgLatencyMs": 798.88,
+    "totalInputTokens": 150213,
+    "totalOutputTokens": 1275,
+    "avgSamplesPerStep": 3.072,
+    "avgFlaggedPerStep": 0,
+    "convergenceRate": 1,
+    "avgConfidence": 0.9943238095238096
+  },
+  "improvement": {
+    "errorReduction": -0.037735849056603814,
+    "accuracyGain": -0.008000000000000007,
+    "tokenOverhead": 3.2682084915429757
+  },
+  "byCategory": {
+    "BUG": {
+      "baseline": {
+        "correct": 50,
+        "total": 75,
+        "rate": 0.6666666666666666
+      },
+      "mdap": {
+        "correct": 50,
+        "total": 75,
+        "rate": 0.6666666666666666
+      }
+    },
+    "SECURITY": {
+      "baseline": {
+        "correct": 47,
+        "total": 50,
+        "rate": 0.94
+      },
+      "mdap": {
+        "correct": 45,
+        "total": 50,
+        "rate": 0.9
+      }
+    },
+    "STYLE": {
+      "baseline": {
+        "correct": 45,
+        "total": 50,
+        "rate": 0.9
+      },
+      "mdap": {
+        "correct": 45,
+        "total": 50,
+        "rate": 0.9
+      }
+    },
+    "PERFORMANCE": {
+      "baseline": {
+        "correct": 30,
+        "total": 50,
+        "rate": 0.6
+      },
+      "mdap": {
+        "correct": 30,
+        "total": 50,
+        "rate": 0.6
+      }
+    },
+    "NONE": {
+      "baseline": {
+        "correct": 25,
+        "total": 25,
+        "rate": 1
+      },
+      "mdap": {
+        "correct": 25,
+        "total": 25,
+        "rate": 1
+      }
+    }
+  }
+}
